@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica en el Hogar</title>
+    <link rel="shortcut icon" href="img/SION_LOGO p.png">
+    <link rel="stylesheet" href="sion.css"><link href="sion.js">
+	<!-- Este es el contenedor para el GIF de carga -->
+	<div id="loading" style="display: none;">
+		<img src="img/gifcarga.gif" alt="Cargando...">
+	</div>
+</head>
+<body id="inicio">
+	<main class="main">
+		<section class="cabecera-container">
+			<header class = "header">
+				<a href="index.html" class="logo">
+				<img class="logo" src="img/blanco.svg" alt="logo de la pagina" id="logo">
+				</a>
+				<!--<div class="img">
+					<img class="logo" src="img/blanco.svg" alt="logo de la pagina" id="logo" style="cursor:pointer;"/>
+				</div>-->
+				<div class="menu" id="menu">
+					<div class="menuicon" onclick="toggleMenu()">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div class="close-icon" onclick="toggleMenu()"></div>
+					<div class="nav-links" id="nav-links">
+						<a href="index.html">Inicio</a>
+						<a href="domotica.html">Domótica / Inmotica</a>
+						<a href="soluciones.html">Soluciones</a>
+						<a href="publico.html">Nuestro público</a>
+						<a href="formulario.html">Contacto</a>
+					</div>
+				</div>
+				<button id="openMenuBtn">Abrir Menú</button>
+			</header>
+		</section>
+		<hr class="linea">
+		<section class="video-section">
+			<video id= "miVideo" width="100%" height="auto" controls autoplay muted>
+				<source src="videos/sion5.mp4" type="video/mp4"> <!--class="mute-logo"-->
+				Tu navegador no soporta el video.
+			</video>
+		</section>		
+		<section class="slogan1">
+			<div class="slogan-content">
+				<h1 id="texto">El Futuro de tu Hogar</h1>
+				<p class="slogan-subtitulo">Automatiza tu vida con tecnología avanzada y eficaz.</p>
+			</div>
+		</section>
+		<section class="introduccion">
+			<div class="introduccion-contenedor">
+				<h2>¿Qué es la Domótica?</h2>
+				<p>La domótica es el sistema que conecta tus dispositivos electrónicos y los hace interactuar de manera inteligente. Controla la temperatura, la iluminación, la seguridad y mucho más desde un solo lugar, ofreciendo comodidad, eficiencia energética y seguridad para tu hogar.</p>
+			</div>
+		</section>
+		<section class="cta">
+			<div class="contenedor">
+				<a href="domotica.html" class="boton1">Descubre más</a>
+			</div>
+		</section>
+		<section class="beneficios">
+			<div class="contenedor">
+			<h2>Beneficios de la Domótica</h2>
+				<div class="container">
+					<div class="block">
+						<img src="img/comodidad.svg" alt="Comodidad" class="logo-block">
+						<h3>Comodidad</h3>
+						<p>Controla todos los aspectos de tu hogar desde cualquier lugar.</p>
+					</div>
+					<div class="block">
+						<img src="img/seguridad.svg" alt="Seguridad" class="logo-block">
+						<h3>Seguridad</h3>
+						<p>Monitoreo constante de tu hogar con cámaras y sensores.</p>
+					</div>
+					<div class="block">
+						<img src="img/ahorro.svg" alt="Ahorro Energético" class="logo-block">
+						<h3>Ahorro Energético</h3>
+						<p>Optimiza el consumo de energía y reduce costos.</p>
+					</div>
+					<div class="block">
+						<img src="img/personalizacion.svg" alt="Personalización" class="logo-block">
+						<h3>Personalización</h3>
+						<p>Configura tu hogar según tus necesidades y horarios.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta">
+			<div class="contenedor">
+				<h2>¿Estás listo para transformar tu hogar?</h2>
+				<button class="boton" onclick="formulario()">Contáctanos</button>
+				<a href="formulario.html" class="boton">Contáctanos</a>
+			</div>
+		</section>
+		<section class="slider-container" id="slider">
+			<h2>Soluciones</h2>
+			<div class="slider">
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/exterior1.jpg" alt="Imagen 1">
+					</div>
+					<div class="slider-text">
+						<h2>Iluminación</h2>
+						<p>La iluminación domótica transforma la manera en que interactuamos con las luces en nuestro hogar optimizando el control de la luz en espacios interiores y exteriores. Proporciona una gran comodidad y personalización, al mismo tiempo que mejora la eficiencia energética y la seguridad. A través del control por voz, aplicaciones móviles y sensores automáticos, es posible crear ambientes únicos en diferentes espacios, como jardines y piscinas, y disfrutar de una experiencia cómoda y adaptada a las necesidades de cada momento.</p>
+						<a href="soluciones.html#ilumincacion" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/Persianas1.jpg" alt="Imagen 2">
+					</div>
+					<div class="slider-text">
+						<h2>Protección solar</h2>
+						<p>La domótica en persianas, toldos y estores mejora la comodidad, la eficiencia energética, la privacidad y la seguridad del hogar. Los sistemas inteligentes permiten un control preciso y flexible, ajustando automáticamente estos elementos según las condiciones del entorno o las preferencias del usuario. Además, la integración con asistentes de voz, aplicaciones móviles y otros dispositivos de domótica crea un entorno más funcional y adaptable a las necesidades del hogar moderno.</p>
+						<a href="soluciones.html#persianas" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/terminal-2.jpg" alt="Imagen 3">
+					</div>
+					<div class="slider-text">
+						<h2>Climatización</h2>
+						<p>El control climático permite optimizar la temperatura, la humedad y la calidad del aire en el hogar o en áreas exteriores, como jardines y piscinas, con un enfoque en la eficiencia energética, la comodidad y la salud. A través de la integración de dispositivos inteligentes como termostatos, aire acondicionado, ventiladores, humidificadores y sensores, los usuarios pueden personalizar y automatizar sus entornos climáticos de manera precisa, mejorando así la experiencia en el hogar.</p>
+						<a href="soluciones.html#clima" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/alarmas .jpg" alt="Imagen 4">
+					</div>
+					<div class="slider-text">
+						<h2>Alarmas y Seguridad</h2>
+						<p>La domótica aplicada a las alarmas técnicas y seguridad permite optimizar la protección del hogar mediante la automatización y la gestión inteligente de diversos sistemas de seguridad, como alarmas contra robos, cámaras de vigilancia, detectores de incendios y fugas de agua. Gracias a la integración de estos dispositivos con tecnologías como los asistentes de voz, la automatización de rutinas y el monitoreo remoto, los propietarios pueden tener un control más efectivo y eficiente sobre la seguridad de su vivienda.</p>
+						<a href="soluciones.html#alarmas" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/solar.jpg" alt="Imagen 5">
+					</div>
+					<div class="slider-text">
+						<h2>Consumo y Producción Energética</h2>
+						<p>El control de la producción y consumo de energía es una herramienta poderosa para mejorar la eficiencia energética, reducir costes y contribuir a la sostenibilidad del hogar. A través de la automatización, la autoracionalización y el control en tiempo real, es posible gestionar de manera inteligente el uso de la energía, adaptándose a las necesidades y preferencias del usuario mientras se optimizan los recursos. La integración de dispositivos como medidores inteligentes, paneles solares, electrodomésticos y sistemas de climatización inteligente permite crear un hogar más eficiente y sostenible.</p>
+						<a href="soluciones.html#consumo" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/piscina2.jpg" alt="Imagen 6">
+					</div>
+					<div class="slider-text">
+						<h2>Jardines y piscinas</h2>
+						<p>La domótica aplicada a jardines y piscinas proporciona soluciones inteligentes y automatizadas para gestionar el riego, la iluminación, la seguridad, la climatización y el mantenimiento, mejorando la eficiencia, la comodidad y la seguridad. Con el uso de sensores, aplicaciones móviles y asistentes de voz, los propietarios pueden optimizar estos espacios exteriores, reducir el trabajo manual y disfrutar de un entorno más saludable y eficiente.</p>
+						<a href="soluciones.html#jardin" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/puertas.jpg" alt="Imagen 7">
+					</div>
+					<div class="slider-text">
+						<h2>Puertas y accesos</h2>
+						<p>La domótica aplicada a puertas y accesos proporciona soluciones avanzadas para mejorar la seguridad, comodidad y eficiencia en el control de entradas y salidas. Con dispositivos como cerraduras inteligentes, videoporteros, cámaras de seguridad, sistemas biométricos y automatización de puertas, los usuarios pueden gestionar el acceso de manera remota, asegurando que la vivienda esté protegida, optimizando la experiencia del usuario y aumentando la eficiencia operativa.</p>
+						<a href="soluciones.html#puertas" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/reloj.jpg" alt="Imagen 8">
+					</div>
+					<div class="slider-text">
+						<h2>Asistentes vocales</h2>
+						<p>El uso de asistentes vocales en la domótica no solo mejora la comodidad y accesibilidad, sino que también permite una gestión más eficiente de las múltiples tecnologías conectadas en un hogar o jardín. Gracias a su facilidad de uso, integración con una amplia gama de dispositivos y la posibilidad de automatizar rutinas, los asistentes vocales han transformado la manera en que interactuamos con nuestros espacios inteligentes. Sin embargo, es importante tener en cuenta aspectos como la privacidad, la conectividad y la compatibilidad para garantizar un uso óptimo y seguro.</p>
+						<a href="soluciones.html#asistentes" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/edificio2.jpg" alt="Imagen 9">
+					</div>
+					<div class="slider-text">
+						<h2>Apartamentos de alquiler</h2>
+						<p>La domótica en apartamentos de alquiler ofrece una solución práctica y flexible para mejorar la calidad de vida de los inquilinos, brindando comodidad, seguridad y eficiencia energética. La integración de sistemas como iluminación inteligente, control de climatización, electrodomésticos conectados y seguridad remota mejora la experiencia del inquilino y facilita la gestión del espacio sin realizar cambios permanentes.</p>
+						<a href="soluciones.html#alquiler" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="slider-image">
+						<img src="img/exterior3.jpg" alt="Imagen 10">
+					</div>
+					<div class="slider-text">
+						<h2>Segunda residencia</h2>
+						<p>La domótica en segundas viviendas ofrece una gran flexibilidad, seguridad y ahorro energético. Gracias a las tecnologías de control remoto, automatización de rutinas y monitoreo de la propiedad, los propietarios pueden gestionar su segunda vivienda de manera eficiente sin tener que estar físicamente presentes. Esto no solo mejora la experiencia y comodidad, sino que también permite un mayor control de los costos y una mayor seguridad, especialmente cuando la vivienda no se usa constantemente.</p>
+						<a href="soluciones.html#segunda" class="boton-slider">Ver más</a>
+					</div>
+				</div>
+			</div>
+			<button class="prev" aria-label="Anterior">❮</button>
+			<button class="next" aria-label="Siguiente">❯</button>
+			<!-- Indicadores -->
+			<div class="indicators">
+				<span class="indicator" data-slide="1"></span>
+				<span class="indicator" data-slide="2"></span>
+				<span class="indicator" data-slide="3"></span>
+				<span class="indicator" data-slide="4"></span>
+				<span class="indicator" data-slide="5"></span>
+				<span class="indicator" data-slide="6"></span>
+				<span class="indicator" data-slide="7"></span>
+				<span class="indicator" data-slide="8"></span>
+				<span class="indicator" data-slide="9"></span>
+				<span class="indicator" data-slide="10"></span>
+			</div>
+		</section>
+		<!-- <section class="productos">
+			<div class="contenedor">
+				<h2>Soluciones</h2>
+				<div class="productos-lista">
+					<div class="producto">
+						<img src="img/control.jpg" alt="control">
+						<h3>Termostato Inteligente</h3>
+						<p>Controla la temperatura de tu hogar desde tu smartphone.</p>
+					</div>
+					<div class="producto">
+						<img src="img/iluminacion3.jpg" alt="Luces Inteligentes">
+						<h3>Luces Inteligentes</h3>
+						<p>Controla la intensidad y color de las luces desde tu dispositivo.</p>
+					</div>
+				</div>
+			</div>
+		</section>-->
+		<section class="sobre">
+			<div class="container-sobre">
+				<h2 class="sobre-titulo">Nuestra Historia</h2>
+				<p class="sobre-texto">
+				  En SION, proyectos y soluciones creemos que las grandes ideas nacen del equilibrio entre la creatividad y la simplicidad. Desde nuestros inicios, nos hemos enfocado en ofrecer soluciones innovadoras y minimalistas que permiten a nuestros clientes destacar en su sector sin perder la esencia de su identidad.
+				</p>
+				<p class="sobre-texto">
+				  Nuestro equipo trabaja con pasión y dedicación para crear experiencias visuales que transmiten lo que realmente importa: claridad, eficiencia y autenticidad.
+				</p>
+			</div>
+		</section>
+		<section class="como-trabajamos">
+			<div class="container-como">
+				<h2 class="seccion-como-titulo">Confían en nosotros</h2>
+				<p class="seccion-como-subtitulo">Nuestro proceso está diseñado para garantizar resultados eficientes y de calidad. Aquí te contamos cómo lo hacemos.</p>
+				<div class="proceso-salto">
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/conexion.svg" alt="Planeación" />
+						</div>
+						<h3 class="salto-titulo">Planeación</h3>
+						<p class="salto-descripcion">
+						  Comenzamos analizando las necesidades del proyecto y establecemos una estrategia clara y orientada a los objetivos. Definimos cada detalle con precisión.
+						</p>
+					</div>
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/bombilla.svg" alt="Bombilla" />
+						</div>
+						<h3 class="salto-titulo">Diseño</h3>
+						<p class="salto-descripcion">
+						  Creamos un diseño único y atractivo que conecta con la identidad de la marca, priorizando la funcionalidad y la experiencia del usuario.
+						</p>
+					</div>
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/enchufe.svg" alt="Desarrollo" />
+						</div>
+						<h3 class="salto-titulo">Desarrollo</h3>
+						<p class="salto-descripcion">
+						  Comenzamos la implementación técnica utilizando las últimas tecnologías para garantizar rapidez, seguridad y adaptabilidad.
+						</p>
+					</div>
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/control.svg" alt="control" />
+						</div>
+						<h3 class="salto-titulo">Lanzamiento</h3>
+						<p class="salto-descripcion">
+						  Una vez completado el proyecto, lo lanzamos al mercado con una estrategia de comunicación efectiva para alcanzar a tu audiencia.
+						</p>
+					</div>
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/instalacion .svg" alt="instalacion" />
+						</div>
+						<h3 class="salto-titulo">Instalación</h3>
+						<p class="salto-descripcion">
+						  Una vez completado el proyecto, lo lanzamos al mercado con una estrategia de comunicación efectiva para alcanzar a tu audiencia.
+						</p>
+					</div>
+					<div class="salto">
+						<div class="salto-icono">
+						  <img src="img/funcionamiento.svg" alt="funcionamiento" />
+						</div>
+						<h3 class="salto-titulo">Funcionamiento</h3>
+						<p class="salto-descripcion">
+						  Una vez completado el proyecto, lo lanzamos al mercado con una estrategia de comunicación efectiva para alcanzar a tu audiencia.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="central">
+			<section class="interior-texto1">
+				<h1 class="titulo">¿Por qué elegir SION?</h1>
+				<hr>
+				<p>Los avances tecnológicos han llegado a nuestros hogares para ayudarnos a llevar una vida más cómoda, segura y ajustada a nuestras necesidades. En SION nos adaptamos a ti y a lo que te rodea, ayudándote desde el análisis de tus requerimientos y la toma de decisiones hasta la programación, instalación y el acompañamiento con una atención individualizada. Nuestros profesionales se podrán conectar a distancia a tu sistema, siempre con el permiso previo del cliente para realizar diagnosis, mantenimientos o asistencias</p>
+			</section>
+			<section class="central-img">
+				<div class="contenido-img">
+					<div class="interior-img1">
+						<img src="img/hogar.jpg" alt="iluminacion">
+					</div>
+					<div class="interior-texto1">
+						<h2>Iluminacion</h2>
+						<p>Capacidad para que nuestro hogar se adapte a nuestras rutinas, permitiendo disfrutar de lo que realmente importa.</p>
+						<a href="#">ver más</a>
+					</div>
+				</div>
+				<div class="contenido-img">
+					<div class="interior-img1">
+						<img src="img/iluminacion_habitacion.jpg" alt="iluminacion">
+					</div>
+					<div class="interior-texto1">
+						<h2>Climatización</h2>
+						<p>Con la climatización podras analizar tus consumos y así poder crear reglas que nos permitan ahorrar. La temperatura de tu hogar será perfecta.</p>
+						<a href="#">ver más</a>
+					</div>
+				</div>
+				<div class="contenido-img">
+					<div class="interior-img1">
+						<img src="img/cortinas.jpg" alt="iluminacion">
+					 </div>
+					<div class="interior-texto1">
+						<h2>Seguridad</h2>
+						<p>Nos permite conocer la situación de diferentes elementos de la casa, teniendo acceso a los mismos en tiempo real.</p>
+						<a href="#">ver más</a>
+					</div>
+				</div>
+			</section>
+		</section>
+		<!-- Cookie Consent Banner -->
+		<div id="cookie-banner">
+			Este sitio usa cookies para mejorar tu experiencia. 
+			<button onclick="acceptCookies()">Aceptar todo</button>
+			<button onclick="showPreferences()">Personalizar</button>
+		</div>
+		<div id="cookie-modal">
+			<div class="modal-content">
+				<h2>Preferencias de Cookies</h2>
+				<p>Este sitio utiliza cookies para mejorar la experiencia. ¿Qué cookies deseas activar?</p>
+				<div class="cookie-options">
+					<label><input type="checkbox" id="cookie-esencial" checked disabled> Cookies esenciales</label><br>
+					<label><input type="checkbox" id="cookie-analytics"> Cookies de análisis</label><br>
+					<label><input type="checkbox" id="cookie-marketing"> Cookies de marketing</label><br>
+				</div>
+				<button class="cookie-button" onclick="acceptCookies()">Aceptar todo</button>
+				<button class="cookie-button" onclick="rejectCookies()">Rechazar todo</button>
+				<button class="cookie-button" onclick="savePreferences()">Confirmar</button>
+			</div>
+		</div>
+		<div class="seccion-form1" >
+			<div class="form-container1" id="formulario">
+				<!-- <img src="img/cuaderno.gif" alt="">-->
+				<h2 >SOLICITA TU PRESUPUESTO</h2>
+				<button class="cerrar" onclick="cerrarform()">&times;</button>
+				<form action="enviar_presupuesto_domotica.php" method="POST"> 
+					<label for="nombre">Nombre Completo</label>
+					<input type="text" id="nombre" name="nombre" required>
+					<label for="email">Correo Electrónico</label>
+					<input type="email" id="email" name="email" required>
+					<label for="telefono">Teléfono</label>
+					<input type="tel" id="telefono" name="telefono" required>
+					<label for="vivienda">Tipo de Vivienda</label>
+					<select id="vivienda" name="vivienda" required>
+						<option value="">Seleccione el tipo de vivienda</option>
+						<option value="apartamento">Apartamento</option>
+						<option value="casa">Casa unifamiliar</option>
+						<option value="duplex">Dúplex</option>
+						<option value="chale">Chalé</option>
+					</select>
+					<label for="tamano">Tamaño Aproximado de la Vivienda (m²)</label>
+					<input type="number" id="tamano" name="tamano" min="20" required>
+					<div class="block-form">
+						<!-- Control de Luces -->
+						<div class="category">
+							<h3>Control de Luces</h3>
+							<label for="luces_smart">Unidades de luces inteligentes</label>
+							<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" required>
+						</div>
+						<!-- Control de Persianas -->
+						<div class="category">
+							<h3>Control de Persianas</h3>
+							<label for="persianas_smart">Unidades de persianas</label>
+							<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas" required>
+						</div>
+					</div>
+					<div class="block-form">
+						<!-- Seguridad -->
+						<div class="category">
+							<h3>Sistema de Seguridad</h3>
+							<label for="camaras_seguridad">Unidades de cámaras de seguridad</label>
+							<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras" required>
+
+							<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
+							<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores" required>
+						</div>
+						<!-- Climatización -->
+						<div class="category">
+							<h3>Climatización Inteligente</h3>
+							<label for="termostatos_inteligentes">Unidades de termostatos inteligentes</label>
+							<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos" required>
+
+							<label for="ventiladores_inteligentes">Unidades de ventiladores inteligentes</label>
+							<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores" required>
+						</div>
+					</div>	
+					<div class="block-form">
+						<!-- Entretenimiento -->
+						<div class="category">
+							<h3>Entretenimiento y Audio</h3>
+							<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
+							<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" required>
+
+							<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
+							<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required>
+						</div>
+					</div>
+					<label for="fecha">Fecha Estimada de Instalación</label>
+					<input type="date" id="fecha" name="fecha" required>
+					<!-- <label for="estimado">Presupuesto estimado:</label>
+					<div class="total-price" id="totalPrice">0</div>
+					Botón de Calcular -->
+					<!-- <button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>-->
+					<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
+					<div class="botones-contenedor">
+						<button class="submit-btn" onclick="cerrarform()">Cerrar</button>
+						<button type="submit" class="submit-btn">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>	
+		<script> //LETRAS SALTO
+			const texto = document.getElementById('texto');
+			texto.innerHTML = texto.innerText.split(' ').map(word => 
+				`<span class="palabra">${word.split('').map(letter => 
+					`<span class="letras">${letter}</span>`
+				).join('')}</span>`
+			).join(' ');
+
+			document.querySelectorAll('.letras').forEach(letter => {
+				letter.addEventListener('mouseenter', () => {
+					letter.style.transform = 'translateY(-10px)';
+				});
+				letter.addEventListener('mouseleave', () => {
+					letter.style.transform = 'translateY(0)';
+				});
+			});
+		</script>
+		<script> // Añadir evento de scroll
+			window.addEventListener('scroll', animateOnScroll);
+			// Ejecutar la función al cargar la página
+			document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+			// Para el efecto de hover en las imágenes de servicios
+			const servicios = document.querySelectorAll('.servicio');
+
+			servicios.forEach(servicio => {
+				servicio.addEventListener('mouseenter', () => {
+					servicio.style.transform = 'scale(1)';
+				});
+				servicio.addEventListener('mouseleave', () => {
+					servicio.style.transform = 'scale(1)';
+				});
+			});
+		</script>
+		<script> // SLIDER
+			let currentSlide = 0;
+			const slides = document.querySelectorAll('.slide');
+			const indicators = document.querySelectorAll('.indicator');
+			const totalSlides = slides.length;
+			function moveSlide(direction) {
+				const slideWidth = slides[0].clientWidth;
+				indicators[currentSlide].classList.remove('active');
+				currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+				document.querySelector('.slider').style.transform = `translateX(-${slideWidth * currentSlide }px)`;
+				indicators[currentSlide].classList.add('active');
+			}
+			//setInterval(() => {
+			//	moveSlide(1);
+			//}, 10000); // Cambiar cada 3 segundos (3000 ms)
+			// Movimiento táctil en dispositivos móviles
+			let startX;
+			slider.addEventListener('touchstart', (e) => {
+				startX = e.touches[0].clientX;
+			});
+
+			slider.addEventListener('touchmove', (e) => {
+				const moveX = e.touches[0].clientX - startX;
+				if (moveX > 50) {
+					moveSlide(-1);
+					startX = e.touches[0].clientX;
+				} else if (moveX < -50) {
+					moveSlide(1);
+					startX = e.touches[0].clientX;
+				}
+			});
+			// Función para cambiar la diapositiva
+			function changeSlide(slideIndex) {
+				// Eliminar la clase "active" de la diapositiva actual e indicador
+				slides[currentSlide].classList.remove('active');
+				indicators[currentSlide].classList.remove('active');
+
+				// Establecer la nueva diapositiva activa
+				currentSlide = slideIndex;
+
+				// Aplicar "active" a la nueva diapositiva e indicador
+				slides[currentSlide].classList.add('active');
+				indicators[currentSlide].classList.add('active');
+
+				// Mover el contenedor de las diapositivas
+				const slideWidth = slides[0].clientWidth;
+				document.querySelector('.slider').style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+			}
+			// Función para manejar el clic en los indicadores
+			indicators.forEach((indicator, index) => {
+				indicator.addEventListener('click', () => {
+				  changeSlide(index);
+				});
+			});
+
+			// Iniciar el slider con la primera diapositiva activa
+			changeSlide(0);
+		</script>
+		<script> // cookies
+			window.onload = function() {
+				if (!localStorage.getItem('cookiesAccepted')) {
+					document.getElementById('cookie-banner').style.display = 'block';
+				}
+			}
+
+			// Mostrar el modal de preferencias
+			function showPreferences() {
+				document.getElementById('cookie-banner').style.display = 'none';
+				document.getElementById('cookie-modal').style.display = 'flex';
+			}
+			function formulario() {
+				document.getElementById('formulario').style.display = 'block';
+			}
+			function cerrarform() {
+				document.getElementById('formulario').style.display = 'none';
+			}
+			// Aceptar todas las cookies
+			function acceptCookies() {
+				localStorage.setItem('cookiesAccepted', 'true');
+				localStorage.setItem('cookieAnalytics', true);
+				localStorage.setItem('cookieMarketing', true);
+				document.getElementById('cookie-banner').style.display = 'none';
+				document.getElementById('cookie-modal').style.display = 'none';
+			}
+
+			// Rechazar todas las cookies
+			function rejectCookies() {
+				localStorage.setItem('cookiesAccepted', 'false');
+				document.getElementById('cookie-banner').style.display = 'none';
+				document.getElementById('cookie-modal').style.display = 'none';
+			}
+
+			// Guardar preferencias de cookies
+			function savePreferences() {
+				let analytics = document.getElementById('cookie-analytics').checked;
+				let marketing = document.getElementById('cookie-marketing').checked;
+
+				localStorage.setItem('cookiesAccepted', 'true');
+				localStorage.setItem('cookieAnalytics', analytics);
+				localStorage.setItem('cookieMarketing', marketing);
+				document.getElementById('cookie-banner').style.display = 'none';
+				document.getElementById('cookie-modal').style.display = 'none';
+			}
+		</script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+		<script>
+		window.addEventListener("load", function(){
+			window.cookieconsent.initialise({
+				"palette": {
+					"popup": {
+						"background": "#00a2ff",
+						"text": "#ffffff"
+					},
+					"button": {
+						"background": "#ffffff",
+						"text": "#00a2ff"
+					}
+				},
+				"content": {
+					"message": "Utilizamos cookies para mejorar tu experiencia.",
+					"dismiss": "Aceptar",
+					"link": "Más información",
+					"href": "politica_de_cookies.html"
+				}
+			})
+		});
+		</script> --> 
+		<script src="sion.js"></script>
+		<script> // MENU
+			function toggleMenu() {
+			const navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');
+		}
+		</script>
+		<script> // Refresca la página
+			document.getElementById('logo').addEventListener('click', function() {
+				location.reload(); 
+			});
+		</script>
+		<footer>
+			<div class="footer-container">
+				<!-- Políticas de privacidad -->
+				<div class="footer-section">
+					<h3>Información</h3>
+				</div>
+				<!-- Dirección -->
+				<div class="footer-section-mapa">
+					<h3>Dirección</h3>
+					<p>Avenida , Murcia, España</p>
+					<!-- Incrustar el mapa de Google -->
+					<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.134418845176697%2C37.991362264213606%2C-1.1282229423522951%2C37.993188615198804&amp;layer=mapnik" 
+						allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+			<div class="footer-section-term">
+				<a href="politica_de_privacidad.html">Políticas de Privacidad </a>&emsp;&emsp;&emsp;&emsp;&emsp;
+				<a href="terminos_y_condiciones.html">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+				<a href="legal.html">Aviso legal</a>
+			</div>
+			<div class="footer-bottom">
+				<!-- Redes Sociales -->
+				<div class="footer-section4">
+					<a href="https://www.facebook.com" target="_blank">
+					<img src="img/facebook.svg" alt="Facebook"></a>
+					<a href="https://twitter.com" target="_blank">
+					<img src="img/twitterx.svg" alt="Twitter"></a>
+					<a href="https://www.instagram.com" target="_blank">
+					<img src="img/instagram.svg" alt="Instagram"></a>
+					<a href="https://www.linkedin.com" target="_blank">
+					<img src="img/linkedin.svg" alt="Linkedin"></a>
+					<p>&copy; 2025 SION. Todos los derechos reservados.</p>
+				</div>
+			</div>	
+		</footer>
+	</main>
+</body>
+</html>
