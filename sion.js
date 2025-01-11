@@ -60,8 +60,8 @@ var texto = document.getElementById('texto');
 //		letter.style.transform = 'translateY(0)';
 //	});
 //});
-var imageSection = document.querySelector('.slider-sol');
-var image = document.querySelector('.slider-image-sol');
+var imageSection = document.querySelector('.slider-solefecto');
+var image = document.querySelector('.slider-image-solefecto');
 
 // Configura el Intersection Observer para activar la animación cuando el elemento esté entre 25% y 30% en la pantalla
 var observer = new IntersectionObserver(function(entries, observer) {
