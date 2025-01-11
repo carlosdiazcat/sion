@@ -494,9 +494,9 @@
 				document.querySelector('.slider').style.transform = `translateX(-${slideWidth * currentSlide }px)`;
 				indicators[currentSlide].classList.add('active');
 			}
-			//setInterval(() => {
-			//	moveSlide(1);
-			//}, 10000); // Cambiar cada 3 segundos (3000 ms)
+			setInterval(() => {
+				moveSlide(1);
+			}, 10000); // Cambiar cada 3 segundos (3000 ms)
 			// Movimiento táctil en dispositivos móviles
 			let startX;
 			slider.addEventListener('touchstart', (e) => {
@@ -542,7 +542,9 @@
 		</script>
 		<script> // cookies
 			window.onload = function() {
-				if (!localStorage.getItem('cookiesAccepted')) {
+				if (localStorage.getItem('cookiesAccepted') === 'false') {
+					document.getElementById('cookie-banner').style.display = 'none'; 
+				else {
 					document.getElementById('cookie-banner').style.display = 'block';
 				}
 			}
