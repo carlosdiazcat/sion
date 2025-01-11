@@ -156,6 +156,20 @@ h2, .contentgroup__h2 {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /*max-width: 250px; /* Ancho fijo para cada bloque */
+    height: 180px; /* Altura fija para cada bloque */
+	width: 150px;
+}
+.block1 {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 0px 20px;
+	margin: 10px 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
     max-width: 250px; /* Ancho fijo para cada bloque */
     height: 400px; /* Altura fija para cada bloque */
 }
