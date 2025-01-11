@@ -12,20 +12,20 @@ html {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: #f0f0f0; /* Color de fondo del banner */
+	background-color: #f0f0f0;
 	padding: 10px;
 	text-align: center;
 	align-content: center;
 	align-items: center;
-	z-index: 9999; /* Asegurarse de que el banner esté encima de otros elementos */
-	place-items: center; /* Centra ambos, vertical y horizontal */
+	z-index: 9999;
+	place-items: center;
 }
 #cookie-banner p {
 	margin: 0;
 	font-size: 14px;
 }
 #cookie-banner button {
-	background-color: #007bff; /* Color de fondo de los botones */
+	background-color: #007bff;
 	color: #fff;
 	border: none;
 	padding: 10px 20px;
@@ -36,7 +36,7 @@ html {
 	max-width: 200px;
 }
 .cookies {
-    background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+    background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -51,7 +51,7 @@ html {
 .cookies-content h1 {
     font-size: 2.5em;
 	display: inline-block;
-	transition: transform 0.3s ease-out; /* Vuelta suave */
+	transition: transform 0.3s ease-out;
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
@@ -80,7 +80,6 @@ html {
     bottom: 0;
     left: 0;
     right: 0;
-    /* Autres styles pour personnaliser l'apparence */
 }
 #cookie-modal {
 	display: none;
@@ -178,8 +177,8 @@ h2, .contentgroup__h2 {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 250px; /* Ancho fijo para cada bloque */
-    height: 400px; /* Altura fija para cada bloque */
+    max-width: 250px;
+    height: 400px;
 }
 /* Estilo de los logos */
 .logo-block {
@@ -208,7 +207,6 @@ h2, .contentgroup__h2 {
 	width: 100%;
 	z-index: 1;
 	position: absolute;
-	/*background:linear-gradient(90deg,#10384A, black);*/	
 }
 /*Finaliza seccion cabecera-container*/
 .logo {
@@ -229,8 +227,7 @@ body {
     color: #333;
 }
 header {
-	/*background-color: #164f68;*/
-	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+	background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -263,7 +260,7 @@ header {
 	display:flex;
 }
 #openMenuBtn {
-    margin: 20px;
+	margin: 20px;
 	display: none;
 }
 .menuicon{
@@ -305,7 +302,7 @@ header {
 	right: 0px;
 	left: 0px;
 	bottom: 0;
-	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+	background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -373,19 +370,6 @@ li:hover {
 	object-fit:cover;
 	z-index: -1;
 }
-buttonvideo {
-	padding: 10px 20px;
-	font-size: 16px;
-	margin: 10px;
-	cursor: pointer;
-	border: none;
-	border-radius: 5px;
-	background-color: #4CAF50;
-	color: white;
-}
-buttonvideo:hover {
-	background-color: #45a049;
-}
 /* Estilo para el logo que sirve como botón de mute */
 .mute-logo {
     cursor: pointer;
@@ -398,7 +382,7 @@ buttonvideo:hover {
 }
 /*inicio seccion slogan*/
 .slogan1 {
-    background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+    background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -411,7 +395,7 @@ buttonvideo:hover {
 	height: 200px;
 }
 .slogan {
-    background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+    background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -424,7 +408,7 @@ buttonvideo:hover {
     margin-top: 100px;
 }
 .slogan-content h1 {
-    font-size: 3em;
+	font-size: 3em;
 	margin: 10px 0px 0px;
 	display: inline-block;
 	transition: transform 0.3s ease-out; /* Vuelta suave */
@@ -444,7 +428,6 @@ buttonvideo:hover {
 	padding: 20px 40px;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	
 }
 .contenedor{
 	display: grid;
@@ -467,7 +450,6 @@ buttonvideo:hover {
 	text-justify: auto;
 }
 .introduccion h2 {
-    /*font-size: 6rem;*/
 	font-size: 3rem;
 	margin-bottom: 0.5rem;
     align-content: center;
@@ -566,7 +548,7 @@ buttonvideo:hover {
 }
 .boton1 {
     font-size: 1.2rem;
-	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+	background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -649,8 +631,7 @@ buttonvideo:hover {
 }
 .slide-sol {
 	display: flex;
-    width: 100%;
-    height: 100%;
+	max-width: 400px;
     align-content: center;
     justify-content: space-between;
     padding: 40px;
@@ -663,26 +644,31 @@ buttonvideo:hover {
     max-height: 340px;
     height: auto;
     border-radius: 150px / 150px;
-	/*
-    margin-left: 40px;
-	border-radius: 80px;
-	/*padding-left: 20px;
-	/*view-timeline-name: --image;
-	view-timeline-axis: inline;
-	
-	animation-timeline: --image;
-	animation-name: slide;
-	
-	animation-range: entry 25% cover 30%;
-	animation-fill-mode: both;*/
 }
 .slider-image-sol img{
 	justify-content: center;
 	align-content: center;
-    width: 100%;
-    max-width: 800px;
-    height: auto;
+    width: 90%;
+    max-width: 600px;
     border-radius: 50px / 50px;
+	transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave */
+	transform-origin: center center; /* La imagen se amplía desde el centro */
+	opacity: 1;
+}
+.slider-sol {
+	justify-content: center;
+	align-items: center;
+    max-height: 400px;
+	width: auto;
+	display: flex;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	transform: scale(0.9); /* Empieza más pequeña */
+	transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones suaves */
+}
+.image-expanded {
+    transform: scale(1.5);
+    opacity: 1;
 }
 .slider-sol-text {
 	justify-content: center;
@@ -691,7 +677,7 @@ buttonvideo:hover {
 	width: auto;
 }
 .slider-text {
-    max-width: 1400;
+    max-width: 1400px;
 	width: auto;
     padding: 0px 40px;
 }
@@ -710,13 +696,6 @@ buttonvideo:hover {
     color: #777;
 	line-height: 1.4;
     text-align: justify;
-}
-.slider-sol {
-	justify-content: center;
-	align-items: center;
-    max-width: 1400;
-	width: auto;
-	display: flex;
 }
 .slider-sol-text p {
 	font-size: 16px;
@@ -739,19 +718,6 @@ buttonvideo:hover {
     padding-left: 40px;
     position: flex;
 }
-.prev {
-    left: 20px;
-	background-color: none;
-	color: none;
-	opacity: 0%;
-}
-.next {
-    right: 20px;
-	background-color: none;
-	color: none;
-	opacity: 0%;
-}
-/* Indicadores de navegación */
 .indicators {
     position: absolute;
     bottom: 0px;
@@ -810,7 +776,6 @@ buttonvideo:hover {
     background-color: #96cee8;
 }
 .productos-solucion {
-	/*background-image: url("img/fondo2.jpg");*/
     padding: 50px 20px;
     background-color: #F7FCFF;
 	view-timeline-name: --image;
@@ -882,7 +847,7 @@ buttonvideo:hover {
 }
 .boton {
     font-size: 1.2rem;
-    background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+    background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -897,7 +862,7 @@ buttonvideo:hover {
 }
 .boton-slider {
     font-size: 1rem;
-    background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+    background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -914,7 +879,7 @@ buttonvideo:hover {
 /*inicio seccion sobre*/
 .sobre {
 	padding: 40px;
-	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+	background-image: url('img/fondo-menu.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -944,7 +909,7 @@ buttonvideo:hover {
 /*Inicio seccion salto*/
 .como-trabajamos {
 	padding: 10px 20px;
-	background-color: #F7FCFF; /* Fondo gris claro */
+	background-color: #F7FCFF;
 }
 .container-como {
 	max-width: 1200px;
@@ -1177,7 +1142,7 @@ buttonvideo:hover {
 }
 /* Estilos del pie de página (footer) */
 footer {
-	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
+	background-image: url('img/fondo-menu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1230,8 +1195,8 @@ footer {
 	margin-bottom: 10px;
 }
 a img {
-    width: 30px;  /* Ajusta el ancho de la imagen */
-    height: auto;  /* Mantiene la relación de aspecto */
+    width: 30px; 
+    height: auto;
 }
 /* Estilos para el pie de página inferior */
 .footer-bottom { 
@@ -1416,7 +1381,7 @@ img {
     }
 	.slider-image-sol img {
 		padding-left: 20px;
-		max-width: 1200px;
+		max-width: 400px;
 		display: flex;
 	}
     .slider-text {
