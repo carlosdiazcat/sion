@@ -1621,7 +1621,15 @@ img {
 	}
 	.container-como {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		align-content: center;
+		align-items: center;
+	}
+	.container-como1 {
+		max-width: 900px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-items: center;
 		align-content: center;
 		align-items: center;
 	}
@@ -1781,6 +1789,9 @@ img {
 		z-index: 9999; /* Asegurarse de que el banner esté encima de otros elementos */
 		display: flex;
 		flex-direction: column;
+	}
+	.container-como1 {
+		grid-template-columns: repeat(2, 1fr);
 	}
 	.modal-content {
 		width: 85%;
