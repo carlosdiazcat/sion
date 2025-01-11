@@ -5,14 +5,12 @@ function toggleMenu() {
 	var navLinks = document.getElementById('nav-links');
 	navLinks.classList.toggle('active');
 }
-// Oculta el GIF de carga una vez que la página ha terminado de cargar
 window.addEventListener("load", function() {
     document.getElementById("loading").style.display = "none";
 });
 document.getElementById('logo').addEventListener('click', function() {
 	location.reload(); 
 });
-// Función para animar elementos al entrar en la vista
 var animateOnScroll = function() {
     // Obtén todos los elementos con la clase 'box'
     var boxes = document.querySelectorAll('.box');
@@ -31,16 +29,12 @@ var animateOnScroll = function() {
     });
 };
 
-// Llamar a la función cuando el usuario haga scroll
 window.addEventListener('scroll', animateOnScroll);
 
-// Ejecutar la función inmediatamente para verificar la visibilidad al cargar la página
 animateOnScroll();
 
-// Ejecutar la función al cargar la página
 document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-// Para el efecto de hover en las imágenes de servicios
 var servicios = document.querySelectorAll('.servicio');
 
 servicios.forEach(function(servicio) {
@@ -78,14 +72,16 @@ var observer = new IntersectionObserver(function(entries, observer) {
 		if (entry.isIntersecting) {
 			// Hacemos la imagen más grande conforme más visible se vuelva
 			var scaleValue = 0.7 + ratio * 0.8;  // Rango de escala de 0.7 a 1.5
-			image.style.transform = `scale(${scaleValue})`;
+			image.style.transform = 'scale(${scaleValue})';
 		} else {
 			// Restablecer tamaño cuando no esté visible
 			image.style.transform = 'scale(0.7)';
 		}
 	});
 }, {
-	threshold: Array.from({length: 101}, (_, i) => i / 100)  // Umbrales de 0 a 1 con 1% de intervalo
+	threshold: Array.from({length: 101}, function(_, i) {
+        return i / 100;  // De 0 a 1 con pasos de 0.01
+    })  // Define el umbral de visibilidad de 0 a 1 en incrementos de 0.01
 });
 
 // Empieza a observar el contenedor de la imagen
