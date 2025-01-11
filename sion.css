@@ -157,13 +157,16 @@ h2, .contentgroup__h2 {
     align-items: center;
     background-color: #fff;
     padding: 0px 20px;
-	margin: 10px 0px;
-    border-radius: 10px;
+	margin: 0px;
+    border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /*max-width: 250px; /* Ancho fijo para cada bloque */
-    height: 180px; /* Altura fija para cada bloque */
+    height: 170px;
 	width: 150px;
+}
+.block:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .block1 {
 	display: flex;
@@ -399,12 +402,13 @@ buttonvideo:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    text-align: center;
+    text-align: center;  
+	width: 100%;
+	height: 200px;
 }
 .slogan {
     background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
@@ -421,9 +425,9 @@ buttonvideo:hover {
 }
 .slogan-content h1 {
     font-size: 3em;
+	margin: 10px 0px 0px;
 	display: inline-block;
 	transition: transform 0.3s ease-out; /* Vuelta suave */
-    margin-bottom: 0.5rem;
     font-weight: bold;
 }
 .letras {
@@ -437,7 +441,10 @@ buttonvideo:hover {
 .slogan-subtitulo {
     font-size: 1.2rem;
     font-weight: 300;
-    margin-top: 1rem;
+	padding: 20px 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
 }
 .contenedor{
 	display: grid;
@@ -453,7 +460,7 @@ buttonvideo:hover {
 }
 .introduccion-contenedor{
     display: flex;
-    margin: 10px 80px;
+    margin: 0px 80px;
     width: auto;
 	flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
 	align-items: center; /* Alinea los elementos al inicio (izquierda) */
@@ -476,6 +483,9 @@ buttonvideo:hover {
 	text-align: justify;  
 	margin: 0px 5px;
 	width: 92%;
+	word-break: break-word;       /* Rompe palabras largas si es necesario */
+	overflow-wrap: break-word;    /* Rompe las palabras largas que no caben */
+	hyphens: auto;                /* Permite cortar las palabras por sílabas */
 }
 .introduccion-domotica {
 	align-content: center;
@@ -572,7 +582,7 @@ buttonvideo:hover {
 /* Sección Beneficios */
 .beneficios {
 	background-color: #F7FCFF;
-	padding: 0px 20px;
+	padding: 0px 20px 40px;
 }
 .beneficios h2 {
 	font-size: 2rem;
@@ -702,7 +712,7 @@ buttonvideo:hover {
     text-align: justify;
 }
 .slider-sol {
-	justify-content: center; /* Centra la imagen horizontalmente */
+	justify-content: center;
 	align-items: center;
     max-width: 1400;
 	width: auto;
@@ -862,12 +872,13 @@ buttonvideo:hover {
 /* Llamada a la Acción */
 .cta {
 	color: #10384A;
-    padding: 10px 20px;
+    padding: 0px 20px 20px;
     text-align: center;
 }
 .cta h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+	margin-top: 0px;
 }
 .boton {
     font-size: 1.2rem;
@@ -909,32 +920,50 @@ buttonvideo:hover {
 	background-position: center;
 }
 .container-sobre {
-  max-width: 1200px;
-  margin: 0 auto;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 .sobre-titulo {
-  font-size: 36px;
-  color: #F7FCFF;;
-  text-align: center;
-  margin-bottom: 30px;
+	font-size: 36px;
+	color: #F7FCFF;;
+	text-align: center;
+	margin-bottom: 30px;
 }
 .sobre-texto {
-  font-size: 18px;
-  color: #F7FCFF;;
-  line-height: 1.6;
-  align-content: center;
-  text-align: justify;
-  margin-bottom: 20px;
-  max-width: 1400px;
+	font-size: 18px;
+	color: #F7FCFF;;
+	line-height: 1.6;
+	align-content: center;
+	text-align: justify;
+	margin-bottom: 20px;
+	max-width: 1400px;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	hyphens: auto;
 }
 /*Inicio seccion salto*/
 .como-trabajamos {
-  padding: 20px;
-  background-color: #F7FCFF; /* Fondo gris claro */
+	padding: 10px 20px;
+	background-color: #F7FCFF; /* Fondo gris claro */
 }
 .container-como {
 	max-width: 1200px;
 	margin: auto;
+	display: grid;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+}
+.container-como1 {
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	gap: 20px;
+	width: 100vh;
 }
 .seccion-como-titulo {
   font-size: 36px;
@@ -951,24 +980,42 @@ buttonvideo:hover {
 .proceso-salto {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    margin-right: auto;
-    width: 80%;
-    max-width: 1200px; /* Máximo ancho */
-    gap: 40px;
-    margin-left: auto;
+    max-width: 1200px;
+	margin-bottom: 20px;
+}
+.proceso-salto1 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    max-width: 250px;
+	margin-bottom: 20px;
+}
+.salto1 {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px 2px;
+	text-align: center;
+	font-size: 1.2rem;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	width: 200px;
+	height: 100px;
+}
+.salto1:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .salto {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	border-radius: 10px;
-	padding: 0px 15px;
-	padding-top: 30px;
+	margin: 5px;
+	padding: 10px 5px;
+	max-height: 400px;
 	text-align: center;
 	font-size: 1.2rem;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .salto:hover {
-	/*transform: translateY(-5px);*/
 	transform: scale(1.05);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -979,12 +1026,13 @@ buttonvideo:hover {
 	font-size: 20px;
 	font-weight: auto;
 	color: #333;
-	margin-bottom: 10px;
+	margin: 0px;
 }
 .salto-descripcion {
 	font-size: 16px;
 	color: #555;
 	line-height: 1.5;
+	width: 200px;
 }
 /*Inicio de seccion central*/
 .central{
@@ -1540,8 +1588,8 @@ img {
 		grid-template-columns: repeat(2, auto);
 	}
 	.slogan-content h1 {
-		margin-bottom: 0.5rem;
 		font-weight: bold;
+		font-size: 2.5em;
 	}
 	.introduccion h2 {
 		font-size: 3em;
@@ -1606,10 +1654,26 @@ img {
 		align-content: center;
 		align-items: center;
 	}
+	.container-como {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-content: center;
+		align-items: center;
+	}
+	.titulo {
+		font-size: 4vw;
+		margin: 10px 40px;
+	}
 }
 @media (max-width: 480px) {
 	.overlay {
 		top: 172px;
+	}
+	.container-como {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		align-content: center;
+		align-items: center;
 	}
 	.container {
 		display: grid;
@@ -1678,13 +1742,8 @@ img {
 		grid-template-columns: repeat(1, auto);
 	}
 	.slogan-content h1 {
-		font-size: 30px;
-		margin-bottom: 0.5rem;
+		font-size: 2em;
 		font-weight: bold;
-	}
-	.slogan-content p {
-		font-size: 20px;
-		margin-bottom: 0.5rem;
 	}
 	.footer-section-term {
 		display: flex;
@@ -1714,6 +1773,10 @@ img {
 		margin-left: 60px;
 		margin-bottom: 20px;
 	}
+	.titulo {
+		font-size: 4vw;
+		margin: 10px 40px;
+	}
 }
 @media (max-width: 426px) {
 	.overlay {
@@ -1728,11 +1791,17 @@ img {
 		align-content: center;
 		align-items: center;
 	}
+	.container-como {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		align-content: center;
+		align-items: center;
+	}
 	.seccion-como-titulo {
 		font-size: 8vw;
 	}
 }
-@media (max-width: 670px) {
+@media (max-width: 672px) {
 	#cookie-modal {
 		padding: 12px 0px;
 	}
@@ -1765,5 +1834,9 @@ img {
 	}
 	.slider-sol-text {
 		padding-left: 0px;
+	}
+	.footer-section-term {
+		display: flex;
+		flex-direction: column;
 	}
 }

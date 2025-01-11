@@ -130,6 +130,23 @@ window.onload = function() {
 	}
 }
 
+var texto = document.querySelectorAll('h2');
+texto.forEach(texto => {
+	texto.innerHTML = texto.innerText.split(' ').map(word => 
+		`<span class="palabra">${word.split('').map(letter => 
+			`<span class="letras">${letter}</span>`
+		).join('')}</span>`
+	).join(' ');
+
+	document.querySelectorAll('.letras').forEach(letter => {
+		letter.addEventListener('mouseenter', () => {
+			letter.style.transform = 'translateY(-10px)';
+		});
+		letter.addEventListener('mouseleave', () => {
+			letter.style.transform = 'translateY(0)';
+		});
+	});
+});
 // Mostrar el modal de preferencias
 function showPreferences() {
 	document.getElementById('cookie-banner').style.display = 'none';
