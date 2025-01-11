@@ -66,7 +66,7 @@ var texto = document.getElementById('texto');
 //		letter.style.transform = 'translateY(0)';
 //	});
 //});
-var imageSection = document.querySelector('.slider-sol');
+var imageSection = document.querySelector('.productos');
 var image = document.querySelector('.slider-image-sol');
 
 // Configura el Intersection Observer para activar la animación cuando el elemento esté entre 25% y 30% en la pantalla
