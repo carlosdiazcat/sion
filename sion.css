@@ -4,6 +4,9 @@
 html {
     scroll-behavior: smooth;
 }
+#miVideo {
+	margin-top: 90px;
+}
 #cookie-banner {
 	position: fixed;
 	bottom: 0;
@@ -1044,7 +1047,6 @@ buttonvideo:hover {
 	text-align: center;
 	color:#10384A;
 	margin: 10px 80px;
-	text-align: center;
 }
 .interior-texto1 hr{
 	width: 90%;
