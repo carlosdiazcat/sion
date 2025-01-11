@@ -667,7 +667,7 @@ li:hover {
 .slider-sol {
 	justify-content: center; /* Centra la imagen horizontalmente */
 	align-items: center;
-    max-width: 1400;
+    max-width: 90%;
 	width: auto;
 	display: flex;
 }
