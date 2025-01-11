@@ -542,10 +542,10 @@
 		</script>
 		<script> // cookies
 			window.onload = function() {
-				if (localStorage.getItem('cookiesAccepted') === 'true') {
-					document.getElementById('cookie-banner').style.display = 'none'; 
+				if (!localStorage.getItem('cookiesAccepted') === 'false') {
+					document.getElementById('cookie-banner').style.display = 'block'; 
 				} else {
-					document.getElementById('cookie-banner').style.display = 'block';
+					document.getElementById('cookie-banner').style.display = 'none';
 				}
 			}
 
