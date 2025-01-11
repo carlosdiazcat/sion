@@ -450,10 +450,11 @@ buttonvideo:hover {
 	font-size: auto;
 	color: #555;
 	align-content: center;
-	line-height: 2;
-	text-align: justify;
-	margin-left: auto;
-	margin-right: auto;
+	line-height: 1.85;
+	text-rendering: optimizeLegibility;
+	text-align: justify;  
+	margin: 0px 5px;
+	width: 92%;
 }
 .introduccion-domotica {
 	align-content: center;
