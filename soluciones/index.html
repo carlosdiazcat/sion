@@ -198,46 +198,15 @@
 			</div>
 		</div>
 	</section>
-	<script>
-		const texto = document.querySelectorAll('h2');
-		texto.forEach(texto => {
-			texto.innerHTML = texto.innerText.split(' ').map(word => 
-				`<span class="palabra">${word.split('').map(letter => 
-					`<span class="letras">${letter}</span>`
-				).join('')}</span>`
-			).join(' ');
-
-			document.querySelectorAll('.letras').forEach(letter => {
-				letter.addEventListener('mouseenter', () => {
-					letter.style.transform = 'translateY(-10px)';
-				});
-				letter.addEventListener('mouseleave', () => {
-					letter.style.transform = 'translateY(0)';
-				});
-			});
-		});
-	</script>
-	<script> src="sion.js"
-		function toggleMenu() {
-			const navLinks = document.getElementById('nav-links');
-			navLinks.classList.toggle('active');}
-	</script>
-	<script>
-		document.getElementById('logo').addEventListener('click', function() {
-			location.reload(); // Refresca la página
-		});
-	</script>
+	<script> src="sion.js"</script>
 	<footer>
 		<div class="footer-container">
-			<!-- Políticas de privacidad -->
 			<div class="footer-section">
 				<h3>Información</h3>
 			</div>
-			<!-- Dirección -->
 			<div class="footer-section-mapa">
 				<h3>Dirección</h3>
 				<p>Avenida , Murcia, España</p>
-				<!-- Incrustar el mapa de Google -->
 				<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.134418845176697%2C37.991362264213606%2C-1.1282229423522951%2C37.993188615198804&amp;layer=mapnik" 
 					allowfullscreen>
 				</iframe>
@@ -249,25 +218,6 @@
 			<a href="/legal/">Aviso legal</a>
 		</div>
 		<div class="footer-bottom">
-			<!-- Redes Sociales -->
-			<div class="footer-section4">
-				<a href="https://www.facebook.com" target="_blank">
-				<img src="/img/facebook.svg" alt="Facebook"></a>
-				<a href="https://twitter.com" target="_blank">
-				<img src="/img/twitterx.svg" alt="Twitter"></a>
-				<a href="https://www.instagram.com" target="_blank">
-				<img src="/img/instagram.svg" alt="Instagram"></a>
-				<a href="https://www.linkedin.com" target="_blank">
-				<img src="/img/linkedin.svg" alt="Linkedin"></a>
-				<p>&copy; 2025 SION. Todos los derechos reservados.</p>
-			</div>
-		</div>	<div class="footer-section-term">
-			<a href="/privacidad/">Políticas de Privacidad</a>&emsp;&emsp;&emsp;&emsp;&emsp;
-			<a href="/terminos/">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
-			<a href="/legal/">Aviso legal</a>
-		</div>
-		<div class="footer-bottom">
-			<!-- Redes Sociales -->
 			<div class="footer-section4">
 				<a href="https://www.facebook.com" target="_blank">
 				<img src="/img/facebook.svg" alt="Facebook"></a>
