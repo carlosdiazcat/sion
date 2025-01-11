@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica en el Hogar</title>
+	<link rel="shortcut icon" href="/img/SION_LOGO p.png">
+	<link rel="stylesheet" href="/sion.css">
+</head>
+<body>
+	<section class="cabecera-container">
+		<header class = "header">
+			<div class="img">
+			<a href="index.html" > 
+				<img class="logo" src="/img/blanco.svg" alt="logo de la pagina" id="logo" >
+			</a>
+			</div>
+			<div class="menu" id="menu">
+			<div class="menuicon" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="close-icon" onclick="toggleMenu()"></div>
+				<div class="nav-links" id="nav-links">
+				<a href="/">Inicio</a>
+				<a href="/domotica/">Domótica / Inmotica</a>
+				<a href="/soluciones/">Soluciones</a>
+				<a href="/publico/">Nuestro público</a>
+				<a href="/formulario/">Contacto</a>
+				</div>
+			</div>
+			<button id="openMenuBtn">Abrir Menú</button>
+		</header>
+    </section>
+    <section class="slogan">
+		<div class="slogan-content">
+			<h1>A quién nos dirigimos</h1>
+			<p class="slogan-subtitulo">Automatiza tu vida con tecnología avanzada y simplicidad.</p>
+		</div>
+	</section>
+	<div class="content">
+        <h1>Nuestro público</h1>
+    </div>
+	<script> src="sion.js"
+		function toggleMenu() {
+			const navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');}
+	</script>
+	<script>
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); // Refresca la página
+		});
+	</script>
+	<footer>
+		<div class="footer-container">
+			<!-- Políticas de privacidad -->
+			<div class="footer-section">
+				<h3>Información</h3>
+			</div>
+			<!-- Dirección -->
+			<div class="footer-section-mapa">
+				<h3>Dirección</h3>
+				<p>Avenida , Murcia, España</p>
+				<!-- Incrustar el mapa de Google -->
+				<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.134418845176697%2C37.991362264213606%2C-1.1282229423522951%2C37.993188615198804&amp;layer=mapnik" 
+					allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+		<div class="footer-section-term">
+			<a href="/privacidad/">Políticas de Privacidad</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/terminos/">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/legal/">Aviso legal</a>
+		</div>
+		<div class="footer-bottom">
+			<!-- Redes Sociales -->
+			<div class="footer-section4">
+				<a href="https://www.facebook.com" target="_blank">
+				<img src="/img/facebook.svg" alt="Facebook"></a>
+				<a href="https://twitter.com" target="_blank">
+				<img src="/img/twitterx.svg" alt="Twitter"></a>
+				<a href="https://www.instagram.com" target="_blank">
+				<img src="/img/instagram.svg" alt="Instagram"></a>
+				<a href="https://www.linkedin.com" target="_blank">
+				<img src="/img/linkedin.svg" alt="Linkedin"></a>
+				<p>&copy; 2025 SION. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

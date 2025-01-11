@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica en el Hogar</title>
+	<link rel="shortcut icon" href="/img/SION_LOGO p.png">
+	<link rel="stylesheet" href="/sion.css">
+</head>
+<body>
+	<section class="cabecera-container">
+		<header class = "header">
+			<div class="img">
+			<a href="index.html" > 
+				<img class="logo" src="/img/blanco.svg" alt="logo de la pagina" id="logo" >
+			</a>
+			</div>
+			<div class="menu" id="menu">
+			<div class="menuicon" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="close-icon" onclick="toggleMenu()"></div>
+				<div class="nav-links" id="nav-links">
+				<a href="/">Inicio</a>
+				<a href="/domotica/">Domótica / Inmotica</a>
+				<a href="/soluciones/">Soluciones</a>
+				<a href="/publico/">Nuestro público</a>
+				<a href="/formulario/">Contacto</a>
+				</div>
+			</div>
+			<button id="openMenuBtn">Abrir Menú</button>
+		</header>
+    </section>
+        <section class="cookies">
+		<div class="cookies-content">
+			<h1>Aviso legal</h1>
+		</div>
+	</section>
+    <div class="contentgroup__body">
+		<p>En cumplimiento del artículo 10 de la Ley 34/2002, del 11 de julio, de servicios de la Sociedad de la Información y Comercio<br>
+		<br>Electrónico (LSSICE) se exponen a continuación los datos identificativos de la empresa titular de esta página web.<br>
+		<br>Denominación social: SION<br>
+		<br>Número de identificación fiscal: [especificar]<br>
+		<br>Domicilio social: {dirección completa}<br>
+		<br>Correo electrónico: administracion@proyectossion.com<br>
+		<br>Teléfono: {teléfono}<br>
+		<br>Este sitio web ha sido creado por la empresa  SION con carácter informativo y para uso personal de los usuarios.<br>
+		<br>A través de este Aviso legal, se pretende regular el acceso y uso de este sitio web, así como la relación entre el sitio web y sus usuarios.<br>
+		<br>Accediendo a este sitio web se aceptan los siguientes términos y condiciones:<br>
+		<ul>
+		<li>El acceso a este sitio web es responsabilidad exclusiva de los usuarios.<br></li>
+		<li>El simple acceso a este sitio web no supone entablar ningún tipo de relación comercial entre  SION y el usuario.<br></li>
+		<li>El acceso y la navegación en este sitio web supone aceptar y conocer las advertencias legales, condiciones y términos de uso contenidas en ella.<br></li>
+		<li>El titular del sitio web puede ofrecer servicios o productos que podrán encontrarse sometidos a unas condiciones particulares propias que, según los casos, sustituyan, completen y/o modifiquen las presentes condiciones, y sobre las cuales se informará al usuario en cada caso concreto.<br></li>
+		</ul>
+		<br>Datos de inscripción en el registro mercantil<br>
+		<br> SION, sociedad [especificar] constituida en [especificar], en el año 2025, por Escritura Pública número [ especificar], ante el notario [especificar], del Ilustre Colegio de [ especificar], inscrita en el Registro Mercantil de [ especificar] en el tomo [ especificar], folio [especificar], sección [especificar] y hoja [especificar], inscripción [especificar].<br>
+		<br>Datos relativos a la autorización administrativa previa para el ejercicio de la actividad:<br>
+		<br>[especificar]<br>
+		<br>Códigos de conducta a los que la empresa está adherida:<br>
+		<br>[especificar]<br>
+		<br>Este sitio web ha sido creado por la empresa  SION con carácter informativo y para uso personal de los usuarios.</p>
+	</div>
+	<script> src="sion.js"
+		function toggleMenu() {
+			const navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');}
+	</script>
+	<script>
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); // Refresca la página
+		});
+	</script>
+	<footer>
+		<div class="footer-container">
+			<!-- Políticas de privacidad -->
+			<div class="footer-section">
+				<h3>Información</h3>
+			</div>
+			<!-- Dirección -->
+			<div class="footer-section-mapa">
+				<h3>Dirección</h3>
+				<p>Avenida , Murcia, España</p>
+				<!-- Incrustar el mapa de Google -->
+				<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.134418845176697%2C37.991362264213606%2C-1.1282229423522951%2C37.993188615198804&amp;layer=mapnik" 
+					allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+		<div class="footer-section-term">
+			<a href="/privacidad/">Políticas de Privacidad</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/terminos/">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/legal/">Aviso legal</a>
+		</div>
+		<div class="footer-bottom">
+			<!-- Redes Sociales -->
+			<div class="footer-section4">
+				<a href="https://www.facebook.com" target="_blank">
+				<img src="/img/facebook.svg" alt="Facebook"></a>
+				<a href="https://twitter.com" target="_blank">
+				<img src="/img/twitterx.svg" alt="Twitter"></a>
+				<a href="https://www.instagram.com" target="_blank">
+				<img src="/img/instagram.svg" alt="Instagram"></a>
+				<a href="https://www.linkedin.com" target="_blank">
+				<img src="/img/linkedin.svg" alt="Linkedin"></a>
+				<p>&copy; 2025 SION. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

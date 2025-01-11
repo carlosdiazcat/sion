@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica en el Hogar</title>
+	<link rel="shortcut icon" href="/img/SION_LOGO p.png">
+	<link rel="stylesheet" href="/sion.css">
+</head>
+<body>
+	<section class="cabecera-container">
+		<header class = "header">
+			<div class="img">
+			<a href="index.html" > 
+				<img class="logo" src="/img/blanco.svg" alt="logo de la pagina" id="logo" >
+			</a>
+			</div>
+			<div class="menu" id="menu">
+			<div class="menuicon" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="close-icon" onclick="toggleMenu()"></div>
+				<div class="nav-links" id="nav-links">
+				<a href="/">Inicio</a>
+				<a href="/domotica/">Domótica / Inmotica</a>
+				<a href="/soluciones/">Soluciones</a>
+				<a href="/publico/">Nuestro público</a>
+				<a href="/formulario/">Contacto</a>
+				</div>
+			</div>
+			<button id="openMenuBtn">Abrir Menú</button>
+		</header>
+    </section>
+        <section class="cookies">
+		<div class="cookies-content">
+			<h1>Política de Privacidad</h1>
+		</div>
+	</section>
+    <div class="contentgroup__body">
+        <p><strong>Última actualización:</strong> 14 de Enero de 2025</p>
+        <p>La presente Política de Privacidad tiene el objetivo de dar a conocer el modo en que se recaban, tratan y protegen los datos de carácter personal que pudieran proporcionarse por los usuarios de este sitio web.<br>
+		</p><h2>Uso y tratamiento de los datos de carácter personal<br></h2>
+		<p>SION recopila y trata datos personales de los usuarios (como nombre, dirección, teléfono, dirección de correo electrónico y otros similares) para poder prestarle nuestros servicios, facilitarle los productos que solicite de acuerdo a sus gustos y preferencias o mantenerle informado de nuestras novedades.
+		<br>La información de carácter personal que pudiera proporcionar a través de la página web será incorporada a un fichero titularidad de  SION.
+		<br>Los empleados de  SION serán los destinatarios de la información recogida. Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada sin su consentimiento.<br>
+		<br></p><h2>Ejercicio de derechos: acceso, rectificación, cancelación y oposición<br></h2>
+		<p>Los usuarios que hayan facilitado sus datos personales En cualquier momento puede revocar el consentimiento otorgado para el tratamiento de sus datos personales por escrito, a través del correo electrónico administracion@proyectossion.com, remitiéndonos una copia de su DNI.<br>
+		<br></p><h2>Seguridad de su información personal<br></h2>
+        <p>Utilizamos medidas de seguridad para proteger sus datos personales y evitar su divulgación no autorizada, uso indebido o alteración.
+		<br>No obstante, el usuario debe conocer que las medidas de seguridad en internet no son completamente infranqueables y ninguna transmisión en internet es completamente segura o libre de errores, en cuyo caso SION no podrá hacerse responsable.<br>
+		<br></p><h2>Enlaces a sitios de terceros<br></h2>
+        <p>Este sitio web podría contener enlaces a sitios de terceros. Estos sitios cuentan con sus propias políticas de privacidad que le instamos a revisar.<br>
+		</p><h2><br>Menores<br></h2>
+		<p>Si alguno de los productos o servicios fuera dirigido a menores de 14 años, SION no recopilará datos personales del menor a menos que lo permitan las leyes vigentes y tenga el consentimiento expreso de sus padres o tutores legales.<br>
+		</p><h2><br>Cambios en la política de privacidad<br></h2>
+		<p>SION se reserva el derecho a actualizar o modificar los términos de su política de privacidad en cualquier momento y sin previo aviso debido a cambios en la legislación o a su propio criterio. Las modificaciones se aplicarán sólo a la información recabada después de su efectiva publicación.<br>
+		</p><h2><br>Legislación aplicable<br></h2>
+		<p>La relación con el usuario y cualquier controversia derivada del uso del site se regirá y someterá a las leyes de España.</p>
+	</div>
+	<script> src="sion.js"
+		function toggleMenu() {
+			const navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');}
+	</script>
+	<script>
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); // Refresca la página
+		});
+	</script>
+	<footer>
+		<div class="footer-container">
+			<!-- Políticas de privacidad -->
+			<div class="footer-section">
+				<h3>Información</h3>
+			</div>
+			<!-- Dirección -->
+			<div class="footer-section-mapa">
+				<h3>Dirección</h3>
+				<p>Avenida , Murcia, España</p>
+				<!-- Incrustar el mapa de Google -->
+				<iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.134418845176697%2C37.991362264213606%2C-1.1282229423522951%2C37.993188615198804&amp;layer=mapnik" 
+					allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+		<div class="footer-section-term">
+			<a href="/privacidad/">Políticas de Privacidad</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/terminos/">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+			<a href="/legal/">Aviso legal</a>
+		</div>
+		<div class="footer-bottom">
+			<!-- Redes Sociales -->
+			<div class="footer-section4">
+				<a href="https://www.facebook.com" target="_blank">
+				<img src="/img/facebook.svg" alt="Facebook"></a>
+				<a href="https://twitter.com" target="_blank">
+				<img src="/img/twitterx.svg" alt="Twitter"></a>
+				<a href="https://www.instagram.com" target="_blank">
+				<img src="/img/instagram.svg" alt="Instagram"></a>
+				<a href="https://www.linkedin.com" target="_blank">
+				<img src="/img/linkedin.svg" alt="Linkedin"></a>
+				<p>&copy; 2025 SION. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
