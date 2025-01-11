@@ -294,7 +294,7 @@ header {
 .nav-links a {
 	padding: 10px 0px;
 	color: #D9D9D9;
-	font-size: 20px;
+	font-size: 4vw;
 	text-decoration: none;
 	transition: background 0.01s;
 }
@@ -1331,10 +1331,6 @@ img {
 	.sobre-texto {
 		padding: 10px 20px;
 	}
-    .block {
-        max-width: 200px;  /* Los bloques ocuparán el 45% del ancho en pantallas medianas */
-        height: 250px; /* Deja que la altura se ajuste según el contenido */
-    }
 	.slide {
 		width: 400px;  /* El texto ocupará el 40% */
     }
