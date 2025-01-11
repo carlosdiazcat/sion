@@ -134,11 +134,13 @@ html {
 }
 /* Contenedor principal con flexbox */
 .container {
-    display: flex;
-    flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	justify-items: center;
+	width: 100vh;
+	align-content: center;
 	align-items: center;
-    justify-content: space-around; /* Distribuye los bloques */
-    width: 100%; /* Ancho máximo para evitar que se estire demasiado */
 }
 h2, .contentgroup__h2 {
   font-family: Open Sans Condensed, sans-serif;
@@ -436,6 +438,10 @@ buttonvideo:hover {
     font-size: 1.2rem;
     font-weight: 300;
     margin-top: 1rem;
+}
+.contenedor{
+	display: grid;
+	justify-items: center;
 }
 /* Sección Introducción */
 .introduccion {
@@ -1591,15 +1597,28 @@ img {
 		object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
 		clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0); /* Define el corte diagonal */
 	}
+	.container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+		justify-items: center;
+		width: fit-content;
+		align-content: center;
+		align-items: center;
+	}
 }
 @media (max-width: 480px) {
 	.overlay {
 		top: 172px;
 	}
-	.container{
-		display: flex;
+	.container {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 10px;
+		justify-items: center;
+		width: fit-content;
+		align-content: center;
 		align-items: center;
-		justify-content: center;
 	}
 	.contenedor{
 		align-items: center;
