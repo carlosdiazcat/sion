@@ -146,13 +146,6 @@ indicators.forEach((indicator, index) => {
 
 // Iniciar el slider con la primera diapositiva activa
 changeSlide(0);
-window.onload = function() {
-	if (!localStorage.getItem('cookiesAccepted') === 'false') {
-		document.getElementById('cookie-banner').style.display = 'block'; 
-	} else {
-		document.getElementById('cookie-banner').style.display = 'none';
-	}
-}
 
 var texto = document.querySelectorAll('h2');
 texto.forEach(texto => {
@@ -182,31 +175,3 @@ function formulario() {
 function cerrarform() {
 	document.getElementById('formulario').style.display = 'none';
 }
-// Aceptar todas las cookies
-function acceptCookies() {
-	localStorage.setItem('cookiesAccepted', 'true');
-	localStorage.setItem('cookieAnalytics', true);
-	localStorage.setItem('cookieMarketing', true);
-	document.getElementById('cookie-banner').style.display = 'none';
-	document.getElementById('cookie-modal').style.display = 'none';
-}
-
-// Rechazar todas las cookies
-function rejectCookies() {
-	localStorage.setItem('cookiesAccepted', 'false');
-	document.getElementById('cookie-banner').style.display = 'none';
-	document.getElementById('cookie-modal').style.display = 'none';
-}
-
-// Guardar preferencias de cookies
-function savePreferences() {
-	let analytics = document.getElementById('cookie-analytics').checked;
-	let marketing = document.getElementById('cookie-marketing').checked;
-
-	localStorage.setItem('cookiesAccepted', 'true');
-	localStorage.setItem('cookieAnalytics', analytics);
-	localStorage.setItem('cookieMarketing', marketing);
-	document.getElementById('cookie-banner').style.display = 'none';
-	document.getElementById('cookie-modal').style.display = 'none';
-}
-		

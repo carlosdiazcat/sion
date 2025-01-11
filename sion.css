@@ -631,7 +631,8 @@ li:hover {
 }
 .slide-sol {
 	display: flex;
-	max-width: 400px;
+    width: 100%;
+    height: 100%;
     align-content: center;
     justify-content: space-between;
     padding: 40px;
@@ -645,7 +646,7 @@ li:hover {
     height: auto;
     border-radius: 150px / 150px;
 }
-.slider-image-sol img{
+.slider-image-solefecto img{
 	justify-content: center;
 	align-content: center;
     width: 90%;
@@ -655,7 +656,22 @@ li:hover {
 	transform-origin: center center; /* La imagen se amplía desde el centro */
 	opacity: 1;
 }
+.slider-image-sol img{
+	justify-content: center;
+	align-content: center;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 50px / 50px;
+}
 .slider-sol {
+	justify-content: center; /* Centra la imagen horizontalmente */
+	align-items: center;
+    max-width: 400px;
+	width: auto;
+	display: flex;
+}
+.slider-solefecto {
 	justify-content: center;
 	align-items: center;
     max-height: 400px;
