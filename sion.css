@@ -195,7 +195,7 @@ h2, .contentgroup__h2 {
   text-decoration: none;
 }
 img.logo {
-	max-width: 100%;
+	max-width: 90%;
 	width: 420px;
 	margin-left: -60px;
 	margin-top: -10px;
@@ -341,12 +341,12 @@ li:hover {
 }
 /*Secion video-section*/
 .video-section {
-    position: static;
-    overflow: inherit;
-	max-height: 500px;
+	position: static;
+	overflow: inherit;
 	margin-top: 90px;
-	/*width: auto;*/
-    display: flex;
+	width: auto;
+	display: flex;
+	min-width: 200px;
 }
 .video-section video {
     width: 100%;
@@ -679,6 +679,7 @@ buttonvideo:hover {
 .slider-text p {
 	font-size: 16px;
     color: #777;
+	line-height: 1.4;
     text-align: justify;
 }
 .slider-sol {
@@ -980,6 +981,7 @@ buttonvideo:hover {
 	object-fit: cover;
 	align-items: center;
 	width: 100%;
+    border-radius: 20px;
 }
 .interior-texto1{
     width: 90%;
@@ -996,12 +998,13 @@ buttonvideo:hover {
 }
 .interior-texto1 p{
 	color:#10384A;
-	margin: 0;
 	margin-bottom: 5px;
 	width: 90%;
 	display:flex;
-	text-align: justify;
 	align-items: center;
+	line-height: 1.6;
+	align-content: center;
+	text-align: justify;
 }
 .interior-texto1 a{
 	text-decoration: none;
@@ -1048,7 +1051,7 @@ buttonvideo:hover {
     line-height: 1.5;
 }
 .contenido-img a{
-	margin-bottom: 55px;
+	margin: 15px 0px;
 }
 .contenido-img{
 	width: 33.33%;
@@ -1327,9 +1330,13 @@ img {
 	}
 }
 @media (max-width: 1920px) {
+	.sobre-texto {
+		padding: 10px 20px;
+	}
     .block {
-        width: 45%;  /* Los bloques ocuparán el 45% del ancho en pantallas medianas */
-        height: auto; /* Deja que la altura se ajuste según el contenido */
+        max-width: 200px;  /* Los bloques ocuparán el 45% del ancho en pantallas medianas */
+        height: 250px; /* Deja que la altura se ajuste según el contenido */
+		margin: 10px 0px;
     }
 	.slide {
 		width: 400px;  /* El texto ocupará el 40% */
@@ -1338,16 +1345,24 @@ img {
 		width: auto;  /* El texto ocupará el 40% */
 	}
 	.slider-sol-text {
-        width: 90%;
+        width: 100%;
+		padding: 0px 0 0 60px;
     }
 	.slider-sol-text p {
         width: 90%;
-		text-justify: auto;
     }
+	.slider-image-sol img {
+		padding-left: 20px;
+		max-width: 1200px;
+		display: flex;
+	}
     .slider-text {
         width: 90%;
-		text-justify: auto;
-		align-items: flex-start;
+		text-justify: auto;    
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin-left: 100px;
     }
     .slider-text p {
         width: 90%;
@@ -1357,7 +1372,7 @@ img {
 		justify-content: center;
     }
 	.slider-image img{
-		width: 90%;
+		width: 140%;
 		max-width: 1000px;
 	}
 	.introduccion h2{
@@ -1365,6 +1380,47 @@ img {
 	}
 	.footer-section-term{
 		align-items: center;
+	}
+}
+@media (min-width: 1200px) {
+	.slider-sol-text {
+		margin-right: 10px;
+		margin-left: 60px;
+		width: auto;
+    }
+	.slider-image-sol {
+        width: auto;
+		padding-right: 20px;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	.slider-text p {
+    	margin-left: 5%;
+        width: 90%;
+		text-justify: auto;
+		align-items: flex-start;
+    }
+	.slider-image {
+    	width: auto;
+    }
+	.slider {
+		width: auto;
+	}
+	.slide {
+		width: auto; 
+    }
+	.sobre-texto {
+		padding: 10px 100px;
+		font-size: auto;
+	}
+	.text-line:nth-child(1) {
+		left: -0%;
+	}
+	.text-line:nth-child(3) {
+		left: -5%;
+	}
+	.text-line:nth-child(5) {
+		left: -10%;
 	}
 }
 @media (max-width: 920px) {
@@ -1410,8 +1466,10 @@ img {
 		align-content: center;
     }
     .slider-sol-text {
-        /*width: 90%;*/
-		width: auto;
+        width: 90%;
+        display: flex;    
+		flex-direction: column;
+		align-items: center;
         font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
     }
     .slider-text {
@@ -1421,6 +1479,8 @@ img {
 		text-justify: auto;
 		align-items: center;
         font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
+		margin-left: 0px;
+		padding: 0px;
     }
 	.slide {
 		padding: 5px;
@@ -1430,6 +1490,9 @@ img {
 	.slider-sol {
         flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
     }
+	.slider-image img {
+		width: 90%;
+	}
 	.productos {
 		flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
         align-items: flex-start; /* Alinea los elementos al inicio (izquierda) */
@@ -1652,45 +1715,4 @@ img {
 	.cookie-button {
 		width: 90%;
 }
-}
-@media (min-width: 1200px) {
-	.slider-sol-text {
-		margin-right: 10px;
-		margin-left: 60px;
-		width: auto;
-    }
-	.slider-image-sol {
-        width: auto;
-		padding-right: 20px;
-		justify-content: center;
-		align-items: flex-start;
-	}
-	.slider-text p {
-    	padding-left: 20px;
-        width: 90%;
-		text-justify: auto;
-		align-items: flex-start;
-    }
-	.slider-image {
-    	width: auto;
-    }
-	.slider {
-		width: auto;
-	}
-	.slide {
-		width: auto; 
-    }
-	.sobre-texto {
-		padding: 10px 150px;
-		font-size: auto;
-	}
-	.text-line:nth-child(1) {
-		left: -0%;
-	}
-	.text-line:nth-child(3) {
-		left: -5%;
-	}
-	.text-line:nth-child(5) {
-		left: -10%;
-	}
 }
