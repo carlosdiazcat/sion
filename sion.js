@@ -87,7 +87,10 @@ var observer = new IntersectionObserver(function(entries, observer) {
 }, {
 	threshold: Array.from({length: 101}, (_, i) => i / 100)  // Umbrales de 0 a 1 con 1% de intervalo
 });
-
+var productos = document.querySelectorAll('.slider-sol');
+productos.forEach(function(producto) {
+    observer.observe(producto);
+});
 // Empieza a observar el contenedor de la imagen
 observer.observe(imageSection);
 let currentSlide = 0;
