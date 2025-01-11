@@ -77,7 +77,7 @@ threshold: Array.from({length: 101}, (_, i) => i / 100)
 });
 observer.observe(imageSection);
 // Define el umbral en el que la imagen comienza a encogerse (30% antes de llegar al borde superior)
-const startShrinkPoint = window.innerHeight * 0.3;
+const startShrinkPoint = window.innerHeight * 0.1;
 
 // Función para ajustar la escala de la imagen durante el desplazamiento
 function scaleImageOnScroll() {
@@ -92,7 +92,7 @@ function scaleImageOnScroll() {
     let scaleValue = 1 - (startShrinkPoint - distanceToTop) / window.innerHeight;
     
     // Asegúrate de que la escala no sea menor a 0.3 (30%)
-    scaleValue = Math.max(scaleValue, 0.3);
+    scaleValue = Math.max(scaleValue, 0.1);
 
     // Aplica la transformación para reducir la escala
     image.style.transform = `scale(${scaleValue})`;
