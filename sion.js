@@ -62,31 +62,45 @@ var texto = document.getElementById('texto');
 //});
 var imageSection = document.querySelector('.slider-sol');
 var image = document.querySelector('.slider-image-sol');
-
-        // Crea una instancia de IntersectionObserver
-        var observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                var ratio = entry.intersectionRatio;
-
-                // Ajustamos el tamaño de la imagen en función de la visibilidad
-                if (entry.isIntersecting) {
-                    // Hacemos la imagen más grande conforme más visible se vuelva
-                    var scaleValue = 0.6 + ratio * 0.4;
-                    image.style.transform = `scale(${scaleValue})`;
-                } else {
-                    // Restablecer tamaño cuando no esté visible
-                    image.style.transform = 'scale(0.7)';
-                }
-            });
-        }, {
-            threshold: Array.from({length: 101}, (_, i) => i / 100)  // Umbrales de 0 a 1 con 1% de intervalo
-        });
-
-        // Empieza a observar el contenedor de la imagen
-        observer.observe(imageSection);
-
-// Empieza a observar el contenedor de la imagen
+var observer = new IntersectionObserver(function(entries, observer) {
+	entries.forEach(function(entry) {
+		var ratio = entry.intersectionRatio;
+		if (entry.isIntersecting) {
+			var scaleValue = 1 + ratio * 0.7;
+			image.style.transform = `scale(${scaleValue})`;
+		} else {
+			image.style.transform = 'scale(0.5)';
+		}
+	});
+}, {
+threshold: Array.from({length: 101}, (_, i) => i / 100)
+});
 observer.observe(imageSection);
+// Define el umbral en el que la imagen comienza a encogerse (30% antes de llegar al borde superior)
+const startShrinkPoint = window.innerHeight * 0.3;
+
+// Función para ajustar la escala de la imagen durante el desplazamiento
+function scaleImageOnScroll() {
+    // Obtén la posición actual del scroll
+    const scrollY = window.scrollY;
+
+    // Calcula la distancia de la imagen al margen superior de la ventana
+    const imageRect = image.getBoundingClientRect();
+    const distanceToTop = imageRect.top;
+
+    // Calcula la cantidad de reducción de la imagen en función de la distancia al borde superior
+    let scaleValue = 1 - (startShrinkPoint - distanceToTop) / window.innerHeight;
+    
+    // Asegúrate de que la escala no sea menor a 0.3 (30%)
+    scaleValue = Math.max(scaleValue, 0.3);
+
+    // Aplica la transformación para reducir la escala
+    image.style.transform = `scale(${scaleValue})`;
+}
+
+// Escucha el evento de desplazamiento
+window.addEventListener('scroll', scaleImageOnScroll);
+
 let currentSlide = 0;
 var slides = document.querySelectorAll('.slide');
 var indicators = document.querySelectorAll('.indicator');
