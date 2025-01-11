@@ -60,29 +60,30 @@ var texto = document.getElementById('texto');
 //		letter.style.transform = 'translateY(0)';
 //	});
 //});
-var imageSection = document.querySelector('.slider-solefecto');
-var image = document.querySelector('.slider-image-solefecto');
+var imageSection = document.querySelector('.slider-sol');
+var image = document.querySelector('.slider-image-sol');
 
-// Configura el Intersection Observer para activar la animación cuando el elemento esté entre 25% y 30% en la pantalla
-var observer = new IntersectionObserver(function(entries, observer) {
-	entries.forEach(function(entry) {
-		var ratio = entry.intersectionRatio;
+        // Crea una instancia de IntersectionObserver
+        var observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                var ratio = entry.intersectionRatio;
 
-		// Ajustamos el tamaño de la imagen en función de la visibilidad
-		if (entry.isIntersecting) {
-			// Hacemos la imagen más grande conforme más visible se vuelva
-			var scaleValue = 0.7 + ratio * 0.8;  // Rango de escala de 0.7 a 1.5
-			image.style.transform = 'scale(${scaleValue})';
-		} else {
-			// Restablecer tamaño cuando no esté visible
-			image.style.transform = 'scale(0.7)';
-		}
-	});
-}, {
-	threshold: Array.from({length: 101}, function(_, i) {
-        return i / 100;  // De 0 a 1 con pasos de 0.01
-    })  // Define el umbral de visibilidad de 0 a 1 en incrementos de 0.01
-});
+                // Ajustamos el tamaño de la imagen en función de la visibilidad
+                if (entry.isIntersecting) {
+                    // Hacemos la imagen más grande conforme más visible se vuelva
+                    var scaleValue = 0.6 + ratio * 0.4;
+                    image.style.transform = `scale(${scaleValue})`;
+                } else {
+                    // Restablecer tamaño cuando no esté visible
+                    image.style.transform = 'scale(0.7)';
+                }
+            });
+        }, {
+            threshold: Array.from({length: 101}, (_, i) => i / 100)  // Umbrales de 0 a 1 con 1% de intervalo
+        });
+
+        // Empieza a observar el contenedor de la imagen
+        observer.observe(imageSection);
 
 // Empieza a observar el contenedor de la imagen
 observer.observe(imageSection);

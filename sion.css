@@ -646,7 +646,7 @@ li:hover {
     height: auto;
     border-radius: 150px / 150px;
 }
-.slider-image-solefecto img{
+.slider-image-sol img{
 	justify-content: center;
 	align-content: center;
     width: 90%;
@@ -656,34 +656,38 @@ li:hover {
 	transform-origin: center center; /* La imagen se amplía desde el centro */
 	opacity: 1;
 }
-.slider-image-sol img{
+.slider-image-solnefecto img{
 	justify-content: center;
 	align-content: center;
     width: 100%;
     max-width: 800px;
     height: auto;
     border-radius: 50px / 50px;
+	transition: transform 0.3s ease, opacity 0.3s ease; /* Transición suave */
+	transform-origin: center center; /* La imagen se amplía desde el centro */
+	opacity: 1;
 }
-.slider-sol {
+.slider-solnefecto {
 	justify-content: center; /* Centra la imagen horizontalmente */
 	align-items: center;
     max-width: 90%;
 	width: auto;
 	display: flex;
+	transform: scale(0.7); /* Empieza más pequeña */
+	transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones suaves */
 }
-.slider-solefecto {
+.slider-sol {
 	justify-content: center;
 	align-items: center;
     max-height: 400px;
 	width: auto;
 	display: flex;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	transform: scale(0.9); /* Empieza más pequeña */
+	margin: 40px;
+	transform: scale(0.6); /* Empieza más pequeña */
 	transition: opacity 0.5s ease, transform 0.5s ease; /* Animaciones suaves */
 }
 .image-expanded {
-    transform: scale(1.5);
+    transform: scale(1);
     opacity: 1;
 }
 .slider-sol-text {
@@ -1434,7 +1438,7 @@ img {
     }
 	.slider-image-sol {
         width: auto;
-		padding-right: 20px;
+		padding: 20px;
 		justify-content: center;
 		align-items: flex-start;
 	}
