@@ -150,15 +150,14 @@ h2, .contentgroup__h2 {
 	display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: #fff;
     padding: 0px 20px;
-	margin: 20px 0px;
+	margin: 10px 0px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 220px; /* Ancho fijo para cada bloque */
-    height: 250px; /* Altura fija para cada bloque */
+    max-width: 250px; /* Ancho fijo para cada bloque */
+    height: 400px; /* Altura fija para cada bloque */
 }
 /* Estilo de los logos */
 .logo-block {
@@ -283,8 +282,7 @@ header {
 	top: 0px;
 	right: 0px;
 	left: 0px;
-	width: 100%;
-	height: 100%;
+	bottom: 0;
 	background-image: url('img/fondo-menu.jpg');  /*Imagen de fondo */
     background-repeat: no-repeat;
     background-size: cover;
@@ -294,9 +292,9 @@ header {
 	align-items: center;
 }
 .nav-links a {
-	padding: 10px 30px;
+	padding: 10px 0px;
 	color: #D9D9D9;
-	font-size: 30px;
+	font-size: 20px;
 	text-decoration: none;
 	transition: background 0.01s;
 }
@@ -588,19 +586,6 @@ buttonvideo:hover {
     border-radius: 10px;
 	justify-content: center;
 }
-.slider-container h2 {
-    font-size: 24px;
-    color: #333;
-	
-	view-timeline-name: --image;
-	view-timeline-axis: block;
-	
-	animation-timeline: --image;
-	animation-name: show;
-	
-	animation-range: entry 25% cover 30%;
-	animation-fill-mode: both;
-}
 .slider {
     display: flex;
     transition: transform 0.5s ease;
@@ -618,6 +603,16 @@ buttonvideo:hover {
 .slider-container h2 {
     font-size: 2rem;
     text-align: center;
+	margin-bottom: 0px;
+	
+	view-timeline-name: --image;
+	view-timeline-axis: block;
+	
+	animation-timeline: --image;
+	animation-name: show;
+	
+	animation-range: entry 25% cover 30%;
+	animation-fill-mode: both;
 }
 .slide-sol {
 	display: flex;
@@ -1034,6 +1029,8 @@ buttonvideo:hover {
 	font-size: 2em;
 	text-align: center;
 	color:#10384A;
+	margin: 10px 80px;
+	text-align: center;
 }
 .interior-texto1 hr{
 	width: 90%;
@@ -1337,7 +1334,6 @@ img {
     .block {
         max-width: 200px;  /* Los bloques ocuparán el 45% del ancho en pantallas medianas */
         height: 250px; /* Deja que la altura se ajuste según el contenido */
-		margin: 10px 0px;
     }
 	.slide {
 		width: 400px;  /* El texto ocupará el 40% */
