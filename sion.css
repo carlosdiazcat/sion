@@ -1658,6 +1658,15 @@ img {
 		margin: 10px 40px;
 	}
 }
+@media screen and (max-width: 768px) {
+    .slider-image-sol img {
+        max-width: 100%;
+        transform: scale(0.7);
+    }
+    .slider-image-sol img.visible {
+        transform: scale(1); /* Mantén la escala al 100% en móviles */
+    }
+}
 @media (max-width: 480px) {
 	.overlay {
 		top: 172px;
