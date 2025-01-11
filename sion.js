@@ -66,7 +66,7 @@ var texto = document.getElementById('texto');
 //		letter.style.transform = 'translateY(0)';
 //	});
 //});
-var imageSection = document.querySelector('.productos');
+var imageSection = document.querySelector('.slider-sol');
 var image = document.querySelector('.slider-image-sol');
 
 // Configura el Intersection Observer para activar la animación cuando el elemento esté entre 25% y 30% en la pantalla
@@ -87,10 +87,7 @@ var observer = new IntersectionObserver(function(entries, observer) {
 }, {
 	threshold: Array.from({length: 101}, (_, i) => i / 100)  // Umbrales de 0 a 1 con 1% de intervalo
 });
-var productos = document.querySelectorAll('.slider-sol');
-productos.forEach(function(producto) {
-    observer.observe(producto);
-});
+
 // Empieza a observar el contenedor de la imagen
 observer.observe(imageSection);
 let currentSlide = 0;

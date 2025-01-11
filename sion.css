@@ -667,7 +667,7 @@ li:hover {
 .slider-sol {
 	justify-content: center; /* Centra la imagen horizontalmente */
 	align-items: center;
-    max-width: 400px;
+    max-width: 1400;
 	width: auto;
 	display: flex;
 }
@@ -1397,7 +1397,7 @@ img {
     }
 	.slider-image-sol img {
 		padding-left: 20px;
-		max-width: 400px;
+		max-width: 1200px;
 		display: flex;
 	}
     .slider-text {
