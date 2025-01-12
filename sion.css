@@ -1799,8 +1799,12 @@ input[type="number"] {
 		margin: 10px 40px;
 	}
 	.nav-links a {
-		  font-size: 6vw;
-		}
+		font-size: 6vw;
+	}
+	.interior-texto1 h2 {
+		padding: 0px 60px;
+		font-size: 1.2rem;
+	}
 }
 @media (max-width: 426px) {
 	.overlay {
