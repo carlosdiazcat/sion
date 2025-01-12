@@ -199,6 +199,38 @@
 		</div>
 	</section>
 	<script> src="/sion.js"</script>
+	<script>
+		const productos = document.querySelectorAll('.productos');
+		const imagenes = document.querySelectorAll('.slider-image-sol img');
+		const textos = document.querySelectorAll('.slider-sol-text');
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = 1;
+					entry.target.style.transform = 'scale(1)';
+
+					const imagen = entry.target.querySelector('.slider-image-sol img');
+					imagen.style.transform = 'scale(1.05)';
+
+					const texto = entry.target.querySelector('.slider-sol-text');
+					texto.style.transform = 'translateX(0)';
+				} else {
+					entry.target.style.opacity = 0;
+					entry.target.style.transform = 'scale(0.95)';
+
+					const imagen = entry.target.querySelector('.slider-image-sol img');
+					imagen.style.transform = 'scale(1)';
+
+					const texto = entry.target.querySelector('.slider-sol-text');
+					texto.style.transform = 'translateX(-20px)';
+				}
+			});
+		}, {
+			threshold: 0.3,
+			rootMargin: '0px 0px -30% 0px'  
+		});
+		productos.forEach(producto => observer.observe(producto));
+	</script>
 	<footer>
 		<div class="footer-container">
 			<div class="footer-section">
