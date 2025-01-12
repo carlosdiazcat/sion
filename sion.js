@@ -60,46 +60,49 @@ var texto = document.getElementById('texto');
 //		letter.style.transform = 'translateY(0)';
 //	});
 //});
-var imageSection = document.querySelector('.slider-sol');
-var image = document.querySelector('.slider-image-sol');
-var observer = new IntersectionObserver(function(entries, observer) {
+
+var productos = document.querySelectorAll('.productos');
+var imagenes = document.querySelectorAll('.slider-image-sol img');
+var textos = document.querySelectorAll('.slider-sol-text');
+
+var observer = new IntersectionObserver(function(entries, observer){
 	entries.forEach(function(entry) {
-		var ratio = entry.intersectionRatio;
+		// Si la sección está en la vista (al menos un 30% de la sección es visible)
 		if (entry.isIntersecting) {
-			var scaleValue = 1 + ratio * 0.7;
-			image.style.transform = `scale(${scaleValue})`;
+			// Aplicamos la animación cuando la sección entra en la vista
+			entry.target.style.opacity = 1;
+			entry.target.style.transform = 'scale(1)';
+
+			// Animación de imagen
+			var imagen = entry.target.querySelector('.slider-image-sol img');
+			imagen.style.transform = 'scale(1.05)';
+
+			// Animación del texto
+			var texto = entry.target.querySelector('.slider-sol-text');
+			texto.style.transform = 'translateX(0)';
 		} else {
-			image.style.transform = 'scale(0.5)';
+			// Si la sección ya no está en la vista, volvemos a su estado inicial
+			entry.target.style.opacity = 0;
+			entry.target.style.transform = 'scale(0.95)';
+
+			// Restauramos imagen a su tamaño original
+			var imagen = entry.target.querySelector('.slider-image-sol img');
+			imagen.style.transform = 'scale(1)';
+
+			// Restauramos el texto a su posición inicial
+			var texto = entry.target.querySelector('.slider-sol-text');
+			texto.style.transform = 'translateX(-20px)';
 		}
 	});
 }, {
-threshold: Array.from({length: 101}, (_, i) => i / 100)
+	threshold: 0.3,  // Umbral de visibilidad del 30% de la sección
+	rootMargin: '0px 0px -30% 0px'  // Empieza a animar un 30% antes de que la sección esté completamente visible
 });
-observer.observe(imageSection);
-// Define el umbral en el que la imagen comienza a encogerse (30% antes de llegar al borde superior)
-const startShrinkPoint = window.innerHeight * 0.1;
 
-// Función para ajustar la escala de la imagen durante el desplazamiento
-function scaleImageOnScroll() {
-    // Obtén la posición actual del scroll
-    const scrollY = window.scrollY;
-
-    // Calcula la distancia de la imagen al margen superior de la ventana
-    const imageRect = image.getBoundingClientRect();
-    const distanceToTop = imageRect.top;
-
-    // Calcula la cantidad de reducción de la imagen en función de la distancia al borde superior
-    let scaleValue = 1 - (startShrinkPoint - distanceToTop) / window.innerHeight;
-    
-    // Asegúrate de que la escala no sea menor a 0.3 (30%)
-    scaleValue = Math.max(scaleValue, 0.1);
-
-    // Aplica la transformación para reducir la escala
-    image.style.transform = `scale(${scaleValue})`;
-}
-
-// Escucha el evento de desplazamiento
-window.addEventListener('scroll', scaleImageOnScroll);
+// Observar todas las secciones de productos
+productos.forEach(function(producto) {
+	observer.observe(producto)
+});
 
 let currentSlide = 0;
 var slides = document.querySelectorAll('.slide');
