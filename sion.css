@@ -658,7 +658,7 @@ li:hover {
 .slider-sol {
 	justify-content: center;
 	align-items: center;
-	max-width: 1400px;
+	max-width: fit-content;
 	width: auto;
 	display: flex;
 }
@@ -795,10 +795,11 @@ li:hover {
     transition: opacity 1s ease, transform 1s ease; /* Transición suave */
 }
 .productos h1 {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 2.5rem;
+    text-align: left;
+	padding-left: 20px;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 .productos-lista {
     display: grid;
@@ -893,7 +894,6 @@ li:hover {
 	line-height: 1.6;
 	align-content: center;
 	text-align: justify;
-	max-width: 1400px;
 	word-break: break-word;
 	overflow-wrap: break-word;
 	hyphens: auto;
@@ -932,7 +932,7 @@ li:hover {
 }
 .seccion-como-subtitulo {
 	font-size: 18px;
-	color: #3E3E3E;
+	color: margin-top: 10px;margin-top: 10px;margin-top: 10px;margin-top: 10px;margin-top: 10px;E3E;
 	text-align: center;
 	margin-bottom: 40px;
 }
@@ -1370,8 +1370,7 @@ input[type="number"] {
         width: 90%;
     }
 	.slider-image-sol img {
-		padding-left: 20px;
-		max-width: 1200px;
+		max-width: fit-content;
 		display: flex;
 	}
     .slider-text {
@@ -1428,10 +1427,6 @@ input[type="number"] {
 	.slide {
 		width: auto; 
     }
-	.sobre-texto {
-		padding: 10px 100px;
-		font-size: auto;
-	}
 	.text-line:nth-child(1) {
 		left: -0%;
 	}
@@ -1489,7 +1484,6 @@ input[type="number"] {
 		display: flex;
     }
 	.slider-image-sol img {
-		padding-left: 0;
 		width: 90%;
 	}
 	.slider-sol-text {
@@ -1523,10 +1517,13 @@ input[type="number"] {
 	}
 	.productos {
 		flex-direction: column;
+		margin-top: 14px;
     }
 	.productos h1 {
 		font-size: 1.5rem;
 		text-align: center;
+		margin-top: 26px;
+		margin-bottom: -16px;
 	}
 	.central-img{
 		width: 80%;
@@ -1655,9 +1652,6 @@ input[type="number"] {
 	.productos {
 		flex-direction: column;
     }
-	.slider-image-sol img {
-		padding-left: 0;
-	}
 	.footer-section-term {
 		display: flex;
 		flex-direction: column;
@@ -1666,6 +1660,13 @@ input[type="number"] {
 @media (max-width: 480px) {
 	.overlay {
 		top: 172px;
+	}
+	.slogan-subtitulo {
+		font-size: 1.2rem;
+		font-weight: 300;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding: 20px 55px;
 	}
 	.container-como1 {
 		display: grid;
