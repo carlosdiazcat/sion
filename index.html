@@ -556,12 +556,6 @@
 				document.getElementById('cookie-banner').style.display = 'none';
 				document.getElementById('cookie-modal').style.display = 'none';
 			}
-			fetch("footer.html")
-				.then(response => response.text())
-				.then(data => {
-					document.getElementById("footer").innerHTML = data;
-				})
-				.catch(error => console.error("Error al cargar el footer:", error));
 		</script>
 		<section class="cta">
 			<div class="contenedor">
@@ -570,7 +564,35 @@
 				<!---<a href="/formulario/" class="boton">Contáctanos</a>--->
 			</div>
 		</section>
-		<div id="footer"></div>
+		<footer>
+			<div class="footer-container">
+				<div class="footer-section">
+					<h3>Información</h3>
+				</div>
+				<div class="footer-section-mapa">
+					<h3>Dirección</h3>
+					<p>Avenida , Murcia, España</p>
+				</div>
+			</div>
+			<div class="footer-section-term">
+				<a href="/privacidad/">Políticas de Privacidad </a>&emsp;&emsp;&emsp;&emsp;&emsp;
+				<a href="/terminos/">Términos y Condiciones</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+				<a href="/legal/">Aviso legal</a>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-section4">
+					<a href="https://www.facebook.com" target="_blank">
+					<img src="img/facebook.svg" alt="Facebook"></a>
+					<a href="https://twitter.com" target="_blank">
+					<img src="img/twitterx.svg" alt="Twitter"></a>
+					<a href="https://www.instagram.com" target="_blank">
+					<img src="img/instagram.svg" alt="Instagram"></a>
+					<a href="https://www.linkedin.com" target="_blank">
+					<img src="img/linkedin.svg" alt="Linkedin"></a>
+					<p>&copy; 2025 SION. Todos los derechos reservados.</p>
+				</div>
+			</div>	
+		</footer>
 	</main>
 </body>
 </html>
