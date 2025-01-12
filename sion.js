@@ -11,6 +11,7 @@ window.addEventListener("load", function() {
 document.getElementById('logo').addEventListener('click', function() {
 	location.reload(); 
 });
+
 var animateOnScroll = function() {
     // Obtén todos los elementos con la clase 'box'
     var boxes = document.querySelectorAll('.box');
