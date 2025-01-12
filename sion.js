@@ -161,7 +161,7 @@ indicators.forEach((indicator, index) => {
 // Iniciar el slider con la primera diapositiva activa
 changeSlide(0);
 
-var texto = document.querySelectorAll('h2');
+var texto = document.querySelectorAll('h1');
 texto.forEach(texto => {
 	texto.innerHTML = texto.innerText.split(' ').map(word => 
 		`<span class="palabra">${word.split('').map(letter => 

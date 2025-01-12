@@ -793,7 +793,7 @@ li:hover {
     transform: scale(0.95);  /* Comienza más pequeña */
     transition: opacity 1s ease, transform 1s ease; /* Transición suave */
 }
-.productos h2 {
+.productos h1 {
     font-size: 2rem;
     text-align: center;
     margin-top: 0px;
@@ -1018,7 +1018,7 @@ li:hover {
 .interior-texto1 h2{
 	font-size: 1.50em;
 	color:#10384A;
-	text-align: left;
+	text-align: center;
 }
 .interior-texto1 p{
 	color:#10384A;
@@ -1391,14 +1391,15 @@ input[type="number"] {
 		width: 140%;
 		max-width: 1000px;
 	}
-	.introduccion h2{
-    	text-align: left;
-	}
 	.footer-section-term{
 		align-items: center;
 	}
 }
 @media (min-width: 1200px) {
+	.introduccion h2{
+    	text-align: left;
+		font-size: 2.5rem;
+	}
 	.slider-sol-text {
 		margin-right: 10px;
 		margin-left: 60px;
@@ -1440,6 +1441,10 @@ input[type="number"] {
 	}
 }
 @media (max-width: 920px) {
+	.introduccion h2 {
+		font-size: 2rem;  /* Tamaño más pequeño para móviles */
+        margin: 10px;letter-spacing: normal;
+	}
 	.text-container-line {
 		justify-content: center;
 		left: 3%;
@@ -1517,7 +1522,7 @@ input[type="number"] {
 	.productos {
 		flex-direction: column;
     }
-	.productos h2 {
+	.productos h1 {
 		font-size: 1.5rem;
 		text-align: center;
 	}
@@ -1539,11 +1544,6 @@ input[type="number"] {
 	.slogan-content h1 {
 		font-weight: bold;
 		font-size: 2.5em;
-	}
-	.introduccion h2 {
-		font-size: 3em;
-		align-content: center;
-		text-align: center;
 	}
 	.form-container {
 		margin-right: 20px;
