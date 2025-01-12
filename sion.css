@@ -661,6 +661,7 @@ li:hover {
 	max-width: fit-content;
 	width: auto;
 	display: flex;
+	margin: 0px 0px 0px 59px;
 }
 .slider-sol-text {
 	justify-content: center;
@@ -1370,7 +1371,6 @@ input[type="number"] {
         width: 90%;
     }
 	.slider-image-sol img {
-		max-width: fit-content;
 		display: flex;
 	}
     .slider-text {
@@ -1394,6 +1394,24 @@ input[type="number"] {
 	}
 	.footer-section-term{
 		align-items: center;
+	}
+}
+@media (max-width: 1200px){
+	.slider-sol {
+		width: auto;
+		margin: 20px;
+	  }
+	}  
+	.slider-sol-text {
+		width: 90%;
+		margin-left: 20px;
+		padding-left: 58px;
+	  }
+	}
+	.slider-image-sol img {
+		max-width: 800px;
+		display: flex;
+	  }
 	}
 }
 @media (min-width: 1200px) {
