@@ -141,13 +141,13 @@ html {
 	align-content: center;
 	align-items: center;
 }
-h2, .contentgroup__h2 {
-  font-family: Open Sans Condensed, sans-serif;
-  font-size: var(--font-size-h2);
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.2;
-  text-transform: uppercase;
+h1, .contentgroup__h2 {
+	font-family: Open Sans Condensed, sans-serif;
+	font-size: var(--font-size-h2);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1.2;
+	text-transform: uppercase;
 }
 /* Estilos de cada bloque */
 .block {
@@ -411,6 +411,7 @@ li:hover {
 	font-size: 3em;
 	margin: 10px 0px 0px;
 	display: inline-block;
+	text-transform: inherit;
 	transition: transform 0.3s ease-out; /* Vuelta suave */
     font-weight: bold;
 }
@@ -923,16 +924,17 @@ li:hover {
 	width: 100vh;
 }
 .seccion-como-titulo {
-  font-size: 36px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 15px;
+	font-size: 36px;
+	color: #333;
+	text-align: center;
+	margin-bottom: 15px;
+	letter-spacing: normal;
 }
 .seccion-como-subtitulo {
-  font-size: 18px;
-  color: #777;
-  text-align: center;
-  margin-bottom: 40px;
+	font-size: 18px;
+	color: #777;
+	text-align: center;
+	margin-bottom: 40px;
 }
 .proceso-salto {
     display: grid;
