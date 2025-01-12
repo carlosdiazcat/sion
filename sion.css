@@ -1732,11 +1732,13 @@ input[type="number"] {
 		text-justify: auto;
 		justify-content: center;
 		align-items: center;
-        font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 18px;
     }
 	.slider-sol-text {
 		width: auto;
-        font-size: 4em; /* Se reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 4em;
+		padding-left: 0px;
+		margin-left: 0px;
     }
 	.slider-container h2{
 		margin-top: 20px;
@@ -1796,6 +1798,9 @@ input[type="number"] {
 		font-size: 4vw;
 		margin: 10px 40px;
 	}
+	.nav-links a {
+		  font-size: 6vw;
+		}
 }
 @media (max-width: 426px) {
 	.overlay {
