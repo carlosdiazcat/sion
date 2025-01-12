@@ -685,13 +685,13 @@ li:hover {
 }
 .slider-text p {
 	font-size: 16px;
-    color: #777;
+    color: #3E3E3E;
 	line-height: 1.4;
     text-align: justify;
 }
 .slider-sol-text p {
 	font-size: 16px;
-    color: #777;
+    color: #3E3E3E;
     text-align: justify;
 }
 .slider1 {
@@ -825,7 +825,7 @@ li:hover {
 }
 .producto p {
     font-size: 1rem;
-    color: #777;
+    color: #3E3E3E;
 }
 /* Llamada a la Acción */
 .cta {
@@ -932,7 +932,7 @@ li:hover {
 }
 .seccion-como-subtitulo {
 	font-size: 18px;
-	color: #777;
+	color: #3E3E3E;
 	text-align: center;
 	margin-bottom: 40px;
 }
