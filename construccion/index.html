@@ -46,7 +46,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Solución integral y sin preocupaciones</h3>
 					<p class="salto-descripcion">
@@ -57,7 +57,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Experiencia y compromiso</h3>
 					<p class="salto-descripcion">
@@ -68,7 +68,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Calidad garantizada</h3>
 					<p class="salto-descripcion">
@@ -79,7 +79,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Diseño personalizado</h3>
 					<p class="salto-descripcion">
@@ -90,7 +90,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Ahorro de tiempo y dinero</h3>
 					<p class="salto-descripcion">
@@ -101,7 +101,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Tecnología de vanguardia</h3>
 					<p class="salto-descripcion">
@@ -112,7 +112,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Transparencia y confianza</h3>
 					<p class="salto-descripcion">
@@ -123,7 +123,7 @@
 			<div class="proceso-salto">
 				<div class="salto">
 					<div class="salto-icono">
-					  <img src="/img/conexion.svg" alt="Planeación" />
+					  <img src="/img/conexion.svg" alt="Planificación" />
 					</div>
 					<h3 class="salto-titulo">Postventa y garantía</h3>
 					<p class="salto-descripcion">
@@ -133,7 +133,21 @@
 			</div>
 		</div>
 	</section>
-	<script> src="/sion.js"</script>
+	<script> src="/sion.js"
+		window.addEventListener("loadstart", function() {
+			document.getElementById("loading").style.display = "block";
+		});
+		function toggleMenu() {
+			var navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');
+		}
+		window.addEventListener("load", function() {
+			document.getElementById("loading").style.display = "none";
+		});
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); 
+		});
+	</script>
 	<footer>
 		<div class="footer-container">
 			<div class="footer-section">
