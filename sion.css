@@ -934,7 +934,8 @@ li:hover {
 }
 .seccion-como-subtitulo {
 	font-size: 18px;
-	color: margin-top: 10px;margin-top: 10px;margin-top: 10px;margin-top: 10px;margin-top: 10px;E3E;
+	color: #333;
+	margin-top: 10px;
 	text-align: center;
 	margin-bottom: 40px;
 }
@@ -1403,18 +1404,15 @@ input[type="number"] {
 		width: auto;
 		margin: 10px 20px;
 	  }
-	}  
 	.slider-sol-text {
 		width: 90%;
 		margin-left: 20px;
 		padding-left: 58px;
 	  }
-	}
 	.slider-image-sol img {
 		max-width: 800px;
 		display: flex;
 	  }
-	}
 }
 @media (min-width: 1200px) {
 	.introduccion h2{
