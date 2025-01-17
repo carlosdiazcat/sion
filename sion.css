@@ -1146,6 +1146,7 @@ footer {
 	left: 0;
 	right: 0;
 	position: absolute;
+	margin-top: 20px;
 }
 .footer-container {
     display: flex;
