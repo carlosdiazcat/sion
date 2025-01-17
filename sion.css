@@ -406,6 +406,7 @@ li:hover {
     color: white;
     text-align: center;
     margin-top: 100px;
+	margin-bottom: 10px;
 }
 .slogan-content h1 {
 	font-size: 3em;
@@ -1399,7 +1400,7 @@ input[type="number"] {
 @media (max-width: 1200px){
 	.slider-sol {
 		width: auto;
-		margin: 20px;
+		margin: 10px 20px;
 	  }
 	}  
 	.slider-sol-text {
@@ -1535,7 +1536,7 @@ input[type="number"] {
 	}
 	.productos {
 		flex-direction: column;
-		margin-top: 14px;
+		padding: 0px 20px;
     }
 	.productos h1 {
 		font-size: 1.5rem;
