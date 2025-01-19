@@ -452,6 +452,7 @@ li:hover {
 	flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
 	align-items: center; /* Alinea los elementos al inicio (izquierda) */
 	text-justify: auto;
+	text-align: center;
 }
 .introduccion h2 {
 	font-size: 3rem;
