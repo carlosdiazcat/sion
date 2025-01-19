@@ -1243,7 +1243,8 @@ a img {
 	transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
     }
 .form-container img{
-	width: 10%;
+	max-height: fit-content;
+	height: 85px;
 }
 /* Contenedor del formulario script */
 .seccion-form1{
@@ -1280,9 +1281,6 @@ a img {
 .form-container h2{
 	font-size: 140%;
 	padding-bottom: 20px;
-}
-.form-container img{
-	width: 10%;
 }
 form {
     display: flex;
@@ -1574,8 +1572,8 @@ input[type="number"] {
 	.form-container {
 		margin-right: 20px;
 		margin-left: 20px;
-		width: 90%; /* Ajusta el tamaño del modal a 90% del ancho de la pantalla */
-        top: 10%;
+		width: 90%;
+		max-width: fit-content;
 	}
 	.domotica-comodidad  {
 		display: flex;
@@ -1682,6 +1680,9 @@ input[type="number"] {
 	.footer-section-term {
 		display: flex;
 		flex-direction: column;
+	}
+	.nav-links a {
+		font-size: 5vw;
 	}
 }
 @media (max-width: 480px) {
