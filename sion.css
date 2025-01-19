@@ -1380,6 +1380,7 @@ input[type="number"] {
     }
 	.slider-image-sol img {
 		display: flex;
+		width:  700px;
 	}
     .slider-text {
         width: 90%;
@@ -1431,7 +1432,7 @@ input[type="number"] {
     }
 	.slider-image-sol {
         width: auto;
-		padding: 20px;
+		padding: 20px 20px 20px 0px;
 		justify-content: center;
 		align-items: flex-start;
 	}
