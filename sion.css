@@ -1627,6 +1627,15 @@ input[type="number"] {
 		align-content: center;
 		align-items: center;
 	}
+	.container1 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+		justify-items: center;
+		width: fit-content;
+		align-content: center;
+		align-items: center;
+	}
 	.container-como {
 		display: grid;
 		align-content: center;
@@ -1711,6 +1720,15 @@ input[type="number"] {
 	.container {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+		justify-items: center;
+		width: fit-content;
+		align-content: center;
+		align-items: center;
+	}
+	.container1 {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
 		gap: 10px;
 		justify-items: center;
 		width: fit-content;
@@ -1815,6 +1833,19 @@ input[type="number"] {
 	.interior-texto1 h2 {
 		padding: 0px 10px;
 		font-size: 1.2rem;
+	}
+	.block1 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #fff;
+		padding: 0px 20px;
+		margin: 10px 0px;
+		border-radius: 10px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		max-width: 250px;
+		height: 400px;
 	}
 }
 @media (max-width: 426px) {
