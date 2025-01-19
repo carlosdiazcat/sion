@@ -1152,7 +1152,7 @@ footer {
 	left: 0;
 	right: 0;
 	position: absolute;
-	margin-top: 20px;
+	padding-top: 20px;
 }
 .footer-container {
     display: flex;
@@ -1783,6 +1783,7 @@ input[type="number"] {
 	.form-container{
 		margin-right: 20px;
 		margin-left: 20px;
+		max-width: fit-content;
 	}
 	.text-line:nth-child(1) {
 		width: 80%;
