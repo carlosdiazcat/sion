@@ -201,6 +201,7 @@ h1, .contentgroup__h2 {
     font-size: 20px;
     color: #333;
 	padding-bottom: 5px;
+	margin: 0px;
 }
 /*Inicia seccion cabecera-container*/
 .cabecera-container{
