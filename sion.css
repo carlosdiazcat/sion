@@ -1389,7 +1389,6 @@ input[type="number"] {
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		margin-left: 100px;
     }
     .slider-text p {
         width: 90%;
@@ -1399,8 +1398,9 @@ input[type="number"] {
 		justify-content: center;
     }
 	.slider-image img{
-		width: 140%;
+		width: 100%;
 		max-width: 1000px;
+		margin-left: 40px;
 	}
 	.footer-section-term{
 		align-items: center;
