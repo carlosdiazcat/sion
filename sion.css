@@ -162,6 +162,7 @@ h1, .contentgroup__h2 {
     text-align: center;
     height: 170px;
 	width: 150px;
+	justify-content: center;
 }
 .block:hover {
 	transform: scale(1.05);
@@ -843,7 +844,7 @@ li:hover {
 .cta h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-	margin-top: 0px;
+	margin-top: 50px;
 }
 .boton {
     font-size: 1.2rem;
