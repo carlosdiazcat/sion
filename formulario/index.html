@@ -36,7 +36,7 @@
     <section class="seccion-form">
 		<div class="form-container">
 			<div style="display: inline-flex;">
-				<img src="img/cuaderno.gif" alt="">
+				<img src="/img/cuaderno.gif" alt="">
 				<h2>SOLICITA TU PRESUPUESTO</h2>
 			</div>
 			<hr>
@@ -159,7 +159,8 @@
 			document.getElementById("totalPriceInput").value = total;
 		}
 	</script>
-	<script> src="/sion.js"
+	<script> src="/sion.js"</script>
+	<script> 
 		function toggleMenu() {
             const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('active');}
@@ -170,7 +171,7 @@
         	location.reload(); // Refresca la página
     		});
 	</script>
-	<script src="/sion.js">
+	<script>
 		fetch("/footer.html")
 			.then(response => response.text())
 			.then(data => {
