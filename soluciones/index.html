@@ -242,6 +242,8 @@
 			rootMargin: '0px 0px -30% 0px'  
 		});
 		productos.forEach(producto => observer.observe(producto));
+	</script>
+	<script>
 		fetch("/footer.html")
 			.then(response => response.text())
 			.then(data => {

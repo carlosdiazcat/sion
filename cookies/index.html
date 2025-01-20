@@ -74,7 +74,7 @@
 		</ul>
 		<br> Más información sobre Internet Explorer<br><br>En caso de bloquear el uso de ‘cookies’ en su navegador es posible que algunos servicios o funcionalidades de la página web no estén disponibles.<br>En algunos navegadores se pueden configurar reglas específicas para administrar ‘cookies’ por sitio web, lo que ofrece un control más preciso sobre la privacidad. Esto significa que se puede inhabilitar ‘cookies’ de todos los sitios salvo de aquellos en los que se confíe.<br><br>Nos reservamos el derecho a actualizar oportunamente esta política.
 	</div>
-	<script src="/sion.js">
+	<script>
 		fetch("/footer.html")
 			.then(response => response.text())
 			.then(data => {
@@ -82,6 +82,7 @@
 			})
 			.catch(error => console.error("Error al cargar el footer:", error));
 	</script>
+	<script> src="/sion.js"</script>
 	<div id="footer"></div>
 </body>
 </html>

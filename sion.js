@@ -1,6 +1,7 @@
 window.addEventListener("loadstart", function() {
     document.getElementById("loading").style.display = "block";
 });
+
 function toggleMenu() {
 	var navLinks = document.getElementById('nav-links');
 	navLinks.classList.toggle('active');

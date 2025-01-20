@@ -59,7 +59,8 @@
 		</p><h2><br>Legislación aplicable<br></h2>
 		<p>La relación con el usuario y cualquier controversia derivada del uso del site se regirá y someterá a las leyes de España.</p>
 	</div>
-	<script> src="/sion.js"
+	<script> src="/sion.js"</script>
+	<script>
 		function toggleMenu() {
 			const navLinks = document.getElementById('nav-links');
 			navLinks.classList.toggle('active');}
@@ -68,6 +69,14 @@
 		document.getElementById('logo').addEventListener('click', function() {
 			location.reload(); // Refresca la página
 		});
+	</script>
+	<script>
+		fetch("/footer.html")
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById("footer").innerHTML = data;
+			})
+			.catch(error => console.error("Error al cargar el footer:", error));
 	</script>
 	<div id="footer"></div>
 </body>
