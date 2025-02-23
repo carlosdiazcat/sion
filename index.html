@@ -406,83 +406,126 @@
 			<!-- <img src="img/cuaderno.gif" alt="">-->
 			<h2 >SOLICITA TU PRESUPUESTO</h2>
 			<button class="cerrar" onclick="cerrarform()">&times;</button>
-			<form action="enviar_presupuesto_domotica.php" method="POST"> 
+			<form action="https://formspree.io/f/xeoewzqd" method="POST" onsubmit="handleSubmit(event)"> 
+				<!--enviar_presupuesto_domotica-->
+				<!-- Información de Contacto -->
 				<label for="nombre">Nombre Completo</label>
 				<input type="text" id="nombre" name="nombre" required>
+
 				<label for="email">Correo Electrónico</label>
 				<input type="email" id="email" name="email" required>
+
 				<label for="telefono">Teléfono</label>
 				<input type="tel" id="telefono" name="telefono" required>
-				<label for="vivienda">Tipo de Vivienda</label>
-				<select id="vivienda" name="vivienda" required>
-					<option value="">Seleccione el tipo de vivienda</option>
-					<option value="apartamento">Apartamento</option>
-					<option value="casa">Casa unifamiliar</option>
-					<option value="duplex">Dúplex</option>
-					<option value="chale">Chalé</option>
-				</select>
-				<label for="tamano">Tamaño Aproximado de la Vivienda (m²)</label>
-				<input type="number" id="tamano" name="tamano" min="20" required>
+
 				<div class="block-form">
-					<!-- Control de Luces -->
 					<div class="category">
 						<h3>Control de Luces</h3>
 						<label for="luces_smart">Unidades de luces inteligentes</label>
-						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" required>
+						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" >
 					</div>
-					<!-- Control de Persianas -->
 					<div class="category">
 						<h3>Control de Persianas</h3>
 						<label for="persianas_smart">Unidades de persianas</label>
-						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas" required>
+						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas">
 					</div>
 				</div>
 				<div class="block-form">
-					<!-- Seguridad -->
 					<div class="category">
 						<h3>Sistema de Seguridad</h3>
 						<label for="camaras_seguridad">Unidades de cámaras de seguridad</label>
-						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras" required>
-						<br>
+						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras">
+
 						<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
-						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores" required>
+						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores">
+						<label for="cerradura">Unidades de puertas</label>
+						<input type="number" id="cerradura" name="cerradura" min="1" placeholder="Ej. 2 puertas">
 					</div>
-					<!-- Climatización -->
 					<div class="category">
 						<h3>Climatización Inteligente</h3>
 						<label for="termostatos_inteligentes">Unidades de termostatos inteligentes</label>
-						<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos" required>
-						<br>
+						<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos">
 						<label for="ventiladores_inteligentes">Unidades de ventiladores inteligentes</label>
-						<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores" required>
+						<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores">
 					</div>
 				</div>	
 				<div class="block-form">
-					<!-- Entretenimiento -->
 					<div class="category">
 						<h3>Entretenimiento y Audio</h3>
 						<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
-						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" required>
-						<br>
+						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces">
+						<label for="videoporteros">Unidades de videoporteros</label>
+						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros">
 						<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
-						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required>
+						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required onchange="calculatePrice()">
 					</div>
 				</div>
-				<label for="fecha">Fecha Estimada de Instalación</label>
-				<input type="date" id="fecha" name="fecha" required>
-				<!-- <label for="estimado">Presupuesto estimado:</label>
+				
+				<label for="message" onchange="calculatePrice()">Comentarios adicionales:</label>
+				<textarea id="message" name="message" onchange="calculatePrice()"></textarea>
+				
+				<div class="total-price" id="totalPrice" style="color: white"></div>
+				<!--<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
+				<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
 				<div class="total-price" id="totalPrice">0</div>
-				Botón de Calcular -->
-				<!-- <button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>-->
-				<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
-				<div class="botones-contenedor">
-					<!--<button class="submit-btn" onclick="cerrarform()">Cerrar</button>-->
-					<button type="submit" class="submit-btn">Enviar</button>
-				</div>
+<input type="hidden" id="totalPriceHidden" name="totalPrice">
+				<!-- Botón de Calcular
+				<button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>
+				<!-- Botón de Enviar -->
+ 				<button type="submit" class="submit-btn">Enviar</button>
 			</form>
 		</div>
 		<script src="sion.js"></script>
 		<script>
+		// Función para calcular el precio
+		function calculatePrice() {
+			// Obtener las cantidades de cada producto
+			var product1 = document.getElementById("luces_smart").value;
+			var product2 = document.getElementById("persianas_smart").value;
+			var product3 = document.getElementById("camaras_seguridad").value;
+			var product4 = document.getElementById("sensores_movimiento").value;
+			var product5 = document.getElementById("termostatos_inteligentes").value;
+			var product6 = document.getElementById("ventiladores_inteligentes").value;
+			var product7 = document.getElementById("altavoces_inteligentes").value;
+			var product8 = document.getElementById("pantallas_inteligentes").value;
+			var product9 = document.getElementById("videoporteros").value;
+			var product10 = document.getElementById("cerradura").value;
+			// Precios de los productos
+			var price1 = 150;
+			var price2 = 150;
+			var price3 = 600;
+			var price4 = 150;
+			var price5 = 150;
+			var price6 = 150;
+			var price7 = 500;
+			var price8 = 450;
+			var price9 = 450;
+			var price10 = 450;
+			
+			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
+				var central = 1000;
+			} else {
+				var central = 200;
+			}
+			
+			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
+			// Mostrar el precio total en el div
+			document.getElementById("totalPrice").textContent  = total;
+			document.getElementById("totalPriceInput").value = total;
+			document.getElementById("totalPriceHidden").value = total;
+		}// Función para redirigir a la misma página después de enviar el formulario
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevenir el envío tradicional del formulario
+
+            // Aquí podemos procesar la lógica del envío (si es necesario con AJAX o similar)
+
+            // Redirigir a la misma página (o cualquier página que quieras)
+            setTimeout(() => {
+                window.location.href = "https://www.proyectossion.com/"; // Redirige a la misma URL
+            }, 5000); // Redirige después de 1 segundo
+        }
+	</script>
+	<script>
 			window.onload = function() {
 				if (!localStorage.getItem('cookiesAccepted') === 'false') {
 					document.getElementById('cookie-banner').style.display = 'block'; 

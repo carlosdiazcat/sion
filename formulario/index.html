@@ -56,24 +56,24 @@
 					<div class="category">
 						<h3>Control de Luces</h3>
 						<label for="luces_smart">Unidades de luces inteligentes</label>
-						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" >
+						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" onchange="calculatePrice()">
 					</div>
 					<div class="category">
 						<h3>Control de Persianas</h3>
 						<label for="persianas_smart">Unidades de persianas</label>
-						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas">
+						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas" onchange="calculatePrice()">
 					</div>
 				</div>
 				<div class="block-form">
 					<div class="category">
 						<h3>Sistema de Seguridad</h3>
 						<label for="camaras_seguridad">Unidades de cámaras de seguridad</label>
-						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras">
+						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras" onchange="calculatePrice()">
 
 						<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
-						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores">
+						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores" onchange="calculatePrice()">
 						<label for="cerradura">Unidades de puertas</label>
-						<input type="number" id="cerradura" name="cerradura" min="1" placeholder="Ej. 2 puertas">
+						<input type="number" id="cerradura" name="cerradura" min="1" placeholder="Ej. 2 puertas" onchange="calculatePrice()">
 					</div>
 					<div class="category">
 						<h3>Climatización Inteligente</h3>
@@ -87,9 +87,9 @@
 					<div class="category">
 						<h3>Entretenimiento y Audio</h3>
 						<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
-						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces">
+						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" onchange="calculatePrice()">
 						<label for="videoporteros">Unidades de videoporteros</label>
-						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros">
+						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros" onchange="calculatePrice()">
 						<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
 						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required onchange="calculatePrice()">
 					</div>
