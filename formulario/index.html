@@ -51,7 +51,7 @@
 
 				<label for="telefono">Teléfono</label>
 				<input type="tel" id="telefono" name="telefono" required>
-				<!-- 
+				
 				<label for="category">Selecciona la Categoría de Productos:</label>
 				<select id="category" name="category" required>
 					<option value="luces_smart">Luces Inteligentes</option>
@@ -64,18 +64,7 @@
 					<option value="videoporteros">Videoporteros</option>
 					<option value="termostatos">Termostatos</option>
 				</select>
-				<div id="product-selection">
-					<label for="product">Producto (ej. Luz, Sensor, etc):</label>
-					<input type="text" id="product" name="product" required>
-
-					<label for="quantity">Cantidad:</label>
-					<input type="number" id="quantity" name="quantity" required min="1">
-				</div>
-				-->
-				<label for="message">Comentarios adicionales:</label>
-				<textarea id="message" name="message"></textarea>
-				<!-- Categorías de Sistemas Domóticos -->
-				<div class="block-form">
+				<div class="block-form" id="product-selection">
 					<div class="category">
 						<h3>Control de Luces</h3>
 						<label for="luces_smart">Unidades de luces inteligentes</label>
@@ -109,12 +98,16 @@
 						<h3>Entretenimiento y Audio</h3>
 						<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
 						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" required>
+						<label for="videoporteros">Unidades de videoporteros</label>
+						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros" required>
 						<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
 						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required>
 					</div>
 				</div>
 				
-				<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
+				<label for="message">Comentarios adicionales:</label>
+				<textarea id="message" name="message"></textarea>
+				<!--<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
 				<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
 				<!-- <div class="total-price" id="totalPrice">0</div>
 				<!-- Botón de Calcular
