@@ -51,28 +51,36 @@
 
 				<label for="telefono">Teléfono</label>
 				<input type="tel" id="telefono" name="telefono" required>
-				<!-- Tipo de Vivienda -->
-				<label for="vivienda">Tipo de Vivienda</label>
-				<select id="vivienda" name="vivienda" required>
-					<option value="">Seleccione el tipo de vivienda</option>
-					<option value="apartamento">Apartamento</option>
-					<option value="casa">Casa unifamiliar</option>
-					<option value="duplex">Dúplex</option>
-					<option value="chale">Chalé</option>
+				<!-- 
+				<label for="category">Selecciona la Categoría de Productos:</label>
+				<select id="category" name="category" required>
+					<option value="luces_smart">Luces Inteligentes</option>
+					<option value="persianas_smart">Persianas Inteligentes</option>
+					<option value="cerraduras_inteligentes">Cerraduras Inteligentes</option>
+					<option value="camaras_seguridad">Sensores</option>
+					<option value="sensores_movimiento">Sensores</option>
+					<option value="altavoces_inteligentes">Altavoces Inteligentes</option>
+					<option value="pantallas_inteligentes">Pantallas Inteligentes</option>
+					<option value="videoporteros">Videoporteros</option>
+					<option value="termostatos">Termostatos</option>
 				</select>
+				<div id="product-selection">
+					<label for="product">Producto (ej. Luz, Sensor, etc):</label>
+					<input type="text" id="product" name="product" required>
 
-				<label for="tamano">Tamaño Aproximado de la Vivienda (m²)</label>
-				<input type="number" id="tamano" name="tamano" min="20" required>
-
+					<label for="quantity">Cantidad:</label>
+					<input type="number" id="quantity" name="quantity" required min="1">
+				</div>
+				-->
+				<label for="message">Comentarios adicionales:</label>
+				<textarea id="message" name="message"></textarea>
 				<!-- Categorías de Sistemas Domóticos -->
 				<div class="block-form">
-					<!-- Control de Luces -->
 					<div class="category">
 						<h3>Control de Luces</h3>
 						<label for="luces_smart">Unidades de luces inteligentes</label>
 						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" required>
 					</div>
-					<!-- Control de Persianas -->
 					<div class="category">
 						<h3>Control de Persianas</h3>
 						<label for="persianas_smart">Unidades de persianas</label>
@@ -80,7 +88,6 @@
 					</div>
 				</div>
 				<div class="block-form">
-					<!-- Seguridad -->
 					<div class="category">
 						<h3>Sistema de Seguridad</h3>
 						<label for="camaras_seguridad">Unidades de cámaras de seguridad</label>
@@ -89,39 +96,31 @@
 						<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
 						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores" required>
 					</div>
-					<!-- Climatización -->
 					<div class="category">
 						<h3>Climatización Inteligente</h3>
 						<label for="termostatos_inteligentes">Unidades de termostatos inteligentes</label>
 						<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos" required>
-
 						<label for="ventiladores_inteligentes">Unidades de ventiladores inteligentes</label>
 						<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores" required>
 					</div>
 				</div>	
 				<div class="block-form">
-					<!-- Entretenimiento -->
 					<div class="category">
 						<h3>Entretenimiento y Audio</h3>
 						<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
 						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" required>
-
 						<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
 						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required>
 					</div>
 				</div>
-				<!-- Fecha Estimada de Instalación -->
-				<label for="fecha">Fecha Estimada de Instalación</label>
-				<input type="date" id="fecha" name="fecha" required>
-
-				<!-- Presupuesto Estimado -->
+				
 				<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
 				<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
 				<!-- <div class="total-price" id="totalPrice">0</div>
 				<!-- Botón de Calcular
 				<button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>
 				<!-- Botón de Enviar -->
- 				<button type="submit" class="submit-btn" id="enviarCorreos">Enviar</button>
+ 				<button type="submit" class="submit-btn">Enviar</button>
 			</form>
 		</div>
 	</section>
@@ -138,6 +137,7 @@
 			var product6 = document.getElementById("ventiladores_inteligentes").value;
 			var product7 = document.getElementById("altavoces_inteligentes").value;
 			var product8 = document.getElementById("pantallas_inteligentes").value;
+			var product9 = document.getElementById("videoporteros").value;
 			// Precios de los productos
 			var price1 = 150;
 			var price2 = 150;
@@ -147,6 +147,7 @@
 			var price6 = 150;
 			var price7 = 500;
 			var price8 = 450;
+			var price9 = 450;
 			
 			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8) >= 30) {
 				var central = 1000;
