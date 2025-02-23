@@ -164,10 +164,38 @@
 		const form = document.getElementById('orderForm');
 		form.addEventListener('submit', function(event) {
 			event.preventDefault(); // Prevenir el envío tradicional del formulario
-
+			var product1 = document.getElementById("luces_smart").value;
+			var product2 = document.getElementById("persianas_smart").value;
+			var product3 = document.getElementById("camaras_seguridad").value;
+			var product4 = document.getElementById("sensores_movimiento").value;
+			var product5 = document.getElementById("termostatos_inteligentes").value;
+			var product6 = document.getElementById("ventiladores_inteligentes").value;
+			var product7 = document.getElementById("altavoces_inteligentes").value;
+			var product8 = document.getElementById("pantallas_inteligentes").value;
+			var product9 = document.getElementById("videoporteros").value;
+			var product10 = document.getElementById("cerradura").value;
+			// Precios de los productos
+			var price1 = 150;
+			var price2 = 150;
+			var price3 = 600;
+			var price4 = 150;
+			var price5 = 150;
+			var price6 = 150;
+			var price7 = 500;
+			var price8 = 450;
+			var price9 = 450;
+			var price10 = 450;
+			
+			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
+				var central = 1000;
+			} else {
+				var central = 200;
+			}
+			
 			// Crear un objeto FormData con los datos del formulario
 			const formData = new FormData(form);
-			formData.append('total_price', totalPrice);
+			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
+			formData.append('total_price', total);
 			// Enviar los datos mediante fetch a Formspree
 			fetch('https://formspree.io/f/xeoewzqd', {
 				method: 'POST',
