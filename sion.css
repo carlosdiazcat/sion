@@ -63,7 +63,7 @@ html {
 	font-family: Open Sans, sans-serif;
 	font-size: 1.0625rem;
 	font-weight: 400;
-	line-height: 1.85;
+	line-height: 1.50;
 	letter-spacing: 0;
 	text-rendering: optimizeLegibility;
 }
@@ -146,7 +146,7 @@ h1, .contentgroup__h2 {
 	font-size: var(--font-size-h2);
 	font-weight: 700;
 	letter-spacing: 0;
-	line-height: 1.2;
+	line-height: 1.5;
 	text-transform: uppercase;
 }
 /* Estilos de cada bloque */
@@ -465,7 +465,7 @@ li:hover {
 	font-size: auto;
 	color: #555;
 	align-content: center;
-	line-height: 1.85;
+	line-height: 1.50;
 	text-rendering: optimizeLegibility;
 	text-align: justify;  
 	margin: 0px 5px;
@@ -696,7 +696,7 @@ li:hover {
 .slider-text p {
 	font-size: 16px;
     color: #3E3E3E;
-	line-height: 1.4;
+	line-height: 1.5;
     text-align: justify;
 }
 .slider-sol-text p {
@@ -900,7 +900,7 @@ li:hover {
 .sobre-texto {
 	font-size: 18px;
 	color: #F7FCFF;;
-	line-height: 1.6;
+	line-height: 1.5;
 	align-content: center;
 	text-align: justify;
 	word-break: break-word;
@@ -967,7 +967,6 @@ li:hover {
 	font-size: 1.2rem;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	width: 200px;
-	height: 100px;
 }
 .salto1:hover {
 	transform: scale(1.05);
@@ -1039,7 +1038,7 @@ li:hover {
 	width: 90%;
 	display:flex;
 	align-items: center;
-	line-height: 1.6;
+	line-height: 1.5;
 	align-content: center;
 	text-align: justify;
 }
@@ -1568,7 +1567,6 @@ input[type="number"] {
 	}
 	.slogan-content h1 {
 		font-weight: bold;
-		font-size: 2.5em;
 	}
 	.form-container {
 		margin-right: 20px;
@@ -1683,7 +1681,7 @@ input[type="number"] {
 	}
 	.letras {
 		display: inline-block;
-		font-size: 1.1em;
+		font-size: 9vw;
 		transition: transform 0.2s ease-out;
 	}
 	.productos {
@@ -1835,7 +1833,7 @@ input[type="number"] {
 	}
 	.interior-texto1 h2 {
 		padding: 0px 10px;
-		font-size: 1.2rem;
+		font-size: 5vw;
 	}
 	.block1 {
 		display: flex;
