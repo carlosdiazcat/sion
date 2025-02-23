@@ -477,55 +477,71 @@
 		</div>
 		<script src="sion.js"></script>
 		<script>
-		// Función para calcular el precio
-		function calculatePrice() {
-			// Obtener las cantidades de cada producto
-			var product1 = document.getElementById("luces_smart").value;
-			var product2 = document.getElementById("persianas_smart").value;
-			var product3 = document.getElementById("camaras_seguridad").value;
-			var product4 = document.getElementById("sensores_movimiento").value;
-			var product5 = document.getElementById("termostatos_inteligentes").value;
-			var product6 = document.getElementById("ventiladores_inteligentes").value;
-			var product7 = document.getElementById("altavoces_inteligentes").value;
-			var product8 = document.getElementById("pantallas_inteligentes").value;
-			var product9 = document.getElementById("videoporteros").value;
-			var product10 = document.getElementById("cerradura").value;
-			// Precios de los productos
-			var price1 = 150;
-			var price2 = 150;
-			var price3 = 600;
-			var price4 = 150;
-			var price5 = 150;
-			var price6 = 150;
-			var price7 = 500;
-			var price8 = 450;
-			var price9 = 450;
-			var price10 = 450;
-			
-			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
-				var central = 1000;
-			} else {
-				var central = 200;
+			const form = document.getElementById('orderForm');
+			form.addEventListener('submit', function(event) {
+				event.preventDefault(); // Prevenir el envío tradicional del formulario
+				var product1 = document.getElementById("luces_smart").value;
+				var product2 = document.getElementById("persianas_smart").value;
+				var product3 = document.getElementById("camaras_seguridad").value;
+				var product4 = document.getElementById("sensores_movimiento").value;
+				var product5 = document.getElementById("termostatos_inteligentes").value;
+				var product6 = document.getElementById("ventiladores_inteligentes").value;
+				var product7 = document.getElementById("altavoces_inteligentes").value;
+				var product8 = document.getElementById("pantallas_inteligentes").value;
+				var product9 = document.getElementById("videoporteros").value;
+				var product10 = document.getElementById("cerradura").value;
+				// Precios de los productos
+				var price1 = 150;
+				var price2 = 150;
+				var price3 = 600;
+				var price4 = 150;
+				var price5 = 150;
+				var price6 = 150;
+				var price7 = 500;
+				var price8 = 450;
+				var price9 = 450;
+				var price10 = 450;
+
+				if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
+					var central = 1000;
+				} else {
+					var central = 200;
+				}
+
+				// Crear un objeto FormData con los datos del formulario
+				const formData = new FormData(form);
+				var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
+				document.getElementById("totalPrice").textContent  = total;
+				document.getElementById("totalPriceInput").value = total;
+				document.getElementById("totalPriceHidden").value = total;
+				formData.append('total_price', total);
+				// Enviar los datos mediante fetch a Formspree
+				fetch('https://formspree.io/f/xeoewzqd', {
+					method: 'POST',
+					body: formData 
+				})
+				.then(response => {
+					if (response.ok) {
+						// Redirigir a una página de agradecimiento si el envío es exitoso
+						window.location.href = "https://www.proyectossion.com/";
+					} else {
+						// Mostrar un mensaje de error si algo falla
+						alert('Hubo un error al enviar el formulario');
+					}
+				})
+			});
+			function handleSubmit(event) {
+				//event.preventDefault(); // Prevenir el envío tradicional del formulario
+
+				// Aquí podemos procesar la lógica del envío (si es necesario con AJAX o similar)
+
+				// Redirigir a la misma página (o cualquier página que quieras)
+				setTimeout(() => {
+					window.location.href = "https://www.proyectossion.com/"; // Redirige a la misma URL
+				}, 1000); // Redirige después de 1 segundo
 			}
-			
-			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
-			// Mostrar el precio total en el div
-			document.getElementById("totalPrice").textContent  = total;
-			document.getElementById("totalPriceInput").value = total;
-			document.getElementById("totalPriceHidden").value = total;
-		}// Función para redirigir a la misma página después de enviar el formulario
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevenir el envío tradicional del formulario
-
-            // Aquí podemos procesar la lógica del envío (si es necesario con AJAX o similar)
-
-            // Redirigir a la misma página (o cualquier página que quieras)
-            setTimeout(() => {
-                window.location.href = "https://www.proyectossion.com/"; // Redirige a la misma URL
-            }, 5000); // Redirige después de 1 segundo
-        }
-	</script>
-	<script>
+		</script>
+		<script>
 			window.onload = function() {
 				if (!localStorage.getItem('cookiesAccepted') === 'false') {
 					document.getElementById('cookie-banner').style.display = 'block'; 
