@@ -51,59 +51,59 @@
 
 				<label for="telefono">Teléfono</label>
 				<input type="tel" id="telefono" name="telefono" required>
-				<div class="block-form" id="product-selection">
+
+				<div class="block-form">
 					<div class="category">
 						<h3>Control de Luces</h3>
 						<label for="luces_smart">Unidades de luces inteligentes</label>
-						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" required>
+						<input type="number" id="luces_smart" name="luces_smart" min="1" placeholder="Ej. 5 luces" >
 					</div>
 					<div class="category">
 						<h3>Control de Persianas</h3>
 						<label for="persianas_smart">Unidades de persianas</label>
-						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas" required>
+						<input type="number" id="persianas_smart" name="persianas_smart" min="1" placeholder="Ej. 5 persianas">
 					</div>
 				</div>
 				<div class="block-form">
 					<div class="category">
 						<h3>Sistema de Seguridad</h3>
 						<label for="camaras_seguridad">Unidades de cámaras de seguridad</label>
-						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras" required>
+						<input type="number" id="camaras_seguridad" name="camaras_seguridad" min="1" placeholder="Ej. 3 cámaras">
 
 						<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
-						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores" required>
+						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores">
 					</div>
 					<div class="category">
 						<h3>Climatización Inteligente</h3>
 						<label for="termostatos_inteligentes">Unidades de termostatos inteligentes</label>
-						<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos" required>
+						<input type="number" id="termostatos_inteligentes" name="termostatos_inteligentes" min="1" placeholder="Ej. 2 termostatos">
 						<label for="ventiladores_inteligentes">Unidades de ventiladores inteligentes</label>
-						<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores" required>
+						<input type="number" id="ventiladores_inteligentes" name="ventiladores_inteligentes" min="1" placeholder="Ej. 3 ventiladores">
 					</div>
 				</div>	
 				<div class="block-form">
 					<div class="category">
 						<h3>Entretenimiento y Audio</h3>
 						<label for="altavoces_inteligentes">Unidades de altavoces inteligentes</label>
-						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces" required>
+						<input type="number" id="altavoces_inteligentes" name="altavoces_inteligentes" min="1" placeholder="Ej. 5 altavoces">
 						<label for="videoporteros">Unidades de videoporteros</label>
-						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros" required>
+						<input type="number" id="videoporteros" name="videoporteros" min="1" placeholder="Ej. 5 videoporteros">
 						<label for="pantallas_inteligentes">Unidades de pantallas inteligentes</label>
-						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required>
+						<input type="number" id="pantallas_inteligentes" name="pantallas_inteligentes" min="1" placeholder="Ej. 2 pantallas" required onchange="calculatePrice()">
 					</div>
 				</div>
 				
-				<label for="message">Comentarios adicionales:</label>
-				<textarea id="message" name="message"></textarea>
-				<div class="total" type="hidden">
-					<p>Precio Total: <span id="totalPrice">0</span> EUR</p>
-				</div>
+				<label for="message" onchange="updatePrice()">Comentarios adicionales:</label>
+				<textarea id="message" name="message" onchange="updatePrice()"></textarea>
+				<input type="hidden" id="totalPriceHidden" name="totalPrice">
+				<input type="hidden" id="totalPriceInput" name="totalPrice">
 				<!--<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
 				<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
 				<div class="total-price" id="totalPrice">0</div>
 				<!-- Botón de Calcular
 				<button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>
 				<!-- Botón de Enviar -->
- 				<button type="submit" onclick="calculatePrice()" class="submit-btn">Enviar</button>
+ 				<button type="submit" class="submit-btn">Enviar</button>
 			</form>
 		</div>
 	</section>
@@ -121,6 +121,7 @@
 			var product7 = document.getElementById("altavoces_inteligentes").value;
 			var product8 = document.getElementById("pantallas_inteligentes").value;
 			var product9 = document.getElementById("videoporteros").value;
+			var product9 = document.getElementById("cerradura").value;
 			// Precios de los productos
 			var price1 = 150;
 			var price2 = 150;
@@ -142,9 +143,9 @@
 			// Mostrar el precio total en el div
 			document.getElementById("totalPrice").textContent  = total;
 			document.getElementById("totalPriceInput").value = total;
+			document.getElementById("totalPriceHidden").value = total;
 		}
 	</script>
-	<script> src="/sion.js"</script>
 	<script> 
 		function toggleMenu() {
             const navLinks = document.getElementById('nav-links');
