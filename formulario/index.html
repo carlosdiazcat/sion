@@ -72,6 +72,8 @@
 
 						<label for="sensores_movimiento">Unidades de sensores de movimiento</label>
 						<input type="number" id="sensores_movimiento" name="sensores_movimiento" min="1" placeholder="Ej. 4 sensores">
+						<label for="cerradura">Unidades de sensores de movimiento</label>
+						<input type="number" id="cerradura" name="cerradura" min="1" placeholder="Ej. 2 cerraduras">
 					</div>
 					<div class="category">
 						<h3>Climatización Inteligente</h3>
@@ -121,7 +123,7 @@
 			var product7 = document.getElementById("altavoces_inteligentes").value;
 			var product8 = document.getElementById("pantallas_inteligentes").value;
 			var product9 = document.getElementById("videoporteros").value;
-			var product9 = document.getElementById("cerradura").value;
+			var product10 = document.getElementById("cerradura").value;
 			// Precios de los productos
 			var price1 = 150;
 			var price2 = 150;
@@ -132,14 +134,15 @@
 			var price7 = 500;
 			var price8 = 450;
 			var price9 = 450;
+			var price10 = 450;
 			
-			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8) >= 30) {
+			if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
 				var central = 1000;
 			} else {
 				var central = 200;
 			}
 			
-			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) (product9 * price9) + central;
+			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
 			// Mostrar el precio total en el div
 			document.getElementById("totalPrice").textContent  = total;
 			document.getElementById("totalPriceInput").value = total;
