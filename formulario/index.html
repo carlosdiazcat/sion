@@ -167,11 +167,11 @@
 
 			// Crear un objeto FormData con los datos del formulario
 			const formData = new FormData(form);
-
+			formData.append('total_price', totalPrice);
 			// Enviar los datos mediante fetch a Formspree
 			fetch('https://formspree.io/f/xeoewzqd', {
 				method: 'POST',
-				body: formData
+				body: formData 
 			})
 			.then(response => {
 				if (response.ok) {
@@ -182,9 +182,6 @@
 					alert('Hubo un error al enviar el formulario');
 				}
 			})
-			.catch(error => {
-				alert('Hubo un error al enviar el formulario');
-			});
 		});
 	</script>
 	<script> 
