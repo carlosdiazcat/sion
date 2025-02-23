@@ -94,13 +94,16 @@
 				
 				<label for="message">Comentarios adicionales:</label>
 				<textarea id="message" name="message"></textarea>
-				<!--<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
-				<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
-				<!-- <div class="total-price" id="totalPrice">0</div>
+				<div class="total" type="hidden">
+					<p>Precio Total: <span id="totalPrice">0</span> EUR</p>
+				</div>
+				<!--<input type="hidden" id="totalPriceInput" name="totalPrice" value="0">
+				<label for="ventiladores_inteligentes">Presupuesto estimado:</label>
+				<div class="total-price" id="totalPrice">0</div>
 				<!-- Botón de Calcular
 				<button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>
 				<!-- Botón de Enviar -->
- 				<button type="submit" class="submit-btn">Enviar</button>
+ 				<button type="submit" onclick="calculatePrice()" class="submit-btn">Enviar</button>
 			</form>
 		</div>
 	</section>
@@ -135,9 +138,9 @@
 				var central = 200;
 			}
 			
-			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + central;
+			var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) (product9 * price9) + central;
 			// Mostrar el precio total en el div
-			document.getElementById("totalPrice").innerText = total;
+			document.getElementById("totalPrice").textContent  = total;
 			document.getElementById("totalPriceInput").value = total;
 		}
 	</script>
