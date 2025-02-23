@@ -40,7 +40,7 @@
 				<h2>SOLICITA TU PRESUPUESTO</h2>
 			</div>
 			<hr>
-			<form action="enviar_presupuesto_domotica.php" method="POST"> 
+			<form action="https://formspree.io/f/xeoewzqd" method="POST"> 
 				<!--enviar_presupuesto_domotica-->
 				<!-- Información de Contacto -->
 				<label for="nombre">Nombre Completo</label>
@@ -121,10 +121,11 @@
 				<!-- Botón de Calcular
 				<button type="submit" class="submit-btn" onclick="calculatePrice()">Calcular</button>
 				<!-- Botón de Enviar -->
- 				<button type="submit" class="submit-btn">Enviar</button>
+ 				<button type="submit" class="submit-btn" id="enviarCorreos">Enviar</button>
 			</form>
 		</div>
 	</section>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		// Función para calcular el precio
 		function calculatePrice() {
