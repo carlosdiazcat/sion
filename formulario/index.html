@@ -150,14 +150,14 @@
 			document.getElementById("totalPriceHidden").value = total;
 		}// Función para redirigir a la misma página después de enviar el formulario
         function handleSubmit(event) {
-            event.preventDefault(); // Prevenir el envío tradicional del formulario
+            //event.preventDefault(); // Prevenir el envío tradicional del formulario
 
             // Aquí podemos procesar la lógica del envío (si es necesario con AJAX o similar)
 
             // Redirigir a la misma página (o cualquier página que quieras)
             setTimeout(() => {
                 window.location.href = window.location.href; // Redirige a la misma URL
-            }, 1000); // Redirige después de 1 segundo
+            }, 5000); // Redirige después de 1 segundo
         }
 	</script>
 	<script> 
