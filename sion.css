@@ -160,6 +160,15 @@ html {
 	font-size: 14px;
 	color: #555;
 }
+.item h1 {
+	font-family: Open Sans Condensed, sans-serif;
+	font-size: var(--font-size-h2);
+	font-weight: 700;
+	height: 30px;
+	letter-spacing: 0;
+	line-height: 1.5;
+	text-transform: uppercase;
+}
 h1, .contentgroup__h2 {
 	font-family: Open Sans Condensed, sans-serif;
 	font-size: var(--font-size-h2);
