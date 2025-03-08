@@ -8,7 +8,31 @@
 	<link rel="stylesheet" href="/sion.css">
 </head>
 <body>
-	<div id="cabecera"></div>
+	<section class="cabecera-container">
+		<header class = "header">
+			<div class="/img">
+				<a href="/" > 
+					<img class="logo" src="/img/sionlogo.png" alt="logo de la pagina" id="logo" >
+				</a>
+			</div>
+			<div class="menu" id="menu">
+			<div class="menuicon" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="close-icon" onclick="toggleMenu()"></div>
+				<div class="nav-links" id="nav-links">
+					<a href="/">Inicio</a>
+					<a href="/soluciones/">Soluciones</a>
+					<a href="/construccion/">Constructoras / Promotoras</a>
+					<a href="/domotica/">Domótica / Inmótica</a>
+					<a href="/formulario/">Contacto</a>
+				</div>
+			</div>
+			<button id="openMenuBtn">Abrir Menú</button>
+		</header>
+	</section>
     <section class="slogan">
 		<div class="slogan-content">
 			<h1>A quién nos dirigimos</h1>
@@ -123,12 +147,6 @@
 		document.getElementById('logo').addEventListener('click', function() {
 			location.reload(); 
 		});
-		fetch("../cabecera.html")
-			.then(response => response.text())
-			.then(data => {
-				document.getElementById("cabecera").innerHTML = data;
-			})
-			.catch(error => console.error("Error al cargar la cabecera:", error));
 		fetch("../footer.html")
 			.then(response => response.text())
 			.then(data => {
