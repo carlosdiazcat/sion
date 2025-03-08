@@ -1441,6 +1441,12 @@ input[type="number"] {
 	}
 }
 @media (max-width: 1200px){
+	.sobre-texto {
+		padding: 10px 0px;
+	}
+	.slider-sol-text p {
+		width: 100%;
+	  }
 	.slider-sol {
 		width: auto;
 		margin: 10px 20px;
