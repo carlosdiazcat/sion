@@ -11,9 +11,9 @@
 	<section class="cabecera-container">
 		<header class = "header">
 			<div class="img">
-			<a href="/" > 
-				<img class="logo" src="/img/blanco.svg" alt="logo de la pagina" id="logo" >
-			</a>
+				<a href="/" > 
+					<img class="logo" src="/img/blanco.svg" alt="logo de la pagina" id="logo" >
+				</a>
 			</div>
 			<div class="menu" id="menu">
 			<div class="menuicon" onclick="toggleMenu()">
@@ -25,7 +25,7 @@
 				<div class="nav-links" id="nav-links">
 					<a href="/">Inicio</a>
 					<a href="/soluciones/">Soluciones</a>
-						<a href="/construccion/">Constructoras / Promotoras</a>
+					<a href="/construccion/">Constructoras / Promotoras</a>
 					<a href="/domotica/">Domótica / Inmotica</a>
 					<a href="/formulario/">Contacto</a>
 				</div>
@@ -80,11 +80,22 @@
             <li><strong>Correo electrónico: </strong>info@proyectossion.com</li>
             <li><strong>Dirección: </strong>dirección física</li>
         </ul>
-
     </div>
-	<script> src="/sion.js"</script>
-	<script>
-		fetch("/footer.html")
+	<script> src="/sion.js"
+		window.addEventListener("loadstart", function() {
+			document.getElementById("loading").style.display = "block";
+		});
+		function toggleMenu() {
+			var navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');
+		}
+		window.addEventListener("load", function() {
+			document.getElementById("loading").style.display = "none";
+		});
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); 
+		});
+		fetch("../footer.html")
 			.then(response => response.text())
 			.then(data => {
 				document.getElementById("footer").innerHTML = data;
