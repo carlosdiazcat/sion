@@ -1735,6 +1735,12 @@ input[type="number"] {
 	.overlay {
 		top: 172px;
 	}
+	.como-trabajamos {
+		margin: 30px;
+	}
+	.salto{
+		height: fit-content;
+	}
 	.slogan-subtitulo {
 		font-size: 1.2rem;
 		font-weight: 300;
