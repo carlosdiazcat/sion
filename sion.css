@@ -1556,8 +1556,8 @@ input[type="number"] {
 		width: 90%;
 	}
 	.slider-sol-text {
-        width: 90%;
-        display: flex;    
+        display: flex;
+		padding-left: 0px;  
 		flex-direction: column;
 		align-items: center;
         font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
