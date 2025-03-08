@@ -1736,7 +1736,7 @@ input[type="number"] {
 		top: 172px;
 	}
 	.como-trabajamos {
-		margin: 30px;
+		margin: 0px 20px;
 	}
 	.salto{
 		height: fit-content;
@@ -1759,7 +1759,7 @@ input[type="number"] {
 		grid-template-columns: repeat(1, 1fr);
 		align-content: center;
 		align-items: center;
-		margin: 0px
+		margin: 0px;
 	}
 	.container {
 		display: grid;
