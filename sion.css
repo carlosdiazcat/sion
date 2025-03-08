@@ -1458,6 +1458,12 @@ input[type="number"] {
 	.slider-sol-text {
         padding-left: 58px;
     }
+	.container_escenas {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		padding: 40px;
+	}
 }
 @media (min-width: 1200px) {
 	.introduccion h2{
@@ -1509,12 +1515,6 @@ input[type="number"] {
 		justify-content: center;
 		left: 3%;
 		width: 20px;
-	}
-	.container_escenas {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 20px;
-		padding: 40px;
 	}
 	.text-line:nth-child(1) {
 		left: 0;
@@ -1717,6 +1717,12 @@ input[type="number"] {
 		display: flex;
 		flex-direction: column;
 	}
+	.container_escenas {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 20px;
+		padding: 20px;
+	}
 	.container-como1 {
 		grid-template-columns: repeat(2, 1fr);
 		max-width: fit-content;
@@ -1749,12 +1755,6 @@ input[type="number"] {
 	}
 	.salto{
 		height: fit-content;
-	}
-	.container_escenas {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 20px;
-		padding: 20px;
 	}
 	.slogan-subtitulo {
 		font-size: 1.2rem;
