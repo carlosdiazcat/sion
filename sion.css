@@ -1759,6 +1759,7 @@ input[type="number"] {
 		grid-template-columns: repeat(1, 1fr);
 		align-content: center;
 		align-items: center;
+		margin: 0px
 	}
 	.container {
 		display: grid;
@@ -1901,12 +1902,6 @@ input[type="number"] {
 		gap: 10px;
 		justify-items: center;
 		width: fit-content;
-		align-content: center;
-		align-items: center;
-	}
-	.container-como {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
 		align-content: center;
 		align-items: center;
 	}
