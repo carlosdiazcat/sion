@@ -1287,6 +1287,15 @@ a img {
 	background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente 
 	backdrop-filter: blur(10px);*/
 }
+.container1 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	justify-items: center;
+	width: fit-content;
+	align-content: center;
+	align-items: center;
+}
 .form-container1 {
 	background-color: #fffefe;
 	/*background: rgba(0, 0, 0, 0.1);
