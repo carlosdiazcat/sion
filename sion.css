@@ -86,7 +86,6 @@ html {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
 	height: 100%;
 	z-index: 1000;
 	justify-content: center;
@@ -151,7 +150,6 @@ html {
 	text-align: center;
 }
 .item img {
-	width: 100%;
 	height: auto;
 	border-radius: 8px;
 }
@@ -217,7 +215,6 @@ h1, .contentgroup__h2 {
     margin: 10px 0px; /* Espacio entre el logo y el texto */
 }
 .main{
-	width: 100%;
 	height: 90vh;
 }
 /* Estilo del texto dentro de los bloques */
@@ -234,7 +231,6 @@ h1, .contentgroup__h2 {
 /*Inicia seccion cabecera-container*/
 .cabecera-container{
 	top:0;
-	width: 100%;
 	z-index: 1;
 	position: absolute;
 }
@@ -259,7 +255,6 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-	width: 100%;
 	height: 100px;
     display: flex;
 	position: fixed;
@@ -394,7 +389,6 @@ li:hover {
 	min-width: 200px;
 }
 .video-section video {
-    width: 100%;
 	object-fit:cover;
 	z-index: -1;
 }
@@ -418,8 +412,7 @@ li:hover {
     justify-content: center;
     align-items: center;
     color: white;
-    text-align: center;  
-	width: 100%;
+    text-align: center;
 	height: 200px;
 }
 .slogan {
@@ -667,7 +660,6 @@ li:hover {
 }
 .slide-sol {
 	display: flex;
-    width: 100%;
     height: 100%;
     align-content: center;
     justify-content: space-between;
@@ -685,7 +677,6 @@ li:hover {
 .slider-image-sol img{
 	justify-content: center;
 	align-content: center;
-    width: 100%;
     max-width: 800px;
     height: auto;
     border-radius: 50px / 50px;
@@ -736,7 +727,6 @@ li:hover {
 }
 .slide1 {
     display: flex;
-    width: 100%;
     height: 100%;
     align-items: center;
     justify-content: space-between;
@@ -849,7 +839,6 @@ li:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .producto img {
-    width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -957,7 +946,7 @@ li:hover {
 	justify-items: center;
 	align-content: center;
 	align-items: center;
-	gap: 5px;
+	gap: 20px;
 	width: 100vh;
 }
 .seccion-como-titulo {
@@ -979,7 +968,7 @@ li:hover {
 }
 .proceso-salto1 {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(2, auto);
     max-width: 250px;
 	margin-bottom: 20px;
 }
@@ -1031,7 +1020,6 @@ li:hover {
 }
 /*Inicio de seccion central*/
 .central{
-	width: 100%;
 	height: clac(10vh - 20em);
 	display:flex;
 	flex-direction: column;
@@ -1042,7 +1030,6 @@ li:hover {
 .interior-img1 img{
 	object-fit: cover;
 	align-items: center;
-	width: 100%;
     border-radius: 20px;
 }
 .interior-texto1{
@@ -1132,14 +1119,12 @@ li:hover {
 	view-timeline-axis: block;
 }
 .interior-img1{
-	width: 100%;
 	height: 50%;
 	overflow: hidden;
 }
 /*finaliza de seccion central*/
 /*Inicio de seccion footer*/
 .contenido-footer{
-	width: 100%;
 	height: 10px;
 	bottom: 0px;
 	background-color: #10384A;
@@ -1151,7 +1136,6 @@ li:hover {
 	border: none;
 }
 .contenido-ultimo{
-	width: 100%;
 	height: 10em;
 	background-color:#10384A; 
 	display: flex;
@@ -1407,11 +1391,6 @@ input[type="number"] {
 	.slider-sol {
 		width: auto;  /* El texto ocupará el 40% */
 	}
-	.slider-sol-text {
-        width: 100%;
-    }
-	.slider-sol-text p {
-    }
 	.slider-image-sol img {
 		display: flex;
 		width:  40vw;
@@ -1429,7 +1408,6 @@ input[type="number"] {
 		justify-content: center;
     }
 	.slider-image img{
-		width: 100%;
 		max-width: 1000px;
 		margin-left: 40px;
 	}
@@ -1441,9 +1419,16 @@ input[type="number"] {
 	.sobre-texto {
 		padding: 10px 0px;
 	}
-	.slider-sol-text p {
-		width: 100%;
-	  }
+	.titulo{
+		margin: 0px;
+	}
+	.container-como1 {
+		grid-template-columns: repeat(2, 1fr);
+		width: auto;
+	}
+	.container {
+		width: auto;
+	}
 	.slider-sol {
 		width: auto;
 		margin: 10px 20px;
