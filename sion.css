@@ -1417,48 +1417,13 @@ input[type="number"] {
 		align-items: center;
 	}
 }
-@media (max-width: 1200px){
-	.sobre-texto {
-		padding: 10px 0px;
-	}
-	.titulo{
-		margin: 0px;
-	}
-	.container-como1 {
-		grid-template-columns: repeat(2, 1fr);
-		width: auto;
-	}
-	.container-como{
-		grid-template-columns: repeat(2, auto);
-	}
-	.container {
-		width: auto;
-	}
-	.slider-sol {
-		width: auto;
-		margin: 10px 20px;
-	  }
-	.slider-image-sol img {
-		max-width: 400px;
-		display: flex;
-	  }
-	.slider-image img {
-		max-width: 600px;
-	}
-	.slider-sol-text {
-        padding-left: 58px;
-    }
-	.container_escenas {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 20px;
-		padding: 40px;
-	}
-}
 @media (min-width: 1200px) {
 	.introduccion h2{
     	text-align: left;
 		font-size: 2.5rem;
+	}
+	.salto {
+		height: 400px;
 	}
 	.slider-sol-text {
 		margin-right: 10px;
@@ -1493,6 +1458,44 @@ input[type="number"] {
 	}
 	.text-line:nth-child(5) {
 		left: -10%;
+	}
+}
+@media (max-width: 1200px){
+	.sobre-texto {
+		padding: 10px 0px;
+	}
+	.titulo {
+		margin: 0px;
+	}
+	.container-como1 {
+		grid-template-columns: repeat(2, 1fr);
+		width: auto;
+	}
+	.container-como{
+		grid-template-columns: repeat(2, auto);
+	}
+	.container {
+		width: auto;
+	}
+	.slider-sol {
+		width: auto;
+		margin: 10px 20px;
+	}
+	.slider-image-sol img {
+		max-width: 400px;
+		display: flex;
+	}
+	.slider-image img {
+		max-width: 600px;
+	}
+	.slider-sol-text {
+        padding-left: 58px;
+    }
+	.container_escenas {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		padding: 40px;
 	}
 }
 @media (max-width: 920px) {
@@ -1661,13 +1664,8 @@ input[type="number"] {
 		align-items: center;
 	}
 	.container1 {
-		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 10px;
-		justify-items: center;
-		width: fit-content;
-		align-content: center;
-		align-items: center;
+		gap: 20px;
 	}
 	.container-como {
 		grid-template-columns: repeat(2, auto);
@@ -1676,7 +1674,7 @@ input[type="number"] {
 		max-width: fit-content;
 		margin: auto;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		justify-items: center;
 		align-content: center;
 		align-items: center;
@@ -1771,13 +1769,7 @@ input[type="number"] {
 		align-items: center;
 	}
 	.container1 {
-		display: grid;
 		grid-template-columns: repeat(1, 1fr);
-		gap: 10px;
-		justify-items: center;
-		width: fit-content;
-		align-content: center;
-		align-items: center;
 	}
 	.contenedor{
 		align-items: center;
