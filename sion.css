@@ -1411,21 +1411,18 @@ input[type="number"] {
         width: 100%;
     }
 	.slider-sol-text p {
-        width: 90%;
     }
 	.slider-image-sol img {
 		display: flex;
 		width:  700px;
 	}
     .slider-text {
-        width: 90%;
 		text-justify: auto;    
 		align-items: center;
 		display: flex;
 		flex-direction: column;
     }
     .slider-text p {
-        width: 90%;
 		text-justify: auto;
 		align-items: center;
 		padding: 0px 20px;
@@ -1483,7 +1480,6 @@ input[type="number"] {
 	}
 	.slider-text p {
     	margin-left: 5%;
-        width: 90%;
 		text-justify: auto;
 		align-items: flex-start;
     }
@@ -1813,7 +1809,6 @@ input[type="number"] {
 		align-content: center;
 	}
 	.slider-text {
-        width: 90%;
 		margin-top: 20px;
 		padding: 0px;
 		text-justify: auto;
