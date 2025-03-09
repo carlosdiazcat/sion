@@ -1437,6 +1437,9 @@ input[type="number"] {
 		max-width: 400px;
 		display: flex;
 	  }
+	.slider-image img {
+		max-width: 600px;
+	}
 	.slider-sol-text {
         padding-left: 58px;
     }
