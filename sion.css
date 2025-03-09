@@ -136,7 +136,6 @@ html {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 20px;
 	justify-items: center;
-	width: 100vh;
 	align-content: center;
 	align-items: center;
 }
@@ -948,7 +947,6 @@ li:hover {
 	align-content: center;
 	align-items: center;
 	gap: 20px;
-	width: 100vh;
 }
 .seccion-como-titulo {
 	font-size: 36px;
