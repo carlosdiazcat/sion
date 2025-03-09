@@ -1428,6 +1428,9 @@ input[type="number"] {
 		grid-template-columns: repeat(2, 1fr);
 		width: auto;
 	}
+	.container-como{
+		grid-template-columns: repeat(2, auto);
+	}
 	.container {
 		width: auto;
 	}
@@ -1667,10 +1670,6 @@ input[type="number"] {
 		align-items: center;
 	}
 	.container-como {
-		display: grid;
-		justify-items: center;
-		align-content: center;
-		align-items: center;
 		grid-template-columns: repeat(2, auto);
 	}
 	.container-como1 {
