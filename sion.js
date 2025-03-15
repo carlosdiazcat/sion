@@ -1,3 +1,32 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptButton = document.getElementById("accept-cookies");
+    const rejectButton = document.getElementById("reject-cookies");
+
+    // Si el usuario ya ha aceptado o rechazado, no mostrar el banner
+    if (localStorage.getItem("cookies-accepted") || localStorage.getItem("cookies-rejected")) {
+        return;
+    }
+
+    // Mostrar el banner si no se ha guardado la preferencia
+    cookieBanner.style.display = "block";
+
+    // Función para guardar la preferencia del usuario
+    function saveCookiePreference(preference) {
+        localStorage.setItem("cookies-" + preference, "true");
+        cookieBanner.style.display = "none";
+    }
+
+    // Si el usuario acepta las cookies
+    acceptButton.addEventListener("click", function() {
+        saveCookiePreference("accepted");
+    });
+
+    // Si el usuario rechaza las cookies
+    rejectButton.addEventListener("click", function() {
+        saveCookiePreference("rejected");
+    });
+});
 window.addEventListener("loadstart", function() {
     document.getElementById("loading").style.display = "block";
 });
