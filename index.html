@@ -404,7 +404,7 @@
 		Cookie Consent Banner -->
 		<div id="cookie-banner">
 			Este sitio usa cookies para mejorar tu experiencia. 
-			<button onclick="acceptCookies()">Aceptar todo</button>
+			<button onclick="acceptCookies()" id="accept-cookies">Aceptar todo</button>
 			<button onclick="showPreferences()">Personalizar</button>
 		</div>
 		<div id="cookie-modal">
@@ -416,9 +416,9 @@
 					<label><input type="checkbox" id="cookie-analytics"> Cookies de análisis</label><br>
 					<label><input type="checkbox" id="cookie-marketing"> Cookies de marketing</label><br>
 				</div>
-				<button class="cookie-button" onclick="acceptCookies()">Aceptar todo</button>
+				<button class="cookie-button" onclick="acceptCookies()" id="accept-cookies">Aceptar todo</button>
 				<button class="cookie-button" onclick="rejectCookies()">Rechazar todo</button>
-				<button class="cookie-button" onclick="savePreferences()">Confirmar</button>
+				<button class="cookie-button" onclick="savePreferences()" id="reject-cookies">Confirmar</button>
 			</div>
 		</div>
 		<div class="form-container1" id="formulario">
