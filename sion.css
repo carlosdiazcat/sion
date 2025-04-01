@@ -236,8 +236,8 @@ h1, .contentgroup__h2 {
 }
 /*Finaliza seccion cabecera-container*/
 .logo {
-  display: inline-block;
-  text-decoration: none;
+	display: inline-block;
+	text-decoration: none;
 }
 img.logo {
 	width: 150px;
@@ -264,6 +264,8 @@ header {
     justify-content:space-between;
     align-items: center;
 	z-index: 1;
+	left 0;
+	
 }
 .menu-toggle {
     font-size: 30px;
