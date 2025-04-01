@@ -1498,9 +1498,9 @@ input[type="number"] {
 	}
 }
 @media (min-width: 1200px) {
-	.introduccion h2{
+	.introduccion h2 {
     	text-align: left;
-		font-size: 2.5rem;
+		font-size: 4rem;
 	}
 	.salto {
 		height: 400px;
@@ -1566,7 +1566,7 @@ input[type="number"] {
 		display: flex;
 	}
 	.slider-image img {
-		max-width: 50vw;
+		max-width: 600px;
 	}
 	.slider-sol-text {
         padding-left: 58px;
