@@ -1065,6 +1065,20 @@ li:hover {
 	margin-bottom: 15px;
 	letter-spacing: normal;
 }
+.seccion-como-titulo-const {
+	font-size: 36px;
+	color: #333;
+	text-align: center;
+	margin-bottom: 15px;
+	letter-spacing: normal;
+}
+.seccion-como-subtitulo-const {
+	font-size: 18px;
+	color: #333;
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 40px;
+}
 .proceso-salto {
     grid-template-columns: repeat(4, auto);
 }
