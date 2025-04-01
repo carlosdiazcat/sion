@@ -970,6 +970,10 @@ li:hover {
     margin-bottom: 20px;
 	margin-top: 50px;
 }
+.como-trabajamos-const {
+	padding: 10px 20px;
+	background-color: #F7FCFF;
+}
 .boton {
     font-size: 1.2rem;
     background-image: url('img/fondo-menu.jpg');
