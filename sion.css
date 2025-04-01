@@ -533,13 +533,14 @@ li:hover {
     display: flex;
     color: white;
 	height: auto;
-	margin-top: 20px
 }
 .introduccion img {
     width: 100%;
 }
 .introduccion-image {
     max-width: 600px;
+	margin-left: 125px;
+	margin-right: 250px;
 }
 .introduccion-content{
     display: flex;
@@ -566,12 +567,18 @@ li:hover {
     color: #10384A;
 	font-weight: 600px;
 }
+.introduccion_sol h2 {
+	font-size: 4rem;
+	margin-bottom: 40px;
+    align-content: center;
+    color: #10384A;
+	font-weight: 600px;
+}
 .introduccion p {
-	font-size: auto;
 	color: #555;
 	align-content: center;
 	line-height: 1.50;
-	font-size: 1.5vw;
+	font-size: 16px;
 	text-rendering: optimizeLegibility;
 	text-align: justify;
 	width: 100%;
@@ -687,6 +694,7 @@ li:hover {
 	border-top-left-radius: 130px;
 	position: relative;
 	display: flex;
+	margin-top: 40px;
 }
 .beneficios h2 {
 	font-size: 4rem;
@@ -738,14 +746,12 @@ li:hover {
 .slide {
 	min-width: 100%;
     display: flex;
-	text-align: center;
     align-items: center;
     justify-content: space-between;
     /*position: flex;*/
 }
 .slider-container h2 {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 2vw;
 	margin-bottom: 0px;
 	
 	view-timeline-name: --image;
@@ -797,6 +803,7 @@ li:hover {
 .slider-text {
     max-width: 1400px;
 	width: auto;
+	margin-left: 5%;
 }
 .slider-text h2 {
     font-size: 24px;
@@ -989,8 +996,10 @@ li:hover {
 	margin-top: 10px;
     padding: 10px 30px;
     text-decoration: none;
-    border-radius: 30px;
     transition: background-color 0.3s ease;
+	border-top-left-radius: 30px;
+	width: 60px;
+	right: 0px;
 }
 .boton-slider:hover {
     background-color: #555;
@@ -1270,7 +1279,7 @@ footer {
 	justify-content: center; /* Centra el contenido horizontalmente */
 }
 .footer-section-term a{
-	color: #FFFFFF;
+	color: #9AC1E0;
     text-decoration: none;
 }
 .footer-section h3 {
@@ -1473,7 +1482,7 @@ input[type="number"] {
 		padding: 10px 0px;
 	}
 	.slide {
-		width: 400px;  /* El texto ocupará el 40% */
+	width: 400px;  /* El texto ocupará el 40% */
     }
 	.slider-sol {
 		width: auto;  /* El texto ocupará el 40% */
@@ -1483,15 +1492,12 @@ input[type="number"] {
 		width:  40vw;
 	}
     .slider-text {
-		text-justify: auto;    
-		align-items: center;
+		text-justify: auto;
 		display: flex;
 		flex-direction: column;
     }
     .slider-text p {
 		text-justify: auto;
-		align-items: center;
-		justify-content: center;
     }
 	.slider-image img{
 		max-width: 1000px;
@@ -1520,7 +1526,6 @@ input[type="number"] {
 		align-items: flex-start;
 	}
 	.slider-text p {
-    	margin-left: 5%;
 		text-justify: auto;
 		align-items: flex-start;
     }
