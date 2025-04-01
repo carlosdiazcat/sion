@@ -317,7 +317,7 @@ header {
 }
 .menuicon div, .close-icon div {
 	width: 50px;
-	height: 5px;
+	height: 7px;
 	border-radius:20px;
 	background-image: url('img/fondo-menu.jpg');
 	transition: all 0.3s;
