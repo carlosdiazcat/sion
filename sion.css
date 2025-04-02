@@ -729,6 +729,37 @@ li:hover {
 	font-size: 0.9rem;
 	color: #666;
 }
+/* Sección Beneficios */
+.beneficios1 {
+	background-color: #F7FCFF;
+	padding: 0px 20px 40px;
+}
+.beneficios1 h2 {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.beneficio1 {
+	background-color: #F7FCFF;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.beneficio1 img {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 15px;
+}
+.beneficio1 h3 {
+	font-size: 1.2rem;
+	color: #333;
+	margin-bottom: 10px;
+}
+.beneficio1 p {
+	font-size: 0.9rem;
+	color: #666;
+}
 /*Slider*/	
 .slider-container {
     position: relative;
