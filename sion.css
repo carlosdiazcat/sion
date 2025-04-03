@@ -1666,6 +1666,9 @@ input[type="number"] {
 	.introduction {
 		display: block;
 	}
+	.introduccion {
+		display: block;
+	}
 	.beneficios {
 		display: inline-table;
 	}
