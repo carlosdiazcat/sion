@@ -1872,6 +1872,9 @@ input[type="number"] {
 		font-size: 4vw;
 		margin: 10px 40px;
 	}
+	.container-sobre {
+	margin: 0 20px;
+}
 }
 @media (max-width: 672px) {
 	#cookie-modal {
