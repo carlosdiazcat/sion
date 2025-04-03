@@ -1649,7 +1649,7 @@ input[type="number"] {
 }
 @media (max-width: 980px) {
 	body {
-    margin: 0px 20px;
+    margin: 0px 10px;
 }
 	.introduccion h2 {
 		font-size: 2rem;  /* Tamaño más pequeño para móviles */
