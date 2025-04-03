@@ -1649,8 +1649,11 @@ input[type="number"] {
 }
 @media (max-width: 980px) {
 	body {
-    margin: 0px 10px;
+    margin: 0px 20px;
 }
+	header {
+		padding-left: 20px;
+	}
 	.introduccion h2 {
 		font-size: 2rem;  /* Tamaño más pequeño para móviles */
         margin: 10px;letter-spacing: normal;
