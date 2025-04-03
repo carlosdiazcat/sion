@@ -1651,8 +1651,23 @@ input[type="number"] {
 	body {
     margin: 0px 20px;
 }
+	.menu{
+		right: 20px;
+}
 	header {
 		padding-left: 20px;
+	}
+	.como-trabajamos {
+		margin: 0px -20px;
+	}
+	.introduccion-content{
+		margin: 0px 20px;
+	}
+	.introduction {
+		display: block;
+	}
+	.beneficios {
+		display: inline-table;
 	}
 	.introduccion h2 {
 		font-size: 2rem;  /* Tamaño más pequeño para móviles */
@@ -1903,9 +1918,6 @@ input[type="number"] {
 @media (max-width: 480px) {
 	.overlay {
 		top: 172px;
-	}
-	.como-trabajamos {
-		margin: 0px 20px;
 	}
 	.salto{
 		height: fit-content;
