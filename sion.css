@@ -515,6 +515,7 @@ li:hover {
     font-weight: 300;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	margin-right: 60px;
 }
 .letras {
 	display: inline-block;
@@ -1653,6 +1654,7 @@ input[type="number"] {
 }
 	.menu{
 		right: 20px;
+		position: unset;
 }
 	header {
 		padding-left: 20px;
