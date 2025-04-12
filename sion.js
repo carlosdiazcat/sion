@@ -105,7 +105,7 @@ var observer = new IntersectionObserver(function(entries, observer){
 			entry.target.style.transform = 'scale(1)';
 
 			// Animación de imagen
-			var imagen = entry.target.querySelector('.slider-image-sol img');
+			var imagen = entry.target.querySelector('..slider-sol');
 			imagen.style.transform = 'scale(1.05)';
 
 			// Animación del texto
@@ -117,7 +117,7 @@ var observer = new IntersectionObserver(function(entries, observer){
 			entry.target.style.transform = 'scale(0.95)';
 
 			// Restauramos imagen a su tamaño original
-			var imagen = entry.target.querySelector('.slider-image-sol img');
+			var imagen = entry.target.querySelector('..slider-sol');
 			imagen.style.transform = 'scale(1)';
 
 			// Restauramos el texto a su posición inicial
