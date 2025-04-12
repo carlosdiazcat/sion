@@ -21,6 +21,14 @@
 	<div id="loading" style="display: none;">
 		<img src="img/gifcarga.gif" alt="Cargando...">
 	</div>
+	<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body id="inicio">
 	<main class="main">
@@ -407,6 +415,152 @@
 			</form>
 		</div>
 		<script src="sion.js"></script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyCdbeehgc2VgdanpeVJUwdwpr1sGQYLSxs",
+				authDomain: "home-assistant-f9195.firebaseapp.com",
+				databaseURL: "https://home-assistant-f9195.firebaseio.com",
+				projectId: "home-assistant-f9195",
+				storageBucket: "home-assistant-f9195.firebasestorage.app",
+				messagingSenderId: "1026267953050",
+				appId: "1:1026267953050:web:a7c8570d35e0c6e758ac23"
+			};
+			firebase.initializeApp(firebaseConfig);
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+			function register() {
+				const email = document.getElementById("email").value;
+				const password = document.getElementById("password").value;	
+				auth.createUserWithEmailAndPassword(email, password)
+				  .then(userCredential => {
+					const uid = userCredential.user.uid;
+					return db.collection("users").doc(uid).set({
+					  email,
+					  sensores: {
+						temperatura: 22.5,
+						bateria: 50,
+						ph: 6.8,
+						o2: 4.2,
+						t_agua: 18.3,
+					conductivity: 1.1,
+						redox: 8.3,
+					depth: 0.1,
+					  },
+				  ubic: {
+						lat: 0,
+						lng: 0,
+					  },
+				  base: {
+						lat: 0,
+						lng: 0,
+					  }
+					});
+				  })
+				.then(() => alert("✅ Usuario registrado"))
+			    .catch(err => alert("⚠️ Error en el registro"));
+			  }
+			function areFieldsComplete() {
+			  const email = document.getElementById("email").value;
+			  const password = document.getElementById("password").value;
+			  return email !== "" && password !== "";
+			}
+			function login() {
+				const email = document.getElementById("email").value;
+				const password = document.getElementById("password").value;
+				if (!areFieldsComplete()) {
+					console.log("Por favor, completa ambos campos.");
+					return;
+				}
+				auth.signInWithEmailAndPassword(email, password)
+				.then(() => {
+					document.getElementById("auth-buttons").style.visibility = "hidden";
+					document.getElementById("auth-buttons").style.display = "none";
+					document.getElementById("panel").style.visibility = "visible";
+					document.getElementById("panel").style.display = "block";
+					document.getElementById("username").textContent = email;
+				})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+					if (errorCode === 'auth/invalid-login-credentials') {
+						alert("Contraseña incorrecta. Por favor, verifica tu contraseña.");
+					} else if (errorCode === 'auth/user-not-found') {
+						alert("Correo electrónico no registrado. Por favor, revisa tu correo.");
+					} else {
+						alert("Error al iniciar sesión");
+					}
+				});
+			}
+			document.getElementById("email").addEventListener("keydown", function(event) {
+				if (event.key === "Enter" && areFieldsComplete()) {
+					login();
+				}
+			});
+			document.getElementById("password").addEventListener("keydown", function(event) {
+				if (event.key === "Enter" && areFieldsComplete()) {
+					login();
+				}
+			});
+			function logout() {
+				auth.signOut().then(() => {
+					document.getElementById("panel").style.visibility = "hidden";
+					document.getElementById("panel").style.display = "none";
+					document.getElementById("auth-buttons").style.visibility = "visible";
+					document.getElementById("auth-buttons").style.display = "block";
+					document.getElementById("robotStatus").textContent = "Inactivo";
+					document.getElementById("bateria").textContent = "0%";
+					document.getElementById("temperatura").textContent = "0.0 °C";
+					document.getElementById("waterTemp").textContent = "0.0 °C";
+					document.getElementById("ph").textContent = "0.0";
+					document.getElementById("o2").textContent = "0.0 mg/L";
+					document.getElementById("conductivity").textContent = "0.0 µS/cm";
+					document.getElementById("redox").textContent = "0.0 mV";
+					document.getElementById("depth").textContent = "0.0 m";
+					document.getElementById("redox").textContent = "0.0 mV";
+					document.getElementById("depth").textContent = "0.0 m";
+					document.getElementById("user-info").style.display = "none";
+					map = 0;
+				});
+			}
+			function refreshData() {
+				auth.onAuthStateChanged(user => {
+				if (user) {
+					mostrarSensores(user.uid);
+				}
+			  });
+			}	
+			function startAutoRefresh() {
+			  refreshData();
+
+			  refreshInterval = setInterval(refreshData, 60000);
+			}
+			function stopAutoRefresh() {
+			  clearInterval(refreshInterval);
+			}
+			auth.onAuthStateChanged(user => {
+				if (user) {
+					document.getElementById("panel").style.visibility = "visible";
+					document.getElementById("panel").style.display = "block";
+					document.getElementById("auth-buttons").style.visibility = "hidden";
+					document.getElementById("auth-buttons").style.display = "none";
+					map = 0;
+					startAutoRefresh();
+					mostrarSensores(user.uid);
+					const id = user.uid;
+					const username = user.displayName || user.email;
+					document.getElementById("username").textContent = user.email;
+					document.getElementById("user-info").style.display = "flex";
+				} else {
+					document.getElementById("auth-buttons").style.visibility = "visible";	
+					document.getElementById("auth-buttons").style.display = "block";
+					document.getElementById("panel").style.visibility = "hidden";
+					document.getElementById("panel").style.display = "none";
+					stopAutoRefresh();
+					document.getElementById("user-info").style.display = "none";
+					map = 0;
+				}
+			});
+		</script>
 		<script>
 			const form = document.getElementById('orderForm');
 			form.addEventListener('submit', function(event) {
