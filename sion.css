@@ -485,21 +485,22 @@ li:hover {
       background-color: #0056b3; /* Color del botón al pasar el mouse por encima */
     }
 .boton-slogan1:hover {
-      background-color: #0056b3; /* Color del botón al pasar el mouse por encima */
+      background-color: #0056b3;
     }
 .slogan {
-    background-image: url('img/fondo-menu.jpg');
+	background: linear-gradient(to bottom, #10394b, #3a87c3);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 200px;
+	border-bottom-right-radius: 150px;
+    height: 150px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
-    text-align: center;
-    margin-top: 100px;
-	margin-bottom: 10px;
+    margin-top: 120px;
+	position: relative;
+	padding: 20px 0px 0px 120px;
+	margin: 120px 0px 0px -100px;
+	left: 0;
 }
 .slogan-content h1 {
 	font-size: 3em;
@@ -509,6 +510,12 @@ li:hover {
 	transition: transform 0.3s ease-out; /* Vuelta suave */
     font-weight: bold;
 }
+.slogan-subtitulo {
+    font-size: 1.2rem;
+    font-weight: 300;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 .letras {
 	display: inline-block;
 	font-size: 1.3em;
@@ -517,13 +524,7 @@ li:hover {
 .palabra {
 	margin-right: 0; /* Espacio entre palabras */
 }
-.slogan-subtitulo {
-    font-size: 1.2rem;
-    font-weight: 300;
-	padding: 20px 40px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
+
 /* Sección Introducción */
 .introduccion {
     background-color: #FFF;
@@ -546,8 +547,8 @@ li:hover {
     display: flex;
     margin-right: 100px;
     width: auto;
-	flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
-	align-items: center; /* Alinea los elementos al inicio (izquierda) */
+	flex-direction: column;
+	align-items: center;
 	text-justify: auto;
 	text-align: center;
 }
@@ -555,8 +556,8 @@ li:hover {
     display: flex;
     margin-left: 100px;
     width: auto;
-	flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
-	align-items: center; /* Alinea los elementos al inicio (izquierda) */
+	flex-direction: column;
+	align-items: center;
 	text-justify: auto;
 	text-align: center;
 }
@@ -1043,7 +1044,6 @@ li:hover {
 	padding: 5px 0px 0px;
 	margin: 0px -100px;
 	left: 0;
-	/*background-image: url('img/fondo-menu.jpg');*/
 	background: linear-gradient(to left, #10394b, #3a87c3);
 	background-repeat: no-repeat;
 	background-size: cover;
