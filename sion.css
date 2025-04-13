@@ -91,7 +91,7 @@ html {
 	z-index: 1000;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y opaco */
+	background-color: rgba(0, 0, 0, 0.6);
 }
 .modal-content {
 	background-color: #FFFFFF;
@@ -114,7 +114,6 @@ html {
 .cookie-button:hover {
 	background-color: #45a049;
 }
-/* Checkboxes en línea */
 .cookie-options label {
     display: flex;
     justify-content: center;
@@ -123,15 +122,14 @@ html {
     font-size: 16px;
 }
 .cookie-options input {
-    order: 2; /* Hace que el checkbox aparezca a la derecha */
+    order: 2;
 	max-width: 10px;
-    margin-left: 10px; /* Espacio entre el texto y el checkbox */
+    margin-left: 10px;
 }
 .close {
 	float: right;
 	cursor: pointer;
 }
-/* Contenedor principal con flexbox */
 .container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -176,7 +174,6 @@ h1, .contentgroup__h2 {
 	line-height: 1.5;
 	text-transform: uppercase;
 }
-/* Estilos de cada bloque */
 .block {
 	display: flex;
     flex-direction: column;
@@ -206,18 +203,16 @@ h1, .contentgroup__h2 {
     max-width: 250px;
     height: 400px;
 }
-/* Estilo de los logos */
 .logo-block {
-    width: 40px; /* Tamaño de los logos */
+    width: 40px;
     height: 40px;
     object-fit: cover;
-    margin: 10px 0px; /* Espacio entre el logo y el texto */
+    margin: 10px 0px;
 }
 .main{
 	width: 100%;
 	height: 90vh;
 }
-/* Estilo del texto dentro de los bloques */
 .block p {
     font-size: 16px;
     color: #333;
@@ -228,13 +223,11 @@ h1, .contentgroup__h2 {
 	padding-bottom: 5px;
 	margin: 0px;
 }
-/*Inicia seccion cabecera-container*/
 .cabecera-container{
 	top:0;
 	z-index: 1;
 	position: absolute;
 }
-/*Finaliza seccion cabecera-container*/
 .logo {
 	display: inline-block;
 	text-decoration: none;
@@ -251,7 +244,6 @@ body {
     color: #333;
 }
 header {
-	/*background-image: url('img/fondo-menu.jpg');*/
 	background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
@@ -353,27 +345,24 @@ header {
 	display: flex;
 }
 .close-icon {
-	display: none; /* Ocultar por defecto */
+	display: none;
 }
 .active .menuicon {
-	display: none; /* Ocultar el icono de menú cuando está activo */
+	display: none;
 }
 .active .close-icon {
-	display: flex; /* Mostrar la X cuando está activo */
+	display: flex;
 	}
 input:checked  ~ ul{
     display: block;
     font-size: 36px;
 }
-/* Estilo del boton cuando se pasa el mouse por encima*/
 label:hover{
   background: none;
 }
-/* Estilo del boton cuando el menú está expandido*/
 input:checked ~ label {
   background: lightgrey; 
 }
-/*Estilo cuando el mouse pasa encima de cada link del menu*/
 li:hover {
   filter: brightness(110%);
 }
@@ -384,7 +373,6 @@ li:hover {
 	margin-bottom: 0px;
 	
 }
-/*Secion video-section*/
 .video-section {
 	position: static;
 	overflow: inherit;
@@ -397,17 +385,14 @@ li:hover {
 	object-fit:cover;
 	z-index: -1;
 }
-/* Estilo para el logo que sirve como botón de mute */
 .mute-logo {
     cursor: pointer;
 }
-/* Estilos para el contenedor de los botones */
 .controls {
 	display: flex;
 	justify-content: center;
 	margin-top: 0px;
 }
-/*inicio seccion slogan*/
 .slogan1 {
 	flex-direction: column;
 	position: relative;
@@ -435,7 +420,7 @@ li:hover {
 	margin: 10px 0px 0px;
 	display: inline-block;
 	text-transform: inherit;
-	transition: transform 0.3s ease-out; /* Vuelta suave */
+	transition: transform 0.3s ease-out;
     font-weight: bold;
 }
 .slogan1-subtitulo {
@@ -455,8 +440,8 @@ li:hover {
 	position: absolute;
 	display: inline-block;
 	padding: 10px 30px;
-	margin-top: 160px; /* Ajusta la distancia desde el borde inferior */
-	right: 0; /* Ajusta la distancia desde el borde derecho */
+	margin-top: 160px;
+	right: 0;
 	bottom: 0;
 }
 .boton-slogan2{
@@ -469,12 +454,12 @@ li:hover {
 	position: absolute;
 	display: inline-block;
 	padding: 10px 30px;
-	margin-top: 160px; /* Ajusta la distancia desde el borde inferior */
-	right: 0; /* Ajusta la distancia desde el borde derecho */
+	margin-top: 160px;
+	right: 0;
 	bottom: 0;
 }
 .boton-slogan2:hover {
-      background-color: #0056b3; /* Color del botón al pasar el mouse por encima */
+      background-color: #0056b3;
     }
 .boton-slogan1:hover {
       background-color: #0056b3;
@@ -499,7 +484,7 @@ li:hover {
 	margin: 10px 0px 0px;
 	display: inline-block;
 	text-transform: inherit;
-	transition: transform 0.3s ease-out; /* Vuelta suave */
+	transition: transform 0.3s ease-out;
     font-weight: bold;
 }
 .slogan-subtitulo {
@@ -515,10 +500,8 @@ li:hover {
 	transition: transform 0.2s ease-out;
 }
 .palabra {
-	margin-right: 0; /* Espacio entre palabras */
+	margin-right: 0;
 }
-
-/* Sección Introducción */
 .introduccion {
     background-color: #FFF;
     align-content: center;
@@ -573,8 +556,8 @@ li:hover {
 	text-rendering: optimizeLegibility;
 	text-align: justify;
 	width: 100%;
-	word-break: break-word;       /* Rompe palabras largas si es necesario */
-	overflow-wrap: break-word;    /* Rompe las palabras largas que no caben */
+	word-break: break-word;
+	overflow-wrap: break-word;
 }
 .introduccion-domotica {
 	align-content: center;
@@ -643,11 +626,10 @@ li:hover {
     margin-left: 40px;
     border-radius: 50px / 50px;
 	max-width: 700px;
-	width: auto;  /* Ajusta el tamaño de la imagen */
-	object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
-	clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0); /* Define el corte diagonal */
+	width: auto;
+	object-fit: cover;
+	clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0);
 }
-/* Llamada a la Acción */
 .cta1 {
 	background-color: #ffffff;
     padding: 50px 20px;
@@ -673,14 +655,13 @@ li:hover {
 .boton1:hover {
     background-color: #555;
 }
-/* Sección Beneficios */
 .contenedor{
 	display: grid;
 	padding: 0px 20px;
 }
 .beneficios {
 	background-image: url('img/fondo beneficios.webp');
-	background-size: cover; /* Hace que la imagen cubra todo el fondo */
+	background-size: cover;
 	padding: 40px 20px;
 	align-content: center;
 	border-top-left-radius: 130px;
@@ -723,7 +704,6 @@ li:hover {
 	font-size: 0.9rem;
 	color: #666;
 }
-/* Sección Beneficios */
 .beneficios1 {
 	background-color: #F7FCFF;
 	padding: 0px 20px 40px;
@@ -754,7 +734,6 @@ li:hover {
 	font-size: 0.9rem;
 	color: #666;
 }
-/*Slider*/	
 .slider-container {
     position: relative;
     width: auto;
@@ -898,7 +877,6 @@ li:hover {
 	color: none;
 	opacity: 0%;
 }
-/* Indicadores de navegación */
 .indicators1 {
     position: absolute;
     bottom: 10px;
@@ -933,7 +911,6 @@ li:hover {
 	animation-range: entry 25% cover 30%;
 	animation-fill-mode: both;
 }
-/* Sección Productos */
 .productos {
 	align-content: center;
     background-color: #FFF;
@@ -946,9 +923,9 @@ li:hover {
 	animation-range: entry 25% cover 30%;
 	animation-fill-mode: both;
 	padding: 20px;
-    opacity: 0;  /* Comienza invisible */
-    transform: scale(0.95);  /* Comienza más pequeña */
-    transition: opacity 1s ease, transform 1s ease; /* Transición suave */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s ease, transform 1s ease;
 }
 .productos h1 {
     font-size: 2.5rem;
@@ -1033,7 +1010,6 @@ li:hover {
 .boton-slider:hover {
     background-color: #555;
 }
-/*inicio seccion sobre*/
 .sobre {
 	padding: 5px 100px 0px;
 	margin: 0px -100px;
@@ -1154,7 +1130,6 @@ li:hover {
 	/*width: 200px;*/
 	display: contents;
 }
-/*Inicio de seccion central*/
 .central{
 	height: clac(10vh - 20em);
 	display:flex;
@@ -1212,7 +1187,7 @@ li:hover {
 	height: 75%;
 	display: flex;
     flex-direction: row;
-	animation: slide 6s; /* Animación del deslizamiento */
+	animation: slide 6s;
 }
 .titulo{
 	font-size: 2em;
@@ -1258,8 +1233,6 @@ li:hover {
 	height: 50%;
 	overflow: hidden;
 }
-/*finaliza de seccion central*/
-/*Inicio de seccion footer*/
 .contenido-footer{
 	height: 10px;
 	bottom: 0px;
@@ -1290,9 +1263,7 @@ li:hover {
 	text-align: center;
 	border-radius: 8px;
 }
-/* Estilos del pie de página (footer) */
 footer {
-	/*background-image: url('img/fondo-menu.jpg');*/
 	background: linear-gradient(to left, #10394b, #3a87c3);
     background-repeat: no-repeat;
     background-size: cover;
@@ -1314,7 +1285,7 @@ footer {
 	display: flex;
 	padding-top: 15px;
     flex: 1;
-	justify-content: center; /* Centra el contenido horizontalmente */
+	justify-content: center;
 }
 .footer-section-term a{
 	color: #9AC1E0;
@@ -1335,7 +1306,6 @@ footer {
 .footer-section iframe {
     align-content: right;
 }
-/* Estilos para las redes sociales */
 .footer-section4{
 	justify-content: center;
 	margin-top: 30px;
@@ -1347,7 +1317,6 @@ a img {
     width: 30px; 
     height: auto;
 }
-/* Estilos para el pie de página inferior */
 .footer-bottom { 
     text-align: center;
     font-size: 14px;
@@ -1359,22 +1328,16 @@ a img {
     margin: 0;
     color: #ccc;
 }
-/* Contenedor del formulario */
 .seccion-form{
 	position: flex;
     background-image: url("img/fondo10.jpg");
 	backdrop-filter: blur(10px);
 	padding-bottom: 20px;
 	padding-top: 120px;
-	/*background: url("img/fondo10.jpg");
-	background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente 
-	backdrop-filter: blur(10px);*/
 	z-index: -1;
 }
 .form-container {
     background-color: #fffefe ;
-	/*background: rgba(0, 0, 0, 0.1); /* Fondo oscuro con transparencia */
-	/*background: linear-gradient(45deg, #10384A, #1A4C5E, #0F3C47, #4C6D7F, #315F74);*/
     padding: 50px;
 	color: #10384a;
     left: 50%;
@@ -1390,7 +1353,6 @@ a img {
 	max-height: fit-content;
 	height: 85px;
 }
-/* Contenedor del formulario script */
 .seccion-form1{
     background-image: url("img/fondo10.jpg");
 	position: relative;
@@ -1399,9 +1361,6 @@ a img {
 	background-color: white;
 	padding: 20px;
 	border-radius: 8px;
-	/*background: url("img/fondo10.jpg");
-	background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente 
-	backdrop-filter: blur(10px);*/
 }
 .container1 {
 	display: grid;
@@ -1414,8 +1373,6 @@ a img {
 }
 .form-container1 {
 	background-color: #fffefe;
-	/*background: rgba(0, 0, 0, 0.1);
-	background: linear-gradient(45deg, #10384A, #1A4C5E, #0F3C47, #4C6D7F, #315F74);*/
 	padding: 20px;
 	color: #10384a;
 	left: 5%;
@@ -1439,7 +1396,6 @@ form {
     display: flex;
     flex-direction:column;
 }
-/* Estilos para los campos de entrada */
 label {
     font-weight: bold;
     margin-bottom: 5px; 
@@ -1454,7 +1410,6 @@ input, select {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-/* Estilos para las categorías */
 .category {
     margin-bottom: 20px;
 }
@@ -1465,7 +1420,6 @@ input[type="number"] {
     font-weight: normal;
     margin-bottom: 10px;
 }
-/* Estilo del botón */
 .submit-btn {
     background-color: #164f68;
     color: white;
@@ -1478,7 +1432,6 @@ input[type="number"] {
 	margin-right: auto;
 	height: 60px;
 	padding: 10px 20px;
-	/*weight: 400px;*/
 }
 .submit-btn:hover {
     background-color: #5C5C5C;
@@ -1486,10 +1439,9 @@ input[type="number"] {
 }
 .botones-contenedor {
 	display: flex;
-	justify-content: space-between; /* Espacio entre los botones */
-	gap: 10px; /* También puedes usar gap para crear espacio entre ellos */
+	justify-content: space-between;
+	gap: 10px;
 }
-/* Botón de cerrar */
 .cerrar {
 	position: absolute;
 	top: -10px;
@@ -1504,7 +1456,6 @@ input[type="number"] {
 .cerrar:hover {
 	color: black;
 }
-/* Responsividad */
 @keyframes show {
 	from {
 	opacity: 0;
@@ -1517,10 +1468,10 @@ input[type="number"] {
 }
 @media (max-width: 1920px) {
 	.slide {
-		width: 400px;  /* El texto ocupará el 40% */
+		width: 400px;
     }
 	.slider-sol {
-		width: auto;  /* El texto ocupará el 40% */
+		width: auto;
 	}
 	.slider-image-sol img {
 		display: flex;
@@ -1624,7 +1575,6 @@ input[type="number"] {
 		margin-left: 50vw;
 	}
 	.block{
-		/*flex-direction: row;*/
 		width: 16vw;
 		height: 150px;
 	}
@@ -1764,7 +1714,7 @@ input[type="number"] {
 		padding-left: 0px;  
 		flex-direction: column;
 		align-items: center;
-        font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 18px;
     }
     .slider-text {
         display: flex;
@@ -1772,18 +1722,18 @@ input[type="number"] {
 		width: auto;
 		text-justify: auto;
 		align-items: center;
-        font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 18px;
 	    margin: 0px 20px;
 		padding: 0px;
     }
 	.slide {
 		padding: 5px;
-        flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
-        align-items: center; /* Alinea los elementos al inicio (izquierda) */
+        flex-direction: column;
+        align-items: center;
     }
 	.slider-sol {
 		align-content: center;
-        flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
+        flex-direction: column;
     }
 	.slider-image img {
 		width: 100%;
@@ -1808,7 +1758,6 @@ input[type="number"] {
 	}
     .image {
         width: auto;
-		/*margin-left: 0; /* El texto ya no necesita margen en pantallas móviles */
     }
 	.proceso-salto {
 		grid-template-columns: repeat(2, auto);
@@ -1820,7 +1769,7 @@ input[type="number"] {
 		font-size: 2.5vw;
 	}
 	.slogan1-content p {
-		font-size: 1.7vw;
+		font-size: 2.2vw;
 	}
 	.slogan1-image img {
 		width: 50%;
@@ -1834,7 +1783,7 @@ input[type="number"] {
 	.domotica-comodidad  {
 		display: flex;
 		flex-direction: column;
-		align-items: center; /* Alinea los elementos al inicio (izquierda) */
+		align-items: center;
 		background-color: lavenderblush;
 	}
 	.text-line {
@@ -1870,9 +1819,9 @@ input[type="number"] {
 		margin-left: 40px;
 		border-radius: 50px / 50px;
 		max-width: 700px;
-		width: 80%;  /* Ajusta el tamaño de la imagen */
-		object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
-		clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0); /* Define el corte diagonal */
+		width: 80%;
+		object-fit: cover;
+		clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0);
 	}
 	.container {
 		grid-template-columns: repeat(2, 1fr);
@@ -1921,10 +1870,10 @@ input[type="number"] {
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: #f0f0f0; /* Color de fondo del banner */
+		background-color: #f0f0f0;
 		padding: 10px;
 		text-align: center;
-		z-index: 9999; /* Asegurarse de que el banner esté encima de otros elementos */
+		z-index: 9999;
 		display: flex;
 		flex-direction: column;
 	}
@@ -1942,7 +1891,7 @@ input[type="number"] {
 		margin: 0px 10px;
 		width: 70vw;
 		display: flex;
-  		align-items: center; /* Alinea verticalmente */
+  		align-items: center;
 	}
 	.container_escenas {
 		display: grid;
@@ -2084,8 +2033,8 @@ input[type="number"] {
 	}
 	.slide {
 		padding: 5px;
-        flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
-        align-items: center; /* Alinea los elementos al inicio (izquierda) */
+        flex-direction: column;
+        align-items: center;
     }
 	.slider {
         align-items: center;
@@ -2096,7 +2045,7 @@ input[type="number"] {
     }
     .image { 
         width: auto;
-		margin-left: 0; /* El texto ya no necesita margen en pantallas móviles */
+		margin-left: 0;
     }
 	.proceso-salto {
 		grid-template-columns: repeat(1, auto);
