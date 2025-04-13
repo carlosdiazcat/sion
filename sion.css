@@ -1035,7 +1035,8 @@ li:hover {
 }
 /*inicio seccion sobre*/
 .sobre {
-	padding: 5px 0px 0px;
+	padding: 5px 100px 0px;
+	margin: 0px -100px;
 	left: 0;
 	background: linear-gradient(to left, #10394b, #3a87c3);
 	background-repeat: no-repeat;
@@ -1601,6 +1602,10 @@ input[type="number"] {
 	header {
 		padding-left: 40px;
 	}
+	.sobre {
+		padding: 5px 40px 0px;
+		margin: 0px -40px;
+	}
 	.menu {
 		right: -10px;
 	}
@@ -1900,6 +1905,10 @@ input[type="number"] {
 	}
 	.container-sobre {
 		margin: 0 20px;
+	}
+	.sobre {
+		padding: 5px 20px 0px;
+		margin: 0px -20px;
 	}
 }
 @media (max-width: 672px) {
