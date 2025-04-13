@@ -257,7 +257,7 @@ header {
     background-size: cover;
     background-position: center;
 	height: 100px;
-	width: 100%;
+	width: 100vw;
     display: flex;
 	position: fixed;
 	flex-direction: row;
@@ -529,16 +529,13 @@ li:hover {
 	height: auto;
 }
 .introduccion img {
-    width: 100%;
+    width: 40vw;
 }
 .introduccion-image {
-    max-width: 600px;
-	margin-left: 125px;
-	margin-right: 250px;
+	margin: 0px 20px;
 }
 .introduccion-content{
     display: flex;
-    margin-right: 100px;
     width: auto;
 	flex-direction: column;
 	align-items: center;
@@ -679,6 +676,7 @@ li:hover {
 /* Sección Beneficios */
 .contenedor{
 	display: grid;
+	padding: 0px 20px;
 }
 .beneficios {
 	background-image: url('img/fondo beneficios.webp');
@@ -688,18 +686,20 @@ li:hover {
 	border-top-left-radius: 130px;
 	position: relative;
 	display: flex;
-	margin-top: 40px;
+}
+.beneficios h4 {
+	font-size: 4rem;
+	color: white;
+	margin 0px;
+	display: none;
 }
 .beneficios h2 {
 	font-size: 4rem;
-	padding-left: 70px;  
-	margin-top: 0px;
-  	margin-bottom: 0px;
 	color: white;
+	margin 0px;
 }
 .beneficios p {
 	font-size: 1.4rem;
-	padding: 0px 70px;
 	color: white;
 }
 .beneficio {
@@ -1042,7 +1042,7 @@ li:hover {
 	background-position: center;
 }
 .container-sobre {
-	margin: 0 100px;
+	margin: 25px 50px 0px;
 }
 .sobre-titulo {
 	font-size: 36px;
@@ -1059,12 +1059,10 @@ li:hover {
 	overflow-wrap: break-word;
 	margin: 0px;
 }
-/*Inicio seccion salto*/
 .como-trabajamos {
 	background-image: url("img/fondo slider.webp");
 	background-size: cover;
-	padding: 10px 0px;
-	margin: 0px -100px;
+	padding: 10px 20px;
 }
 .container-como {
     display: grid;
@@ -1079,7 +1077,6 @@ li:hover {
 .container-como1 {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	margin: 0px 0px 0px 100px;
 }
 .seccion-como-titulo {
 	font-size: 36px;
@@ -1584,9 +1581,40 @@ input[type="number"] {
 		left: -10%;
 	}
 }
-@media (max-width: 1200px){
+@media (max-width: 1500px) {
+	.container {
+		grid-template-columns: repeat(4, 2fr);
+		gap: 10px;
+	}
+	.beneficios h2 {
+		font-size: 3rem;
+	}
+	.beneficios p {
+		font-size: 1.2rem;
+	}
+}
+@media (max-width: 1300px){
+	body {
+		margin: 0px 40px;
+	}
 	.sobre-texto {
 		padding: 10px 0px;
+	}
+	.beneficios {
+		display: block;
+	}
+	.contendedor {
+		display: none;
+	}
+	.beneficios h4 {
+		display: initial;
+		position: relative;
+		margin-left: 50vw;
+	}
+	.block{
+		/*flex-direction: row;*/
+		width: 16vw;
+		height: 150px;
 	}
 	.titulo {
 		margin: 0px;
@@ -1603,7 +1631,8 @@ input[type="number"] {
 		margin: 0px 20px 15px;
 	}
 	.container {
-		width: auto;
+		grid-template-columns: repeat(4, 2fr);
+		gap: 10px;
 	}
 	.salto1{
 		width: 32vw;
@@ -1642,8 +1671,8 @@ input[type="number"] {
 }
 @media (max-width: 980px) {
 	body {
-    margin: 0px 20px;
-}
+		margin: 0px 20px;
+	}
 	.menu{
 		right: 20px;
 		position: unset;
@@ -1656,6 +1685,8 @@ input[type="number"] {
 	}
 	.introduccion-image {
 		margin: 0px;
+		justify-content: center;
+		display: grid;
 	}
 	.introduccion-content {
 		margin: 0px 20px;
@@ -1830,13 +1861,17 @@ input[type="number"] {
 		clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0); /* Define el corte diagonal */
 	}
 	.container {
-		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 10px;
-		justify-items: center;
-		width: fit-content;
-		align-content: center;
-		align-items: center;
+	}
+	.beneficios h4 {
+		display: none;
+	}
+	.beneficios {
+		display: flex;
+	}
+	.contenedor {
+		display: initial;
 	}
 	.container1 {
 		grid-template-columns: repeat(2, 1fr);
@@ -1850,6 +1885,7 @@ input[type="number"] {
 		margin: auto;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
 		justify-items: center;
 		align-content: center;
 		align-items: center;
