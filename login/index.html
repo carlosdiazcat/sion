@@ -123,13 +123,10 @@
 			font-size: 16px;
 		}
 		#user-info {
-			position: absolute;
-			top: 20px;
-			right: 20px;
 			display: flex;
 			align-items: center;
 			gap: 10px;
-			color: white;
+			color: black;
 		}
 		#username {
 			font-size: 1.2rem;
@@ -317,19 +314,15 @@
 				  email,
 				  sensores: {
 					temperatura: 22.5,
-					bateria: 50,
 					ph: 6.8,
-					o2: 4.2,
 					t_agua: 18.3,
 					conductivity: 1.1,
-					redox: 8.3,
-					depth: 0.1,
 				  },
 				});
 			  })
 			.then(() => alert("✅ Usuario registrado"))
 			.catch(err => alert("⚠️ Error en el registro"));
-		  }
+		}
 		function areFieldsComplete() {
 		  const email = document.getElementById("email").value;
 		  const password = document.getElementById("password").value;
