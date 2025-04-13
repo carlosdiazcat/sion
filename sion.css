@@ -1710,8 +1710,9 @@ input[type="number"] {
 		display: block;
 	}
 	.introduccion h2 {
-		font-size: 2rem;  /* Tamaño más pequeño para móviles */
-        margin: 10px;letter-spacing: normal;
+		font-size: 2rem;
+        margin: 10px;
+		letter-spacing: normal;
 	}
 	.text-container-line {
 		justify-content: center;
@@ -2052,7 +2053,6 @@ input[type="number"] {
 	}
 	.introduccion h2 {
 		font-size: auto;
-		text-align: center;
 		font-weight: bold;
 	}
     .slider-image {
