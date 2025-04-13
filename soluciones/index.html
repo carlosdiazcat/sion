@@ -250,29 +250,26 @@
 		const imagenes = document.querySelectorAll('.slider-image-sol img');
 		const textos = document.querySelectorAll('.slider-sol-text');
 		const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.style.opacity = 1;
-					entry.target.style.transform = 'scale(0.95)';
+		  entries.forEach(entry => {
+			const target = entry.target;
+			const imagen = target.querySelector('.slider-sol');
+			const texto = target.querySelector('.slider-sol-text');
 
-					const imagen = entry.target.querySelector('.slider-sol');
-					imagen.style.transform = 'scale(1.10)';
-
-					const texto = entry.target.querySelector('.slider-sol-text');
-					texto.style.transform = 'translateX(0)';
-				} else {
-					entry.target.style.opacity = 0;
-					entry.target.style.transform = 'scale(0.95)';
-
-					const imagen = entry.target.querySelector('.slider-sol');
-					imagen.style.transform = 'scale(1)';
-
-					const texto = entry.target.querySelector('.slider-sol-text');
-				}
-			});
+			if (entry.isIntersecting) {
+			  target.style.opacity = 1;
+			  target.style.transform = 'scale(1)';
+			  imagen.style.transform = 'scale(1.10)';
+			  texto.style.transform = 'translateX(0)';
+			} else {
+			  target.style.opacity = 0;
+			  target.style.transform = 'scale(0.95)';
+			  imagen.style.transform = 'scale(1)';
+			  texto.style.transform = 'translateX(-40px)';
+			}
+		  });
 		}, {
-			threshold: 0.3,
-			rootMargin: '0px 0px -30% 0px'  
+		  threshold: 0.3,
+		  rootMargin: '0px 0px -30% 0px'
 		});
 		productos.forEach(producto => observer.observe(producto));
 	</script>
