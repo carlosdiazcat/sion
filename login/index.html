@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Domótica en el Hogar</title>
+	<link rel="shortcut icon" href="/img/sionlogo azul.png">
+	<link rel="stylesheet" href="/sion.css">
+	<meta charset="UTF-8" />
+	<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			min-height: 100vh;
+			width: 100vw;
+			background: linear-gradient(to bottom, #10394b, #3a87c3);
+			background-repeat: no-repeat;
+		}
+		header {
+		  background: #10394b;
+		  font-size: 1.5vw;
+		  color: white;
+		  padding: 5px;
+		}
+		main {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 10px 20px 10px 20px;
+		}
+		.background {
+			position: relative;
+			height: 100%;
+			background: linear-gradient(to bottom, #10394b,#3a87c3);
+			background-repeat: no-repeat;
+		}
+		.card {
+			background: white;
+			padding: 20px;
+			margin: 10px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			width: 500px;
+		}
+		#panel {
+			display: none;
+			margin-top: 100px;
+		}
+		#auth-buttons {
+			display: none;
+			text-align: center;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 100%;
+			max-width: 400px;
+		}
+		#auth-buttons h2 {
+			margin-bottom: 20px;
+			font-size: 1.5rem;
+			color: #333;
+		}
+		input {
+			width: 100%;
+			padding: 12px;
+			margin: 8px 0;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			font-size: 1rem;
+		}
+		button {
+			width: 100%;
+			padding: 12px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 8px;
+			font-size: 1rem;
+			background-color: #007bff;
+			color: white;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #0056b3;
+		}
+		#map {
+			width: 100%;
+			height: 400px;
+			border-radius: 10px;
+		}
+		.sensor-row { 
+			display: flex; 
+			justify-content: space-around; 
+			flex-wrap: wrap; 
+			gap: 10px; 
+			margin-top: 20px; 
+		}
+		.sensor-card { 
+			border-radius: 8px; 
+			padding: 20px; 
+			text-align: center; 
+			min-width: 100px; 
+			flex: 1;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+		}
+		.sensor-card .sensor-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			font-size: 16px;
+		}
+		.sensor-card p { 
+			margin: 0; 
+			font-size: 18px;
+			padding-top: 10px; 
+		}
+		.contenido-footer hr{
+			width: 10%;
+			height: 0%;
+			border: none;
+		}
+		.footer-section-term {
+			display: flex;
+			flex: 1;
+			justify-content: center; /* Centra el contenido horizontalmente */
+		}
+		footer {
+			color:white;
+			margin-bottom: 20vw;
+		}
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			max-width: 500px;
+			padding: 0;
+			margin: 0;
+		}
+		input, button {
+			width: fit-content;
+			padding: 10px;
+			margin: 10px 0;
+			font-size: 16px;
+		}
+		#user-info {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			display: flex;
+			align-items: center;
+			gap: 10px; /* Espacio entre el nombre y el botón */
+			color: white; /* Color del texto */
+		}
+		#username {
+			font-size: 1.2rem; /* Tamaño del texto del nombre */
+		}	
+		#logoutButton {
+			padding: 8px 12px;
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}	
+		#logoutButton:hover {
+			background-color: #0056b3;
+		}
+		@media (max-width: 768px) {
+			.sensor-card {
+				flex: 1 1 45%;
+			}
+
+			.card {
+				max-width: 100%;
+				margin: 5px;
+			}
+
+			header {
+				font-size: 4vw;
+			}
+			#auth-buttons {
+				width: 100%;
+				padding: 15px;
+			}
+
+			h2 {
+				font-size: 1.25rem;
+			}
+
+			input {
+				font-size: 1.1rem;
+				padding: 14px;
+			}
+
+			button {
+				font-size: 1.1rem;
+				padding: 14px;
+			}
+		}
+		@media (max-width: 480px) {
+	.sensor-card {
+		flex: 1 1 100%;
+	}
+	#auth-buttons h2 {
+		margin-bottom: 20px;
+		font-size: 2rem;
+		color: #333;
+	}
+    .card {
+        max-width: 100%;
+        margin: 5px;
+    }
+
+    header {
+        font-size: 5vw;
+    }
+
+    #map {
+        height: 250px;
+    }
+    .container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    input, button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+	</style>
+</head>	
+	<section class="cabecera-container">
+		<header class = "header">
+			<a href="/" class="logo"> 
+				<img class="logo" src="/img/sionlogo.png" alt="logo de la pagina" id="logo" >
+			</a>
+			<div class="menu" id="menu">
+				<div class="menuicon" onclick="toggleMenu()">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			<div class="close-icon" onclick="toggleMenu()"></div>
+				<div class="nav-links" id="nav-links">
+					<a href="/">Inicio</a>
+					<a href="/soluciones/">Soluciones</a>
+					<a href="/construccion/">Constructoras / Promotoras</a>
+					<a href="/domotica/">Domótica / Inmótica</a>
+					<a href="/formulario/">Contacto</a>
+				</div>
+			</div>
+			<button id="openMenuBtn">Abrir Menú</button>
+		</header>
+    </section>
+    <section class="slogan">
+		<div class="slogan-content">
+			<h1>Login / Registro</h1>
+		</div>
+	</section>
+<body>
+	<div class="container">
+		<div id="auth-buttons">
+			<h2>Login / Registro</h2>
+			<input type="email" id="email" placeholder="Correo electrónico"><br>
+			<input type="password" id="password" placeholder="Contraseña"><br>
+			<button onclick="login()">Iniciar Sesión</button>
+			<button onclick="register()">Registrarse</button>
+		</div>
+		<div id="user-info">
+			<span id="username"></span>
+			<button id="logoutButton" onclick="logout()">Cerrar sesión</button>
+		</div>
+		<div id="panel">
+			<section id="sensorData" class="card">
+				<h2>Estado</h2>
+				<div class="sensor-row">
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-stop-circle"></i>
+							<p><strong>Estado</strong></p>
+						</div>
+						<p><span id="robotStatus">Inactivo</span></p>
+					</div>
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-battery-half"></i>
+							<p><strong>Batería</strong></p>
+						</div>
+						<p><span id="bateria">--%</span></p>
+					</div>
+				</div>
+				<div class="sensor-row">
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-thermometer-half"></i>
+							<p><strong>Tª Aire</strong></p>
+						</div>
+						<p id="temperatura">-- °C</p>
+					</div>
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-tint"></i>
+							<p><strong>Tª Agua</strong></p>
+						</div>
+						<p id="waterTemp">-- °C</p>
+					</div>
+				</div>
+				<div class="sensor-row">
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-vial"></i>
+							<p><strong>pH</strong></p>
+						</div>
+						<p id="ph">--</p>
+					</div>
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-flask"></i>
+							<p><strong>O²</strong></p>
+						</div>
+						<p id="o2">-- mg/L</p>
+					</div>
+				</div>
+				<div class="sensor-row">
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-water"></i>
+							<p><strong>Cond.</strong></p>
+						</div>
+						<p id="conductivity">-- µS/cm</p>
+					</div>
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-random"></i>
+							<p><strong>Redox</strong></p>
+						</div>
+						<p id="redox">-- mV</p>
+					</div>
+					<div class="sensor-card">
+						<div class="sensor-content">
+							<i class="fas fa-ruler-combined"></i>
+							<p><strong>Deep</strong></p>
+						</div>
+						<p id="depth">-- m</p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<script>
+		const firebaseConfig = {
+			apiKey: "AIzaSyCdbeehgc2VgdanpeVJUwdwpr1sGQYLSxs",
+			authDomain: "home-assistant-f9195.firebaseapp.com",
+			databaseURL: "https://home-assistant-f9195.firebaseio.com",
+			projectId: "home-assistant-f9195",
+			storageBucket: "home-assistant-f9195.firebasestorage.app",
+			messagingSenderId: "1026267953050",
+			appId: "1:1026267953050:web:a7c8570d35e0c6e758ac23"
+		};
+		firebase.initializeApp(firebaseConfig);
+		const auth = firebase.auth();
+		const db1 = firebase.firestore();
+		let refreshInterval;
+		function register() {
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("password").value;	
+			auth.createUserWithEmailAndPassword(email, password)
+			  .then(userCredential => {
+				const uid = userCredential.user.uid;
+				return db1.collection("users").doc(uid).set({
+				  email,
+				  sensores: {
+					temperatura: 22.5,
+					bateria: 50,
+					ph: 6.8,
+					o2: 4.2,
+					t_agua: 18.3,
+					conductivity: 1.1,
+					redox: 8.3,
+					depth: 0.1,
+				  },
+				});
+			  })
+			.then(() => alert("✅ Usuario registrado"))
+			.catch(err => alert("⚠️ Error en el registro"));
+		  }
+		function areFieldsComplete() {
+		  const email = document.getElementById("email").value;
+		  const password = document.getElementById("password").value;
+		  return email !== "" && password !== "";
+		}
+		function login() {
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("password").value;
+			if (!areFieldsComplete()) {
+				console.log("Por favor, completa ambos campos.");
+				return;
+			}
+			auth.signInWithEmailAndPassword(email, password)
+			.then(() => {
+				document.getElementById("auth-buttons").style.visibility = "hidden";
+				document.getElementById("auth-buttons").style.display = "none";
+				document.getElementById("panel").style.visibility = "visible";
+				document.getElementById("panel").style.display = "block";
+				document.getElementById("username").textContent = email;
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				if (errorCode === 'auth/invalid-login-credentials') {
+					alert("Contraseña incorrecta. Por favor, verifica tu contraseña.");
+				} else if (errorCode === 'auth/user-not-found') {
+					alert("Correo electrónico no registrado. Por favor, revisa tu correo.");
+				} else {
+					alert("Error al iniciar sesión");
+				}
+			});
+		}
+		document.getElementById("email").addEventListener("keydown", function(event) {
+			if (event.key === "Enter" && areFieldsComplete()) {
+				login();
+			}
+		});
+		document.getElementById("password").addEventListener("keydown", function(event) {
+			if (event.key === "Enter" && areFieldsComplete()) {
+				login();
+			}
+		});
+		function logout() {
+			auth.signOut().then(() => {
+				document.getElementById("panel").style.visibility = "hidden";
+				document.getElementById("panel").style.display = "none";
+				document.getElementById("auth-buttons").style.visibility = "visible";
+				document.getElementById("auth-buttons").style.display = "block";
+				document.getElementById("robotStatus").textContent = "Inactivo";
+				document.getElementById("bateria").textContent = "0%";
+				document.getElementById("temperatura").textContent = "0.0 °C";
+				document.getElementById("waterTemp").textContent = "0.0 °C";
+				document.getElementById("ph").textContent = "0.0";
+				document.getElementById("o2").textContent = "0.0 mg/L";
+				document.getElementById("conductivity").textContent = "0.0 µS/cm";
+				document.getElementById("redox").textContent = "0.0 mV";
+				document.getElementById("depth").textContent = "0.0 m";
+				document.getElementById("redox").textContent = "0.0 mV";
+				document.getElementById("depth").textContent = "0.0 m";
+				document.getElementById("user-info").style.display = "none";
+				map = 0;
+			});
+		}
+		function mostrarSensores(uid) {
+			db1.collection("users").doc(uid).onSnapshot(doc => {
+				if (doc.exists) {
+					const sensores = doc.data().sensores; 
+					document.getElementById("robotStatus").textContent = sensores.estado || "Inactivo";
+					document.getElementById("bateria").textContent = `${sensores.bateria}%`;
+					document.getElementById("temperatura").textContent = `${sensores.temperatura} °C`;
+					document.getElementById("waterTemp").textContent = `${sensores.t_agua} °C`;
+					document.getElementById("ph").textContent = sensores.ph;
+					document.getElementById("o2").textContent = `${sensores.o2} mg/L`;
+					document.getElementById("conductivity").textContent = `${sensores.conductivity} µS/cm`;
+					document.getElementById("redox").textContent = `${sensores.redox} mV`;
+					document.getElementById("depth").textContent = `${sensores.depth} m`;
+				}
+			});
+		}
+		function refreshData() {
+		  auth.onAuthStateChanged(user => {
+			if (user) {
+				mostrarSensores(user.uid);
+			}
+		  });
+		}	
+		function startAutoRefresh() {
+		  refreshData();
+		  refreshInterval = setInterval(refreshData, 60000);
+		}
+		function stopAutoRefresh() {
+		  clearInterval(refreshInterval);
+		}
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				document.getElementById("panel").style.visibility = "visible";
+				document.getElementById("panel").style.display = "block";
+				document.getElementById("auth-buttons").style.visibility = "hidden";
+				document.getElementById("auth-buttons").style.display = "none";
+				map = 0;
+				startAutoRefresh();
+				mostrarSensores(user.uid);
+				const id = user.uid;
+				const username = user.displayName || user.email;
+				document.getElementById("username").textContent = user.email;
+				document.getElementById("user-info").style.display = "flex";
+			} else {
+				document.getElementById("auth-buttons").style.visibility = "visible";	
+				document.getElementById("auth-buttons").style.display = "block";
+				document.getElementById("panel").style.visibility = "hidden";
+				document.getElementById("panel").style.display = "none";
+				stopAutoRefresh();
+				document.getElementById("user-info").style.display = "none";
+				map = 0;
+			}
+		});
+		function showError(error) {
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					document.getElementById("location").innerHTML = "Usuario rechazó la solicitud de geolocalización.";
+					break;
+				case error.POSITION_UNAVAILABLE:
+					document.getElementById("location").innerHTML = "La información de la ubicación no está disponible.";
+					break;
+				case error.TIMEOUT:
+					document.getElementById("location").innerHTML = "La solicitud para obtener la ubicación ha expirado.";
+					break;
+				case error.UNKNOWN_ERROR:
+					document.getElementById("location").innerHTML = "Ha ocurrido un error desconocido.";
+					break;
+			}
+		}	
+	</script>
+	<script> src="/sion.js"</script>
+	<script>
+		window.addEventListener("loadstart", function() {
+			document.getElementById("loading").style.display = "block";
+		});
+		function toggleMenu() {
+			var navLinks = document.getElementById('nav-links');
+			navLinks.classList.toggle('active');
+		}
+		window.addEventListener("load", function() {
+			document.getElementById("loading").style.display = "none";
+		});
+		document.getElementById('logo').addEventListener('click', function() {
+			location.reload(); 
+		});
+		const productos = document.querySelectorAll('.productos');
+		const imagenes = document.querySelectorAll('.slider-image-sol img');
+		const textos = document.querySelectorAll('.slider-sol-text');
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = 1;
+					entry.target.style.transform = 'scale(0.95)';
+
+					const imagen = entry.target.querySelector('.slider-image-sol img');
+					imagen.style.transform = 'scale(1.10)';
+
+					const texto = entry.target.querySelector('.slider-sol-text');
+					texto.style.transform = 'translateX(0)';
+				} else {
+					entry.target.style.opacity = 0;
+					entry.target.style.transform = 'scale(0.95)';
+
+					const imagen = entry.target.querySelector('.slider-image-sol img');
+					imagen.style.transform = 'scale(1)';
+
+					const texto = entry.target.querySelector('.slider-sol-text');
+				}
+			});
+		}, {
+			threshold: 0.3,
+			rootMargin: '0px 0px -30% 0px'  
+		});
+		productos.forEach(producto => observer.observe(producto));
+	</script>
+	<script>
+		fetch("/footer.html")
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById("footer").innerHTML = data;
+			})
+			.catch(error => console.error("Error al cargar el footer:", error));
+	</script>
+	<div id="footer"></div>
+</body>
+</html>
