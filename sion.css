@@ -1035,7 +1035,6 @@ li:hover {
 /*inicio seccion sobre*/
 .sobre {
 	padding: 5px 0px 0px;
-	margin: 0px -100px;
 	left: 0;
 	background: linear-gradient(to left, #10394b, #3a87c3);
 	background-repeat: no-repeat;
@@ -1518,9 +1517,6 @@ input[type="number"] {
 	}
 }
 @media (max-width: 1920px) {
-	.sobre-texto {
-		padding: 10px 0px;
-	}
 	.slide {
 		width: 400px;  /* El texto ocupará el 40% */
     }
@@ -1595,9 +1591,6 @@ input[type="number"] {
 	.titulo {
 		margin: 0px;
 	}
-	.como-trabajamos {
-		margin: 0px;
-	}
 	.container-como1 {
 		grid-template-columns: repeat(2, 1fr);
 		width: auto;
@@ -1658,13 +1651,13 @@ input[type="number"] {
 	header {
 		padding-left: 20px;
 	}
-	.como-trabajamos {
-		margin: 0px -20px;
-	}
 	.salto1{
 		width: 40vw;
 	}
-	.introduccion-content{
+	.introduccion-image {
+		margin: 0px;
+	}
+	.introduccion-content {
 		margin: 0px 20px;
 	}
 	.introduction {
@@ -1672,9 +1665,6 @@ input[type="number"] {
 	}
 	.introduccion {
 		display: block;
-	}
-	.beneficios {
-		display: inline-table;
 	}
 	.introduccion h2 {
 		font-size: 2rem;  /* Tamaño más pequeño para móviles */
@@ -1885,7 +1875,7 @@ input[type="number"] {
 		flex-direction: column;
 	}
 	.como-trabajamos{
-		
+		margin: 0px;
 	}
 	.seccion-como-titulo{
 		margin: 10px 20px 20px;
@@ -1893,7 +1883,6 @@ input[type="number"] {
 	.container-como1 {
 		grid-template-columns: repeat(1, 1fr);
 		max-width: fit-content;
-		margin: 0px 0px;
 	}
 	.salto1{
 		margin: 0px 5vw;
@@ -1929,31 +1918,30 @@ input[type="number"] {
 		height: auto;
 		padding: 20px 15px;
 	}
-	  .slogan1-image img {
+	.slogan1-image img {
 		width: 100%;
 		max-height: 250px;
 		object-fit: cover;
 		margin-bottom: 20px;
 		left: 0;
-	  }
+	}
 
-	  .slogan1-content {
+	.slogan1-content {
 		margin-left: 0;
 		padding-top: 200px;
-	  }
+	}
 
-	  .slogan1-subtitulo {
+	.slogan1-subtitulo {
 		font-size: 14px;
 		padding: 0px;
-	  }
-	  .slogan1-boton {
+	}
+	.slogan1-boton {
 		margin-top: 5px;
 		margin-right: 0;
-	  }
-	  .boton-slogan1 {
+	}
+	.boton-slogan1 {
 		padding: 5px 20px;
 		font-size: 0.9em;
-	  }
 	}
 }
 @media (max-width: 480px) {
@@ -2001,7 +1989,7 @@ input[type="number"] {
 		font-weight: bold;
 	}
     .slider-image {
-        width: 85%;
+        width: 90%;
 		padding: 0px;
 		justify-content: center;
 		align-items: flex-start;
