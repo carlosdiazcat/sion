@@ -101,15 +101,15 @@ html {
 	text-align: center;
 }
 .cookie-button {
-    padding: 8px 15px; /* Botones más pequeños */
+    padding: 8px 15px;
     margin: 8px 0px;
     background-color: #4CAF50;
     color: white;
 	max-width: 200px;
     border: none;
     cursor: pointer;
-    border-radius: 12px; /* Bordes redondeados */
-    font-size: 14px; /* Texto más pequeño */
+    border-radius: 12px;
+    font-size: 14px;
 }
 .cookie-button:hover {
 	background-color: #45a049;
@@ -826,6 +826,7 @@ li:hover {
 	width: auto;
 }
 .slider-text {
+	position: relative;
     max-width: 1400px;
 	width: auto;
 	margin-left: 5%;
@@ -1015,19 +1016,19 @@ li:hover {
     background-color: #555;
 }
 .boton-slider {
-    font-size: 1rem;
-    background-image: url('img/fondo-menu.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: white;
-	margin-top: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: white;
     padding: 10px 30px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+	font-size: 1rem;
+	background-image: url('img/fondo-menu.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 	border-top-left-radius: 30px;
-	width: 60px;
-	right: 0px;
+	transition:background-color 0.3s ease;
 }
 .boton-slider:hover {
     background-color: #555;
@@ -1597,6 +1598,12 @@ input[type="number"] {
 	body {
 		margin: 0px 40px;
 	}
+	header {
+		padding-left: 40px;
+	}
+	.menu {
+		right: -10px;
+	}
 	.sobre-texto {
 		padding: 10px 0px;
 	}
@@ -1733,9 +1740,10 @@ input[type="number"] {
 		margin-right: 40px;
 	}
 	.slider-image {
-        width: 90%;
+        width: 100%;
 		justify-content: center;
 		align-items: center;
+		display: flex;
     }
 	.slider-image-sol {
 		justify-content: center;
@@ -1759,7 +1767,7 @@ input[type="number"] {
 		text-justify: auto;
 		align-items: center;
         font-size: 18px; /* Se reduce el tamaño del texto en pantallas pequeñas */
-		margin-left: 0px;
+	    margin: 0px 20px;
 		padding: 0px;
     }
 	.slide {
@@ -1772,7 +1780,7 @@ input[type="number"] {
         flex-direction: column; /* Cambia la dirección del flexbox en pantallas pequeñas */
     }
 	.slider-image img {
-		width: 90%;
+		width: 100%;
 	}
 	.productos {
 		flex-direction: column;
@@ -1921,8 +1929,8 @@ input[type="number"] {
 		max-width: fit-content;
 	}
 	.salto1{
-		margin: 0px 5vw;
-		width: 80vw;
+		margin: 0px 10px;
+		width: 70vw;
 		display: flex;
   		align-items: center; /* Alinea verticalmente */
 	}
@@ -1979,6 +1987,29 @@ input[type="number"] {
 		padding: 5px 20px;
 		font-size: 0.9em;
 	}
+	.beneficios h4 {
+		display: none;
+	}
+	.beneficios {
+		display: flex;
+	}
+	.contenedor {
+		display: none;
+	}
+	.container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.block {
+		margin: 0px 10px;
+		height: 120px;
+		width: 70vw;
+		display: flex;
+		align-items: center;
+	}
+	.boton-slogan2 {
+		padding: 5px 20px;
+		font-size: 0.9em;
+	}		
 }
 @media (max-width: 480px) {
 	.overlay {
@@ -2003,15 +2034,6 @@ input[type="number"] {
 		align-content: center;
 		align-items: center;
 		margin: 0px;
-	}
-	.container {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 10px;
-		justify-items: center;
-		width: fit-content;
-		align-content: center;
-		align-items: center;
 	}
 	.container1 {
 		grid-template-columns: repeat(1, 1fr);
