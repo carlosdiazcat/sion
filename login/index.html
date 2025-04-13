@@ -14,12 +14,6 @@
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<style>
-		.background {
-			position: relative;
-			height: 100%;
-			background: linear-gradient(to bottom, #10394b,#3a87c3);
-			background-repeat: no-repeat;
-		}
 		.card {
 			background: white;
 			padding: 20px;
@@ -69,11 +63,6 @@
 		button:hover {
 			background-color: #0056b3;
 		}
-		#map {
-			width: 100%;
-			height: 400px;
-			border-radius: 10px;
-		}
 		.sensor-row { 
 			display: flex; 
 			justify-content: space-around; 
@@ -100,20 +89,6 @@
 			margin: 0; 
 			font-size: 18px;
 			padding-top: 10px; 
-		}
-		.contenido-footer hr{
-			width: 10%;
-			height: 0%;
-			border: none;
-		}
-		.footer-section-term {
-			display: flex;
-			flex: 1;
-			justify-content: center; /* Centra el contenido horizontalmente */
-		}
-		footer {
-			color:white;
-			margin-bottom: 20vw;
 		}
 		.container {
 			display: flex;
@@ -164,10 +139,6 @@
 				max-width: 100%;
 				margin: 5px;
 			}
-
-			header {
-				font-size: 4vw;
-			}
 			#auth-buttons {
 				width: 100%;
 				padding: 15px;
@@ -188,38 +159,30 @@
 			}
 		}
 		@media (max-width: 480px) {
-	.sensor-card {
-		flex: 1 1 100%;
-	}
-	#auth-buttons h2 {
-		margin-bottom: 20px;
-		font-size: 2rem;
-		color: #333;
-	}
-    .card {
-        max-width: 100%;
-        margin: 5px;
-    }
-
-    header {
-        font-size: 5vw;
-    }
-
-    #map {
-        height: 250px;
-    }
-    .container {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
-    }
-    input, button {
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-    }
-}
+			.sensor-card {
+				flex: 1 1 100%;
+			}
+			#auth-buttons h2 {
+				margin-bottom: 20px;
+				font-size: 2rem;
+				color: #333;
+			}
+			.card {
+				max-width: 100%;
+				margin: 5px;
+			}
+			.container {
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				height: 100vh;
+			}
+			input, button {
+				width: 100%;
+				padding: 15px;
+				font-size: 18px;
+			}
+		}
 	</style>
 </head>	
 	<section class="cabecera-container">
