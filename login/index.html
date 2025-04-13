@@ -379,18 +379,10 @@
 				document.getElementById("auth-buttons").style.visibility = "visible";
 				document.getElementById("auth-buttons").style.display = "block";
 				document.getElementById("robotStatus").textContent = "Inactivo";
-				document.getElementById("bateria").textContent = "0%";
 				document.getElementById("temperatura").textContent = "0.0 °C";
-				document.getElementById("waterTemp").textContent = "0.0 °C";
 				document.getElementById("ph").textContent = "0.0";
-				document.getElementById("o2").textContent = "0.0 mg/L";
 				document.getElementById("conductivity").textContent = "0.0 µS/cm";
-				document.getElementById("redox").textContent = "0.0 mV";
-				document.getElementById("depth").textContent = "0.0 m";
-				document.getElementById("redox").textContent = "0.0 mV";
-				document.getElementById("depth").textContent = "0.0 m";
 				document.getElementById("user-info").style.display = "none";
-				map = 0;
 			});
 		}
 		function mostrarSensores(uid) {
@@ -398,14 +390,10 @@
 				if (doc.exists) {
 					const sensores = doc.data().sensores; 
 					document.getElementById("robotStatus").textContent = sensores.estado || "Inactivo";
-					document.getElementById("bateria").textContent = `${sensores.bateria}%`;
 					document.getElementById("temperatura").textContent = `${sensores.temperatura} °C`;
 					document.getElementById("waterTemp").textContent = `${sensores.t_agua} °C`;
 					document.getElementById("ph").textContent = sensores.ph;
-					document.getElementById("o2").textContent = `${sensores.o2} mg/L`;
 					document.getElementById("conductivity").textContent = `${sensores.conductivity} µS/cm`;
-					document.getElementById("redox").textContent = `${sensores.redox} mV`;
-					document.getElementById("depth").textContent = `${sensores.depth} m`;
 				}
 			});
 		}
@@ -472,35 +460,6 @@
 		document.getElementById('logo').addEventListener('click', function() {
 			location.reload(); 
 		});
-		const productos = document.querySelectorAll('.productos');
-		const imagenes = document.querySelectorAll('.slider-image-sol img');
-		const textos = document.querySelectorAll('.slider-sol-text');
-		const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.style.opacity = 1;
-					entry.target.style.transform = 'scale(0.95)';
-
-					const imagen = entry.target.querySelector('.slider-image-sol img');
-					imagen.style.transform = 'scale(1.10)';
-
-					const texto = entry.target.querySelector('.slider-sol-text');
-					texto.style.transform = 'translateX(0)';
-				} else {
-					entry.target.style.opacity = 0;
-					entry.target.style.transform = 'scale(0.95)';
-
-					const imagen = entry.target.querySelector('.slider-image-sol img');
-					imagen.style.transform = 'scale(1)';
-
-					const texto = entry.target.querySelector('.slider-sol-text');
-				}
-			});
-		}, {
-			threshold: 0.3,
-			rootMargin: '0px 0px -30% 0px'  
-		});
-		productos.forEach(producto => observer.observe(producto));
 	</script>
 </body>
 </html>
