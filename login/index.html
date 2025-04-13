@@ -315,7 +315,6 @@
 				  sensores: {
 					temperatura: 22.5,
 					ph: 6.8,
-					t_agua: 18.3,
 					conductivity: 1.1,
 				  },
 				});
@@ -384,7 +383,6 @@
 					const sensores = doc.data().sensores; 
 					document.getElementById("robotStatus").textContent = sensores.estado || "Inactivo";
 					document.getElementById("temperatura").textContent = `${sensores.temperatura} °C`;
-					document.getElementById("waterTemp").textContent = `${sensores.t_agua} °C`;
 					document.getElementById("ph").textContent = sensores.ph;
 					document.getElementById("conductivity").textContent = `${sensores.conductivity} µS/cm`;
 				}
