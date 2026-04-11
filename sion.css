@@ -1012,7 +1012,6 @@ li:hover {
 }
 .sobre {
 	padding: 5px 100px 0px;
-	margin: 0px -100px;
 	left: 0;
 	background: linear-gradient(to left, #10394b, #3a87c3);
 	background-repeat: no-repeat;
@@ -1263,17 +1262,7 @@ li:hover {
 	text-align: center;
 	border-radius: 8px;
 }
-footer {
-	background: linear-gradient(to left, #10394b, #3a87c3);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-	margin: 0px;
-    color: white;
-	position: absolute;
-	right: 0px;
-	left: 0px;
-}
+
 .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -2129,10 +2118,16 @@ input[type="number"] {
 	4. FOOTER
 ───────────────────────────────────────────── */
 footer {
-	background: var(--primary-dark);
 	color: #fff;
 	position: relative;
-	overflow: hidden;
+	overflow: hidden;footer;
+	background: linear-gradient(to left, #10394b, #3a87c3);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	margin: 0px;
+	right: 0px;
+	left: 0px;
 }
 
 /* Fondo decorativo del footer */
@@ -2230,7 +2225,7 @@ footer::after {
 	color: rgba(255,255,255,.4);
 	margin-bottom: 18px;
 }
-.footer-col ul { list-style: none; }
+.footer-col ul { list-style: none; padding-left: 0px;}
 .footer-col ul li { margin-bottom: 10px; }
 .footer-col ul li a {
 	font-size: .92rem;
