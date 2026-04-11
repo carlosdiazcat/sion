@@ -481,12 +481,20 @@
 		</div>
 		<script>
 			function abrirform() {
-				document.getElementById('overlay').style.display = 'block';
+				const overlay = document.getElementById('overlay');
+				if (overlay) {
+					overlay.style.display = 'block';
+					document.body.style.overflow = 'hidden'; // Evita el scroll de la web al estar abierto
+				}
 			}
 
 			// Función para CERRAR
 			function cerrarform() {
-				document.getElementById('overlay').style.display = 'none';
+				const overlay = document.getElementById('overlay');
+				if (overlay) {
+					overlay.style.display = 'none';
+					document.body.style.overflow = 'auto'; // Devuelve el scroll a la web
+				}
 			}
 
 			// Opcional: Cerrar con la tecla Escape
