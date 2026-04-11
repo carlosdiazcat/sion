@@ -1377,9 +1377,12 @@ a img {
 /* Contenedor Principal (Modal) */
 .form-container1 {
 	position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    overflow-y: auto;
     background-color: #ffffff;
-    padding: 40px 50px; /* Más aire interno */
+    padding: 60px 40px 40px; /* Más aire interno */
     color: #10384a;
     width: 90%;
     max-width: 820px;
@@ -1389,10 +1392,7 @@ a img {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     border: 1px solid #dce8ef;
     z-index: 1000;
-    top: 50%;
-    left: 50%;
     max-height: 85vh;
-    overflow-y: auto;
 }
 
 .form-container1 h2 {
@@ -1404,39 +1404,66 @@ a img {
 }
 
 /* Filas y Grupos */
+/* 1. Contenedor de fila (Nombre y Teléfono) */
 .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row; /* Fuerza que sea una fila */
     gap: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
+/* 2. Grupos de control (Label + Input) */
 .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    flex: 1; /* Esto hace que en .form-row se dividan el espacio equitativamente */
 }
 
-/* Inputs y Textarea (Fondo Azul Claro) */
-.form-group label, .qty-group label {
+/* 3. Estilo Único para TODOS los campos de texto */
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    background-color: #f4fafd;
+    border: 1px solid #dce8ef;
+    border-radius: 8px;
+    padding: 14px 15px; /* Padding generoso y uniforme */
+    font-family: inherit;
+    font-size: 1rem;
+    color: #10384a;
+    box-sizing: border-box; /* CRITICO: evita que el padding ensanche el input */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    height: 48px; /* Altura fija para que todos sean simétricos */
+}
+
+/* Ajuste especial para el Textarea (sin altura fija) */
+.form-group textarea {
+    height: auto;
+    min-height: 100px;
+    resize: none;
+}
+
+/* 4. Labels */
+.form-group label, 
+.qty-group label {
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 8px;
     color: #10384a;
+    text-align: left;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    background-color: #f4fafd; /* Color de la imagen */
-    border: 1px solid #dce8ef;
-    border-radius: 8px;
-    padding: 12px 15px;
-    font-family: inherit;
-    transition: border 0.2s;
-}
-
-.form-group input:focus {
+/* 5. Efecto Focus */
+.form-group input:focus, 
+.form-group textarea:focus {
     border-color: #4eafd4;
-    outline: none;
+    box-shadow: 0 0 0 3px rgba(78, 175, 212, 0.1);
+    background-color: #ffffff;
 }
 
 /* Divisores con líneas laterales */
@@ -1539,19 +1566,16 @@ a img {
 }
 /* Botón de Cierre (X) */
 .cerrar {
-    position: fixed;
-    top: calc(12% + 20px);
-    right: calc(5% + 25px);
-    background: #ffffff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
     border: none;
     font-size: 2rem;
-    line-height: 1;
     cursor: pointer;
     color: #10384a;
-    z-index: 2000;
-    padding: 5px;
-    border-radius: 50%;
-    transition: transform 0.2s ease;
+    z-index: 10;
+    line-height: 1;
 }
 .cerrar:hover {
     transform: scale(1.1);
@@ -1565,6 +1589,8 @@ a img {
 /* Responsive */
 @media (max-width: 600px) {
     .form-row, .form-qty-row {
+        flex-direction: column;
+        gap: 0;
         grid-template-columns: 1fr;
     }
     .form-container1 {
