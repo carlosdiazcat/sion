@@ -352,130 +352,132 @@
 				<button class="cookie-button" onclick="savePreferences()">Confirmar</button>
 			</div>
 		</div>
-		<div class="form-container1" id="formulario">
-			<!-- <img src="img/cuaderno.gif" alt="">-->
-			<h2 >SOLICITA TU PRESUPUESTO</h2>
-			<button class="cerrar" onclick="cerrarform()">&times;</button>
-			<form action="https://formspree.io/f/xeoewzqd" method="POST" id="presupuestoForm" onsubmit="handleSubmit(event)">
-				<div class="form-row">
-					<div class="form-group">
-					<label for="nombre">Nombre completo *</label>
-					<input type="text" id="nombre" name="nombre" placeholder="Juan García" required>
+		<div id="formulario_background" class="overlay-estilo" onclick="cerrarform()">
+			<div class="form-container1" id="formulario" onclick="event.stopPropagation()">
+				<!-- <img src="img/cuaderno.gif" alt="">-->
+				<h2 >SOLICITA TU PRESUPUESTO</h2>
+				<button class="cerrar" onclick="cerrarform()">&times;</button>
+				<form action="https://formspree.io/f/xeoewzqd" method="POST" id="presupuestoForm" onsubmit="handleSubmit(event)">
+					<div class="form-row">
+						<div class="form-group">
+						<label for="nombre">Nombre completo *</label>
+						<input type="text" id="nombre" name="nombre" placeholder="Juan García" required>
+						</div>
+						<div class="form-group">
+						<label for="telefono">Teléfono *</label>
+						<input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
+						</div>
 					</div>
-					<div class="form-group">
-					<label for="telefono">Teléfono *</label>
-					<input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
+					<div class="form-group full">
+						<label for="email">Correo electrónico *</label>
+						<input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
 					</div>
-				</div>
-				<div class="form-group full">
-					<label for="email">Correo electrónico *</label>
-					<input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
-				</div>
 
-				<div class="form-divider"><span>CONTROL DE LUCES</span></div>
-				<div class="qty-group">
-					<label>Luces inteligentes</label>
-					<div class="qty-control">
-					<button type="button" class="qty-btn" onclick="changeQty('luces_smart', -1)">−</button>
-					<input class="qty-input" id="luces_smart" name="luces_smart" type="number" value="0" min="0" onchange="calculatePrice()">
-					<button type="button" class="qty-btn" onclick="changeQty('luces_smart', 1)">+</button>
-					</div>
-				</div>
-
-				<div class="form-divider"><span>CONTROL DE PERSIANAS</span></div>
-				<div class="qty-group">
-					<label>Unidades de persianas</label>
-					<div class="qty-control">
-					<button type="button" class="qty-btn" onclick="changeQty('persianas_smart', -1)">−</button>
-					<input class="qty-input" id="persianas_smart" name="persianas_smart" type="number" value="0" min="0" onchange="calculatePrice()">
-					<button type="button" class="qty-btn" onclick="changeQty('persianas_smart', 1)">+</button>
-					</div>
-				</div>
-
-				<div class="form-divider"><span>SISTEMA DE SEGURIDAD</span></div>
-				<div class="form-qty-row">
+					<div class="form-divider"><span>CONTROL DE LUCES</span></div>
 					<div class="qty-group">
-					<label>Cámaras de seguridad</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('camaras_seguridad', -1)">−</button>
-						<input class="qty-input" id="camaras_seguridad" name="camaras_seguridad" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('camaras_seguridad', 1)">+</button>
+						<label>Luces inteligentes</label>
+						<div class="qty-control">
+						<button type="button" class="qty-btn" onclick="changeQty('luces_smart', -1)">−</button>
+						<input class="qty-input" id="luces_smart" name="luces_smart" type="number" value="0" min="0" onchange="calculatePrice()">
+						<button type="button" class="qty-btn" onclick="changeQty('luces_smart', 1)">+</button>
+						</div>
 					</div>
-					</div>
-					<div class="qty-group">
-					<label>Sensores de movimiento</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('sensores_movimiento', -1)">−</button>
-						<input class="qty-input" id="sensores_movimiento" name="sensores_movimiento" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('sensores_movimiento', 1)">+</button>
-					</div>
-					</div>
-				</div>
-				<div class="qty-group" style="margin-top: 15px;">
-					<label>Puertas inteligentes</label>
-					<div class="qty-control" style="max-width: 48%;">
-					<button type="button" class="qty-btn" onclick="changeQty('cerradura', -1)">−</button>
-					<input class="qty-input" id="cerradura" name="cerradura" type="number" value="0" min="0" onchange="calculatePrice()">
-					<button type="button" class="qty-btn" onclick="changeQty('cerradura', 1)">+</button>
-					</div>
-				</div>
 
-				<div class="form-divider"><span>CLIMATIZACIÓN INTELIGENTE</span></div>
-				<div class="form-qty-row">
+					<div class="form-divider"><span>CONTROL DE PERSIANAS</span></div>
 					<div class="qty-group">
-					<label>Termostatos inteligentes</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('termostatos_inteligentes', -1)">−</button>
-						<input class="qty-input" id="termostatos_inteligentes" name="termostatos_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('termostatos_inteligentes', 1)">+</button>
+						<label>Unidades de persianas</label>
+						<div class="qty-control">
+						<button type="button" class="qty-btn" onclick="changeQty('persianas_smart', -1)">−</button>
+						<input class="qty-input" id="persianas_smart" name="persianas_smart" type="number" value="0" min="0" onchange="calculatePrice()">
+						<button type="button" class="qty-btn" onclick="changeQty('persianas_smart', 1)">+</button>
+						</div>
 					</div>
-					</div>
-					<div class="qty-group">
-					<label>Ventiladores inteligentes</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('ventiladores_inteligentes', -1)">−</button>
-						<input class="qty-input" id="ventiladores_inteligentes" name="ventiladores_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('ventiladores_inteligentes', 1)">+</button>
-					</div>
-					</div>
-				</div>
 
-				<div class="form-divider"><span>ENTRETENIMIENTO Y AUDIO</span></div>
-				<div class="form-qty-row">
-					<div class="qty-group">
-					<label>Altavoces inteligentes</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('altavoces_inteligentes', -1)">−</button>
-						<input class="qty-input" id="altavoces_inteligentes" name="altavoces_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('altavoces_inteligentes', 1)">+</button>
+					<div class="form-divider"><span>SISTEMA DE SEGURIDAD</span></div>
+					<div class="form-qty-row">
+						<div class="qty-group">
+						<label>Cámaras de seguridad</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('camaras_seguridad', -1)">−</button>
+							<input class="qty-input" id="camaras_seguridad" name="camaras_seguridad" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('camaras_seguridad', 1)">+</button>
+						</div>
+						</div>
+						<div class="qty-group">
+						<label>Sensores de movimiento</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('sensores_movimiento', -1)">−</button>
+							<input class="qty-input" id="sensores_movimiento" name="sensores_movimiento" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('sensores_movimiento', 1)">+</button>
+						</div>
+						</div>
 					</div>
+					<div class="qty-group" style="margin-top: 15px;">
+						<label>Puertas inteligentes</label>
+						<div class="qty-control" style="max-width: 48%;">
+						<button type="button" class="qty-btn" onclick="changeQty('cerradura', -1)">−</button>
+						<input class="qty-input" id="cerradura" name="cerradura" type="number" value="0" min="0" onchange="calculatePrice()">
+						<button type="button" class="qty-btn" onclick="changeQty('cerradura', 1)">+</button>
+						</div>
 					</div>
-					<div class="qty-group">
-					<label>Videoporteros</label>
-					<div class="qty-control">
-						<button type="button" class="qty-btn" onclick="changeQty('videoporteros', -1)">−</button>
-						<input class="qty-input" id="videoporteros" name="videoporteros" type="number" value="0" min="0" onchange="calculatePrice()">
-						<button type="button" class="qty-btn" onclick="changeQty('videoporteros', 1)">+</button>
-					</div>
-					</div>
-				</div>
-				<div class="qty-group" style="margin-top: 15px;">
-					<label>Pantallas inteligentes</label>
-					<div class="qty-control" style="max-width: 48%;">
-					<button type="button" class="qty-btn" onclick="changeQty('pantallas_inteligentes', -1)">−</button>
-					<input class="qty-input" id="pantallas_inteligentes" name="pantallas_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
-					<button type="button" class="qty-btn" onclick="changeQty('pantallas_inteligentes', 1)">+</button>
-					</div>
-				</div>
 
-				<div class="form-divider"><span>COMENTARIOS ADICIONALES</span></div>
-				<div class="form-group full">
-					<label for="message">Cuéntanos más sobre tu proyecto</label>
-					<textarea id="message" name="message" placeholder="Describe el tipo de vivienda, necesidades específicas, plazos..."></textarea>
-				</div>
+					<div class="form-divider"><span>CLIMATIZACIÓN INTELIGENTE</span></div>
+					<div class="form-qty-row">
+						<div class="qty-group">
+						<label>Termostatos inteligentes</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('termostatos_inteligentes', -1)">−</button>
+							<input class="qty-input" id="termostatos_inteligentes" name="termostatos_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('termostatos_inteligentes', 1)">+</button>
+						</div>
+						</div>
+						<div class="qty-group">
+						<label>Ventiladores inteligentes</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('ventiladores_inteligentes', -1)">−</button>
+							<input class="qty-input" id="ventiladores_inteligentes" name="ventiladores_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('ventiladores_inteligentes', 1)">+</button>
+						</div>
+						</div>
+					</div>
 
-				<button type="submit" class="submit-btn">Enviar solicitud de presupuesto</button>
-			</form>
+					<div class="form-divider"><span>ENTRETENIMIENTO Y AUDIO</span></div>
+					<div class="form-qty-row">
+						<div class="qty-group">
+						<label>Altavoces inteligentes</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('altavoces_inteligentes', -1)">−</button>
+							<input class="qty-input" id="altavoces_inteligentes" name="altavoces_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('altavoces_inteligentes', 1)">+</button>
+						</div>
+						</div>
+						<div class="qty-group">
+						<label>Videoporteros</label>
+						<div class="qty-control">
+							<button type="button" class="qty-btn" onclick="changeQty('videoporteros', -1)">−</button>
+							<input class="qty-input" id="videoporteros" name="videoporteros" type="number" value="0" min="0" onchange="calculatePrice()">
+							<button type="button" class="qty-btn" onclick="changeQty('videoporteros', 1)">+</button>
+						</div>
+						</div>
+					</div>
+					<div class="qty-group" style="margin-top: 15px;">
+						<label>Pantallas inteligentes</label>
+						<div class="qty-control" style="max-width: 48%;">
+						<button type="button" class="qty-btn" onclick="changeQty('pantallas_inteligentes', -1)">−</button>
+						<input class="qty-input" id="pantallas_inteligentes" name="pantallas_inteligentes" type="number" value="0" min="0" onchange="calculatePrice()">
+						<button type="button" class="qty-btn" onclick="changeQty('pantallas_inteligentes', 1)">+</button>
+						</div>
+					</div>
+
+					<div class="form-divider"><span>COMENTARIOS ADICIONALES</span></div>
+					<div class="form-group full">
+						<label for="message">Cuéntanos más sobre tu proyecto</label>
+						<textarea id="message" name="message" placeholder="Describe el tipo de vivienda, necesidades específicas, plazos..."></textarea>
+					</div>
+
+					<button type="submit" class="submit-btn">Enviar solicitud de presupuesto</button>
+				</form>
+			</div>
 		</div>
 		<script>
 			function cerrarform() {

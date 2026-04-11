@@ -1518,8 +1518,8 @@ a img {
 
 /* Botón de Cierre (X) */
 .cerrar {
-    top: 20px;
-    right: 25px;
+    top: 0;
+    right: 25;
     background: none;
     border: none;
     font-size: 2rem;
