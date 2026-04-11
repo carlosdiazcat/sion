@@ -73,7 +73,7 @@ var observer = new IntersectionObserver(function(entries, observer){
 			entry.target.style.opacity = 1;
 			entry.target.style.transform = 'scale(1)';
 
-			var imagen = entry.target.querySelector('..slider-sol');
+			var imagen = entry.target.querySelector('.slider-sol');
 			imagen.style.transform = 'scale(1.05)';
 
 			var texto = entry.target.querySelector('.slider-sol-text');
@@ -82,7 +82,7 @@ var observer = new IntersectionObserver(function(entries, observer){
 			entry.target.style.opacity = 0;
 			entry.target.style.transform = 'scale(0.95)';
 
-			var imagen = entry.target.querySelector('..slider-sol');
+			var imagen = entry.target.querySelector('.slider-sol');
 			imagen.style.transform = 'scale(1)';
 
 			var texto = entry.target.querySelector('.slider-sol-text');
@@ -174,12 +174,18 @@ function showPreferences() {
 function cerrarform() {
 	document.getElementById('formulario').style.display = 'none';
 }*/
+// Función para ABRIR
 function abrirform() {
 	const overlay = document.getElementById('overlay');
 	if (overlay) {
 		overlay.style.display = 'block';
-		document.body.style.overflow = 'hidden'; // Evita el scroll de la web al estar abierto
+		document.body.style.overflow = 'hidden'; // Bloquea scroll fondo
 	}
+}
+
+// Alias para compatibilidad con tus botones antiguos
+function formulario() {
+	abrirform();
 }
 
 // Función para CERRAR
@@ -187,33 +193,36 @@ function cerrarform() {
 	const overlay = document.getElementById('overlay');
 	if (overlay) {
 		overlay.style.display = 'none';
-		document.body.style.overflow = 'auto'; // Devuelve el scroll a la web
+		document.body.style.overflow = 'auto'; // Devuelve scroll fondo
 	}
 }
 
-// Opcional: Cerrar con la tecla Escape
+// Cerrar con Escape
 document.addEventListener('keydown', function(event) {
 	if (event.key === "Escape") {
 		cerrarform();
 	}
 });
-// Cerrar al hacer clic fuera del formulario
+
+// Cerrar al hacer clic fuera (en el overlay)
 window.onclick = function(event) {
-	const formulario = document.getElementById('formulario');
-	
-	// Si el usuario hace clic exactamente en el fondo (si tienes un overlay oscuro)
-	// O si quieres detectar que el clic NO fue dentro de la caja:
-	if (event.target == formulario) {
+	const overlay = document.getElementById('overlay');
+	// Si el clic es exactamente en el overlay (el fondo difuminado)
+	if (event.target == overlay) {
 		cerrarform();
 	}
 }
+
+// Lógica de botones +/-
 function changeQty(id, delta) {
 	const input = document.getElementById(id);
-	let val = parseInt(input.value) || 0;
-	val += delta;
-	if (val < 0) val = 0;
-	input.value = val;
-	
-	// Si tienes una función de precio, llámala aquí
-	if (typeof calculatePrice === 'function') calculatePrice();
+	if (input) {
+		let val = parseInt(input.value) || 0;
+		val += delta;
+		if (val < 0) val = 0;
+		input.value = val;
+		
+		// Si tienes función de cálculo de precio
+		if (typeof calculatePrice === 'function') calculatePrice();
+	}
 }
