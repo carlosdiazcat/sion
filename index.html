@@ -479,51 +479,6 @@
 				</form>
 			</div>
 		</div>
-		<script>
-			function abrirform() {
-				const overlay = document.getElementById('overlay');
-				if (overlay) {
-					overlay.style.display = 'block';
-					document.body.style.overflow = 'hidden'; // Evita el scroll de la web al estar abierto
-				}
-			}
-
-			// Función para CERRAR
-			function cerrarform() {
-				const overlay = document.getElementById('overlay');
-				if (overlay) {
-					overlay.style.display = 'none';
-					document.body.style.overflow = 'auto'; // Devuelve el scroll a la web
-				}
-			}
-
-			// Opcional: Cerrar con la tecla Escape
-			document.addEventListener('keydown', function(event) {
-				if (event.key === "Escape") {
-					cerrarform();
-				}
-			});
-			// Cerrar al hacer clic fuera del formulario
-			window.onclick = function(event) {
-				const formulario = document.getElementById('formulario');
-				
-				// Si el usuario hace clic exactamente en el fondo (si tienes un overlay oscuro)
-				// O si quieres detectar que el clic NO fue dentro de la caja:
-				if (event.target == formulario) {
-					cerrarform();
-				}
-			}
-			function changeQty(id, delta) {
-				const input = document.getElementById(id);
-				let val = parseInt(input.value) || 0;
-				val += delta;
-				if (val < 0) val = 0;
-				input.value = val;
-				
-				// Si tienes una función de precio, llámala aquí
-				if (typeof calculatePrice === 'function') calculatePrice();
-			}
-		</script>
 		<script src="sion.js"></script>
 		<script>
 			const firebaseConfig = {
