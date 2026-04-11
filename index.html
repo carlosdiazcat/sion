@@ -352,7 +352,7 @@
 				<button class="cookie-button" onclick="savePreferences()">Confirmar</button>
 			</div>
 		</div>
-		<div id="formulario_background" class="overlay-estilo" onclick="cerrarform()">
+		<div id="overlay" class="overlay-container" onclick="cerrarform()">
 			<div class="form-container1" id="formulario" onclick="event.stopPropagation()">
 				<button class="cerrar" onclick="cerrarform()">&times;</button>
 				<!-- <img src="img/cuaderno.gif" alt="">-->
@@ -480,12 +480,21 @@
 			</div>
 		</div>
 		<script>
-			function cerrarform() {
-				document.getElementById('formulario').style.display = 'none';
-				// Si usas un overlay de fondo oscuro, ocúltalo también aquí
-				// document.getElementById('overlay').style.display = 'none'; 
+			function abrirform() {
+				document.getElementById('overlay').style.display = 'block';
 			}
 
+			// Función para CERRAR
+			function cerrarform() {
+				document.getElementById('overlay').style.display = 'none';
+			}
+
+			// Opcional: Cerrar con la tecla Escape
+			document.addEventListener('keydown', function(event) {
+				if (event.key === "Escape") {
+					cerrarform();
+				}
+			});
 			// Cerrar al hacer clic fuera del formulario
 			window.onclick = function(event) {
 				const formulario = document.getElementById('formulario');
