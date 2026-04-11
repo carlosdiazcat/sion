@@ -985,10 +985,12 @@ li:hover {
     background-position: center;
     color: white;
     padding: 15px 30px;
-	width: 200px;
+	width: 300px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    box-shadow: 0 10px 20px rgba(16, 56, 74, 0.2);
 }
+
 .boton:hover {
     background-color: #555;
 }
@@ -1463,7 +1465,8 @@ a img {
 /* Botón Enviar Principal */
 .submit-btn {
     background-color: #10384A;
-    background-image: none; /* Quitamos el gradiente para ser fiel a la imagen */
+    background-image: url('img/fondo-menu.jpg');
+    background-position: center;
     color: white;
     width: 100%;
     max-width: 380px;
@@ -1474,7 +1477,6 @@ a img {
     margin: 40px auto 0;
     box-shadow: 0 10px 20px rgba(16, 56, 74, 0.2);
 }
-
 .form-qty-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
