@@ -1566,16 +1566,26 @@ a img {
 }
 /* Botón de Cierre (X) */
 .cerrar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
+    position: sticky; /* Cambiado de absolute a sticky */
+    top: 0;           /* Se queda pegada al borde superior del área visible */
+    float: right;     /* La empuja a la derecha */
+    margin-right: -10px; /* Ajuste fino de posición */
+    margin-top: -10px;
+    background: white; /* Añade fondo para que el texto de abajo no se transparente */
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
     color: #10384a;
-    z-index: 10;
+    z-index: 100;     /* Asegura que esté por encima de los inputs */
     line-height: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;  
+	float: right;
+  	margin-right: -20px;
 }
 .cerrar:hover {
     transform: scale(1.1);
