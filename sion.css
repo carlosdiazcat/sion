@@ -1518,14 +1518,19 @@ a img {
 
 /* Botón de Cierre (X) */
 .cerrar {
-    position: absolute;
     top: 20px;
     right: 25px;
     background: none;
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #aaa;
+    position: sticky;
+    float: right;
+    color: #10384a;
+    z-index: 1001; /* Por encima de todo el contenido */
+    line-height: 1;
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .submit-btn:hover {

@@ -478,7 +478,22 @@
 			</form>
 		</div>
 		<script>
-			// Función auxiliar para los botones +/-
+			function cerrarform() {
+				document.getElementById('formulario').style.display = 'none';
+				// Si usas un overlay de fondo oscuro, ocúltalo también aquí
+				// document.getElementById('overlay').style.display = 'none'; 
+			}
+
+			// Cerrar al hacer clic fuera del formulario
+			window.onclick = function(event) {
+				const formulario = document.getElementById('formulario');
+				
+				// Si el usuario hace clic exactamente en el fondo (si tienes un overlay oscuro)
+				// O si quieres detectar que el clic NO fue dentro de la caja:
+				if (event.target == formulario) {
+					cerrarform();
+				}
+			}
 			function changeQty(id, delta) {
 				const input = document.getElementById(id);
 				let val = parseInt(input.value) || 0;
