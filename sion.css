@@ -1376,16 +1376,16 @@ a img {
 }
 /* Capa de fondo oscuro y difuminado */
 .overlay-container {
-    display: none; /* Crucial: para que no aparezca al cargar */
+    display: none; /* Se activa desde JS */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9999; /* Un número muy alto para que tape todo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    backdrop-filter: blur(8px); /* ESTO crea el efecto difuminado */
+    -webkit-backdrop-filter: blur(8px); /* Soporte para Safari */
+    z-index: 999; /* Por debajo del formulario pero por encima de la web */
 }
 /* Contenedor Principal (Modal) */
 .form-container1 {
