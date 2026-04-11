@@ -11,7 +11,9 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+textarea {
+  resize: none; /* Esto quita el tirador y bloquea el tamaño */
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -1374,6 +1376,8 @@ a img {
 }
 /* Contenedor Principal (Modal) */
 .form-container1 {
+	position: fixed;
+    transform: translate(-50%, -50%);
     background-color: #ffffff;
     padding: 40px 50px; /* Más aire interno */
     color: #10384a;
@@ -1384,11 +1388,9 @@ a img {
     border-radius: 40px; /* Redondeado elegante, no excesivo */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     border: 1px solid #dce8ef;
-    position: fixed;
     z-index: 1000;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrado perfecto */
     max-height: 85vh;
     overflow-y: auto;
 }
@@ -1523,25 +1525,38 @@ a img {
     font-size: 1rem;
     color: #10384a;
     margin: 0 !important;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 }
-
+#message {
+    width: 100%;
+    background-color: #f4fafd;
+    border: 1px solid #dce8ef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    resize: none; /* Quita las líneas de la esquina */
+    min-height: 100px;
+}
 /* Botón de Cierre (X) */
 .cerrar {
-    top: 0;
-    right: 25;
-    background: none;
+    position: fixed;
+    top: calc(12% + 20px);
+    right: calc(5% + 25px);
+    background: #ffffff;
     border: none;
     font-size: 2rem;
-    cursor: pointer;
-    position: sticky;
-    float: right;
-    color: #10384a;
-    z-index: 1001; /* Por encima de todo el contenido */
     line-height: 1;
-    padding: 10px;
+    cursor: pointer;
+    color: #10384a;
+    z-index: 2000;
+    padding: 5px;
     border-radius: 50%;
+    transition: transform 0.2s ease;
 }
-
+.cerrar:hover {
+    transform: scale(1.1);
+    color: #4eafd4;
+}
 .submit-btn:hover {
     background-color: #164b63;
     transform: translateY(-2px);
