@@ -114,7 +114,61 @@
                 localStorage.setItem("cookies-accepted", "true");
                 cookieBanner.style.display = "none";
             });
-        }
+		}
+		const form = document.getElementById('orderForm');
+		if (form) {
+			form.addEventListener('submit', function(event) {
+				event.preventDefault();
+
+				const getVal = (id) => parseInt(document.getElementById(id).value) || 0;
+
+				const p1 = getVal("luces_smart");
+				const p2 = getVal("persianas_smart");
+				const p3 = getVal("camaras_seguridad");
+				const p4 = getVal("sensores_movimiento");
+				const p5 = getVal("termostatos_inteligentes");
+				const p6 = getVal("ventiladores_inteligentes");
+				const p7 = getVal("altavoces_inteligentes");
+				const p8 = getVal("pantallas_inteligentes");
+				const p9 = getVal("videoporteros");
+				const p10 = getVal("cerradura");
+				const prices = [150, 150, 600, 150, 150, 150, 500, 450, 450, 450];
+				
+				const totalUnidades = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10;
+				const central = (totalUnidades >= 30) ? 1000 : 200;
+
+				const total = (p1 * prices[0]) + (p2 * prices[1]) + (p3 * prices[2]) + 
+							(p4 * prices[3]) + (p5 * prices[4]) + (p6 * prices[5]) + 
+							(p7 * prices[6]) + (p8 * prices[7]) + (p9 * prices[8]) + 
+							(p10 * prices[9]) + central;
+
+				if(document.getElementById("totalPrice")) {
+					document.getElementById("totalPrice").textContent = total;
+				}
+
+				const formData = new FormData(form);
+				formData.append('Total_Presupuesto_Estimado', total + "€");
+				formData.append('Total_Unidades_Domoticas', totalUnidades);
+
+				fetch(form.action, {
+					method: 'POST',
+					body: formData,
+					headers: {
+						'Accept': 'application/json'
+					}
+				})
+				.then(response => {
+					if (response.ok) {
+						window.location.href = "https://www.proyectossion.com/";
+					} else {
+						alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
+					}
+				})
+				.catch(error => {
+					alert('Error de conexión al enviar el formulario.');
+				});
+			});
+		}
     });
     window.toggleMenu = () => document.getElementById('nav-links')?.classList.toggle('active');
     window.abrirform = () => { 
@@ -188,58 +242,4 @@
 		return { total, totalUnidades };
 	}
 
-	const form = document.getElementById('orderForm');
-	if (form) {
-		form.addEventListener('submit', function(event) {
-			event.preventDefault();
-
-			const getVal = (id) => parseInt(document.getElementById(id).value) || 0;
-
-			const p1 = getVal("luces_smart");
-			const p2 = getVal("persianas_smart");
-			const p3 = getVal("camaras_seguridad");
-			const p4 = getVal("sensores_movimiento");
-			const p5 = getVal("termostatos_inteligentes");
-			const p6 = getVal("ventiladores_inteligentes");
-			const p7 = getVal("altavoces_inteligentes");
-			const p8 = getVal("pantallas_inteligentes");
-			const p9 = getVal("videoporteros");
-			const p10 = getVal("cerradura");
-			const prices = [150, 150, 600, 150, 150, 150, 500, 450, 450, 450];
-			
-			const totalUnidades = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10;
-			const central = (totalUnidades >= 30) ? 1000 : 200;
-
-			const total = (p1 * prices[0]) + (p2 * prices[1]) + (p3 * prices[2]) + 
-						(p4 * prices[3]) + (p5 * prices[4]) + (p6 * prices[5]) + 
-						(p7 * prices[6]) + (p8 * prices[7]) + (p9 * prices[8]) + 
-						(p10 * prices[9]) + central;
-
-			if(document.getElementById("totalPrice")) {
-				document.getElementById("totalPrice").textContent = total;
-			}
-
-			const formData = new FormData(form);
-			formData.append('Total_Presupuesto_Estimado', total + "€");
-			formData.append('Total_Unidades_Domoticas', totalUnidades);
-
-			fetch(form.action, {
-				method: 'POST',
-				body: formData,
-				headers: {
-					'Accept': 'application/json'
-				}
-			})
-			.then(response => {
-				if (response.ok) {
-					window.location.href = "https://www.proyectossion.com/";
-				} else {
-					alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
-				}
-			})
-			.catch(error => {
-				alert('Error de conexión al enviar el formulario.');
-			});
-		});
-	}
 })();
