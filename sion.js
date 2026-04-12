@@ -123,6 +123,44 @@
             });
         }
     });
+    // Funciones globales
+    window.toggleMenu = () => document.getElementById('nav-links')?.classList.toggle('active');
+    window.abrirform = () => { 
+        const overlay = document.getElementById('overlay');
+        if(overlay){ overlay.style.display = 'block'; document.body.style.overflow = 'hidden'; }
+    };
+    window.cerrarform = () => { 
+        const overlay = document.getElementById('overlay');
+        if(overlay){ overlay.style.display = 'none'; document.body.style.overflow = 'auto'; }
+	};
+	window.onload = function() {
+		if (!localStorage.getItem('cookiesAccepted') === 'false') {
+			document.getElementById('cookie-banner').style.display = 'block'; 
+		} else {
+			document.getElementById('cookie-banner').style.display = 'none';
+		}
+	}
+	function acceptCookies() {
+		localStorage.setItem('cookiesAccepted', 'true');
+		localStorage.setItem('cookieAnalytics', true);
+		localStorage.setItem('cookieMarketing', true);
+		document.getElementById('cookie-banner').style.display = 'none';
+		document.getElementById('cookie-modal').style.display = 'none';
+	}
+	function rejectCookies() {
+		localStorage.setItem('cookiesAccepted', 'false');
+		document.getElementById('cookie-banner').style.display = 'none';
+		document.getElementById('cookie-modal').style.display = 'none';
+	}
+	function savePreferences() {
+		let analytics = document.getElementById('cookie-analytics').checked;
+		let marketing = document.getElementById('cookie-marketing').checked;
+		localStorage.setItem('cookiesAccepted', 'true');
+		localStorage.setItem('cookieAnalytics', analytics);
+		localStorage.setItem('cookieMarketing', marketing);
+		document.getElementById('cookie-banner').style.display = 'none';
+		document.getElementById('cookie-modal').style.display = 'none';
+	}
 	const form = document.getElementById('orderForm');
 	form.addEventListener('submit', function(event) {
 		event.preventDefault();
@@ -176,43 +214,4 @@
 			window.location.href = "https://www.proyectossion.com/";
 		}, 1000);
 	}
-    // Funciones globales
-    window.toggleMenu = () => document.getElementById('nav-links')?.classList.toggle('active');
-    window.abrirform = () => { 
-        const overlay = document.getElementById('overlay');
-        if(overlay){ overlay.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    };
-    window.cerrarform = () => { 
-        const overlay = document.getElementById('overlay');
-        if(overlay){ overlay.style.display = 'none'; document.body.style.overflow = 'auto'; }
-	};
-	window.onload = function() {
-		if (!localStorage.getItem('cookiesAccepted') === 'false') {
-			document.getElementById('cookie-banner').style.display = 'block'; 
-		} else {
-			document.getElementById('cookie-banner').style.display = 'none';
-		}
-	}
-	function acceptCookies() {
-		localStorage.setItem('cookiesAccepted', 'true');
-		localStorage.setItem('cookieAnalytics', true);
-		localStorage.setItem('cookieMarketing', true);
-		document.getElementById('cookie-banner').style.display = 'none';
-		document.getElementById('cookie-modal').style.display = 'none';
-	}
-	function rejectCookies() {
-		localStorage.setItem('cookiesAccepted', 'false');
-		document.getElementById('cookie-banner').style.display = 'none';
-		document.getElementById('cookie-modal').style.display = 'none';
-	}
-	function savePreferences() {
-		let analytics = document.getElementById('cookie-analytics').checked;
-		let marketing = document.getElementById('cookie-marketing').checked;
-		localStorage.setItem('cookiesAccepted', 'true');
-		localStorage.setItem('cookieAnalytics', analytics);
-		localStorage.setItem('cookieMarketing', marketing);
-		document.getElementById('cookie-banner').style.display = 'none';
-		document.getElementById('cookie-modal').style.display = 'none';
-	}
-
 })();
