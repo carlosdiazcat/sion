@@ -1731,8 +1731,11 @@ a img {
       margin: 0 auto 44px;
     }
  
-    .beneficio-card {
-      border: 1px solid var(--border);
+	.beneficio-card {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: var(--radius);
       padding: 28px 20px 24px;
       display: flex;
@@ -1740,14 +1743,14 @@ a img {
       align-items: center;
       text-align: center;
       gap: 14px;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
       cursor: default;
-	  background: var(--bg);
     }
     .beneficio-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(16,56,74,.12);
-      border-color: var(--accent-light);
+      background: rgba(255, 255, 255, 0.28);
+      border-color: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 12px 36px rgba(16,56,74,.2);
     }
  
     .beneficio-icon-wrap {
