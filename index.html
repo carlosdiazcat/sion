@@ -1233,25 +1233,6 @@
 			</div>
 			<button class="boton" onclick="abrirform()">Solicita tu presupuesto</button>
 		</section>
-		<div class="introduccion">
-			<h2>Nuestra historia</h2>
-		</div>
-		<section class="sobre">
-			<div class="container-sobre">
-				<p class="sobre-texto">
-				 	Nuestra misión en SION, proyectos y soluciones es transformar ideas en realidades innovadoras, ofreciendo soluciones tecnológicas y visuales que mejoren la vida de las personas y optimicen su entorno.
-				</p>
-				<p class="sobre-texto">
-					Somos de Murcia, y creemos en el valor de la cercanía y el trato personal como pilares fundamentales de nuestro trabajo. Desde nuestros inicios, hemos apostado por un equilibrio entre creatividad y simplicidad para desarrollar soluciones innovadoras y minimalistas que permiten a nuestros clientes destacar sin perder su identidad.
-				</p>
-				<p class="sobre-texto">
-				 	Nuestro equipo trabaja con compromiso y excelencia para crear experiencias visuales que transmiten lo esencial: claridad, eficiencia y autenticidad.
-				</p>
-				<p class="sobre-texto">
-				 	Además, apostamos por la facilidad y comodidad que ofrece la domótica, proporcionando soluciones inteligentes que se adaptan a tu estilo de vida y hacen tu día a día más sencillo e intuitivo.
-				</p>
-			</div>
-		</section>
 		<script>
 			fetch("footer.html")
 				.then(response => response.text())
@@ -1260,7 +1241,27 @@
 				})
 				.catch(error => console.error("Error al cargar el footer:", error));
 		</script>
-		<div id="footer"></div>
+		<div class="introduccion">
+			<h2>Nuestra historia</h2>
+		</div>
+		<div id="footer">
+			<section class="sobre">
+				<div class="container-sobre">
+					<p class="sobre-texto">
+						Nuestra misión en SION, proyectos y soluciones es transformar ideas en realidades innovadoras, ofreciendo soluciones tecnológicas y visuales que mejoren la vida de las personas y optimicen su entorno.
+					</p>
+					<p class="sobre-texto">
+						Somos de Murcia, y creemos en el valor de la cercanía y el trato personal como pilares fundamentales de nuestro trabajo. Desde nuestros inicios, hemos apostado por un equilibrio entre creatividad y simplicidad para desarrollar soluciones innovadoras y minimalistas que permiten a nuestros clientes destacar sin perder su identidad.
+					</p>
+					<p class="sobre-texto">
+						Nuestro equipo trabaja con compromiso y excelencia para crear experiencias visuales que transmiten lo esencial: claridad, eficiencia y autenticidad.
+					</p>
+					<p class="sobre-texto">
+						Además, apostamos por la facilidad y comodidad que ofrece la domótica, proporcionando soluciones inteligentes que se adaptan a tu estilo de vida y hacen tu día a día más sencillo e intuitivo.
+					</p>
+				</div>
+			</section>
+		</div>
 	</main>
 </body>
 </html>
