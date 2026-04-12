@@ -2861,7 +2861,9 @@ footer::after {
 }
 
 @media (max-width: 768px) {
-    .container, .container1, .container-como1, .constructoras-grid, .beneficios-grid {grid-template-columns: 1fr; /* Una sola columna */}
+    .container, .container1, .container-como1, .beneficios-grid, .proceso-grid {grid-template-columns: 1fr;}
+	.constructoras-grid  { grid-template-columns: 1fr 1fr; }
+	.proceso-grid::before{ display: none; }
     .form-container1 {padding: 36px 24px;}
     .form-row, .form-qty-row { grid-template-columns: 1fr; gap: 10px; }
 	.footer-main         {gap: 28px; padding-top: 36px; }
