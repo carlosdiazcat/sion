@@ -143,7 +143,6 @@
 		iconUnmuted.style.display = video.muted ? 'none'  : 'block';
 	});
 	
-	/* ── Fallback: si el vídeo no carga muestra la imagen ── */
 	video.addEventListener('error', () => {
 		video.style.display = 'none';
 	});
