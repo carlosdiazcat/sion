@@ -1,7 +1,6 @@
 (function() {
     document.addEventListener("DOMContentLoaded", function() {
         
-        /* ─── 1. DATOS DEL SLIDER ─── */
         const slidesData = [
             { title: 'Iluminación', img: 'https://carlosdiazcat.github.io/sion/img/exterior.webp', href: 'https://carlosdiazcat.github.io/soluciones/#ilumincacion', text: 'La iluminación domótica transforma la manera en que interactuamos...' },
             { title: 'Protección solar', img: 'https://carlosdiazcat.github.io/sion/img/persianastoldos.webp', href: 'https://carlosdiazcat.github.io/soluciones/#persianas', text: 'Persianas, toldos y estores inteligentes...' },
@@ -15,7 +14,6 @@
             { title: 'Segunda residencia', img: 'https://carlosdiazcat.github.io/sion/img/segunda.webp', href: 'https://carlosdiazcat.github.io/soluciones/#segunda', text: 'Control remoto y monitoreo a distancia...' }
         ];
 
-        /* ─── 2. RENDERIZADO DEL SLIDER ─── */
         const inner = document.getElementById('slidesInner');
         const tabs = document.getElementById('sliderTabs');
         const dots = document.getElementById('sliderDots');
@@ -52,7 +50,6 @@
             });
         }
 
-        /* ─── 3. LÓGICA DE NAVEGACIÓN ─── */
         let current = 0;
         let autoTimer;
 
@@ -64,7 +61,6 @@
             document.querySelectorAll('.tab-btn').forEach((t, i) => t.classList.toggle('active', i === current));
             document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
             
-            // CORRECCIÓN: Solo scroll horizontal para que no salte la página
             const activeTab = tabs?.children[current];
             if (activeTab) {
                 tabs.scrollTo({
@@ -93,7 +89,6 @@
         }
         resetAuto();
 
-        /* ─── 4. ANIMACIÓN DE LETRAS (RE-ACTIVADA) ─── */
         document.querySelectorAll('h1').forEach(h1 => {
             const words = h1.innerText.split(' ');
             h1.innerHTML = words.map(w => 
@@ -101,11 +96,10 @@
             ).join(' ');
         });
 
-        // Asignamos los eventos después de crear las letras
         document.querySelectorAll('.letras').forEach(letter => {
             letter.addEventListener('mouseenter', () => {
                 letter.style.transform = 'translateY(-10px)';
-                letter.style.color = '#007bff'; // Puedes cambiar el color aquí
+                letter.style.color = '#007bff80';
             });
             letter.addEventListener('mouseleave', () => {
                 letter.style.transform = 'translateY(0)';
@@ -113,7 +107,6 @@
             });
         });
 
-        /* ─── 5. COOKIES Y OTROS ─── */
         const cookieBanner = document.getElementById("cookie-banner");
         if (cookieBanner && !localStorage.getItem("cookies-accepted")) {
             cookieBanner.style.display = "block";
@@ -123,7 +116,6 @@
             });
         }
     });
-    // Funciones globales
     window.toggleMenu = () => document.getElementById('nav-links')?.classList.toggle('active');
     window.abrirform = () => { 
         const overlay = document.getElementById('overlay');
@@ -166,9 +158,8 @@
 		if (!input) return;
 
 		const val = parseInt(input.value, 10) || 0;
-		input.value = Math.max(0, val + delta); // Evita números negativos
+		input.value = Math.max(0, val + delta);
 
-		// IMPORTANTE: Llamamos al cálculo cada vez que cambia la cantidad
 		updatePrice();
 	};
 	function updatePrice() {
@@ -200,9 +191,8 @@
 	const form = document.getElementById('orderForm');
 	if (form) {
 		form.addEventListener('submit', function(event) {
-			event.preventDefault(); // Detenemos el envío automático
+			event.preventDefault();
 
-			// 2. Convertimos los valores a números (si el campo está vacío, usamos 0)
 			const getVal = (id) => parseInt(document.getElementById(id).value) || 0;
 
 			const p1 = getVal("luces_smart");
@@ -215,31 +205,24 @@
 			const p8 = getVal("pantallas_inteligentes");
 			const p9 = getVal("videoporteros");
 			const p10 = getVal("cerradura");
-
-			// 3. Precios
 			const prices = [150, 150, 600, 150, 150, 150, 500, 450, 450, 450];
 			
-			// 4. Lógica de la centralita (suma de cantidades)
 			const totalUnidades = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10;
 			const central = (totalUnidades >= 30) ? 1000 : 200;
 
-			// 5. Cálculo del Total
 			const total = (p1 * prices[0]) + (p2 * prices[1]) + (p3 * prices[2]) + 
 						(p4 * prices[3]) + (p5 * prices[4]) + (p6 * prices[5]) + 
 						(p7 * prices[6]) + (p8 * prices[7]) + (p9 * prices[8]) + 
 						(p10 * prices[9]) + central;
 
-			// 6. Actualizar visualmente (si los elementos existen)
 			if(document.getElementById("totalPrice")) {
 				document.getElementById("totalPrice").textContent = total;
 			}
 
-			// 7. Preparar datos para Formspree
 			const formData = new FormData(form);
 			formData.append('Total_Presupuesto_Estimado', total + "€");
 			formData.append('Total_Unidades_Domoticas', totalUnidades);
 
-			// 8. Enviar por Fetch
 			fetch(form.action, {
 				method: 'POST',
 				body: formData,
@@ -249,7 +232,6 @@
 			})
 			.then(response => {
 				if (response.ok) {
-					// Redirección tras éxito
 					window.location.href = "https://www.proyectossion.com/";
 				} else {
 					alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
