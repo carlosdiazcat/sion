@@ -705,7 +705,7 @@
 				<button class="cerrar" onclick="cerrarform()">&times;</button>
 				<!-- <img src="img/cuaderno.gif" alt="">-->
 				<h2 >SOLICITA TU PRESUPUESTO</h2>
-				<form action="https://formspree.io/f/xeoewzqd" method="POST" id="presupuestoForm" onsubmit="handleSubmit(event)">
+				<form action="https://formspree.io/f/xeoewzqd" method="POST" id="orderForm" onsubmit="handleSubmit(event)">
 					<div class="form-row">
 						<div class="form-group">
 						<label for="nombre">Nombre completo *</label>
@@ -1003,62 +1003,72 @@
 				document.getElementById('cookie-banner').style.display = 'none';
 				document.getElementById('cookie-modal').style.display = 'none';
 			}
-		</script>--->
+		</script>
 		<script>
 			const form = document.getElementById('orderForm');
-			form.addEventListener('submit', function(event) {
-				event.preventDefault();
-				var product1 = document.getElementById("luces_smart").value;
-				var product2 = document.getElementById("persianas_smart").value;
-				var product3 = document.getElementById("camaras_seguridad").value;
-				var product4 = document.getElementById("sensores_movimiento").value;
-				var product5 = document.getElementById("termostatos_inteligentes").value;
-				var product6 = document.getElementById("ventiladores_inteligentes").value;
-				var product7 = document.getElementById("altavoces_inteligentes").value;
-				var product8 = document.getElementById("pantallas_inteligentes").value;
-				var product9 = document.getElementById("videoporteros").value;
-				var product10 = document.getElementById("cerradura").value;
-				var price1 = 150;
-				var price2 = 150;
-				var price3 = 600;
-				var price4 = 150;
-				var price5 = 150;
-				var price6 = 150;
-				var price7 = 500;
-				var price8 = 450;
-				var price9 = 450;
-				var price10 = 450;
+			if (form) {
+				form.addEventListener('submit', function(event) {
+					event.preventDefault(); // Detenemos el envío automático
 
-				if ((product1 + product2 + product3 + product4 + product5 + product6 + product7 + product8 + product9 + product10) >= 30) {
-					var central = 1000;
-				} else {
-					var central = 200;
-				}
+					// 2. Convertimos los valores a números (si el campo está vacío, usamos 0)
+					const getVal = (id) => parseInt(document.getElementById(id).value) || 0;
 
-				const formData = new FormData(form);
-				var total = (product1 * price1) + (product2 * price2) + (product3 * price3) + (product4 * price4) + (product5 * price5)+ (product6 * price6) + (product7 * price7) + (product8 * price8) + (product9 * price9) + (product10 * price10) + central;
-				document.getElementById("totalPrice").textContent  = total;
-				document.getElementById("totalPriceInput").value = total;
-				document.getElementById("totalPriceHidden").value = total;
-				formData.append('total_price', total);
-				fetch('https://formspree.io/f/xeoewzqd', {
-					method: 'POST',
-					body: formData 
-				})
-				.then(response => {
-					if (response.ok) {
-						window.location.href = "https://www.proyectossion.com/";
-					} else {
-						alert('Hubo un error al enviar el formulario');
+					const p1 = getVal("luces_smart");
+					const p2 = getVal("persianas_smart");
+					const p3 = getVal("camaras_seguridad");
+					const p4 = getVal("sensores_movimiento");
+					const p5 = getVal("termostatos_inteligentes");
+					const p6 = getVal("ventiladores_inteligentes");
+					const p7 = getVal("altavoces_inteligentes");
+					const p8 = getVal("pantallas_inteligentes");
+					const p9 = getVal("videoporteros");
+					const p10 = getVal("cerradura");
+
+					// 3. Precios
+					const prices = [150, 150, 600, 150, 150, 150, 500, 450, 450, 450];
+					
+					// 4. Lógica de la centralita (suma de cantidades)
+					const totalUnidades = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10;
+					const central = (totalUnidades >= 30) ? 1000 : 200;
+
+					// 5. Cálculo del Total
+					const total = (p1 * prices[0]) + (p2 * prices[1]) + (p3 * prices[2]) + 
+								(p4 * prices[3]) + (p5 * prices[4]) + (p6 * prices[5]) + 
+								(p7 * prices[6]) + (p8 * prices[7]) + (p9 * prices[8]) + 
+								(p10 * prices[9]) + central;
+
+					// 6. Actualizar visualmente (si los elementos existen)
+					if(document.getElementById("totalPrice")) {
+						document.getElementById("totalPrice").textContent = total;
 					}
-				})
-			});
-			function handleSubmit(event) {
-				setTimeout(() => {
-					window.location.href = "https://www.proyectossion.com/";
-				}, 1000);
+
+					// 7. Preparar datos para Formspree
+					const formData = new FormData(form);
+					formData.append('Total_Presupuesto_Estimado', total + "€");
+					formData.append('Total_Unidades_Domoticas', totalUnidades);
+
+					// 8. Enviar por Fetch
+					fetch(form.action, {
+						method: 'POST',
+						body: formData,
+						headers: {
+							'Accept': 'application/json'
+						}
+					})
+					.then(response => {
+						if (response.ok) {
+							// Redirección tras éxito
+							window.location.href = "https://www.proyectossion.com/";
+						} else {
+							alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
+						}
+					})
+					.catch(error => {
+						alert('Error de conexión al enviar el formulario.');
+					});
+				});
 			}
-		</script>
+		</script>--->
 		<section class="cta">
 			<div class="contenedor">
 				<h2>¿Estás listo para transformar tu hogar?</h2>
