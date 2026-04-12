@@ -2835,6 +2835,8 @@ footer::after {
     .slogan1-content { margin-left: 45%; }
 	.constructoras-grid  { grid-template-columns: repeat(2, 1fr); }
 	.footer-historia     { grid-template-columns: 1fr; gap: 40px; }
+	.footer-bottom       { flex-direction: column; text-align: center; }
+	.footer-bottom-links { justify-content: center; }
 }
 
 @media (max-width: 980px) {
