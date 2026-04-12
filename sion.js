@@ -161,6 +161,12 @@
 		document.getElementById('cookie-banner').style.display = 'none';
 		document.getElementById('cookie-modal').style.display = 'none';
 	}
+	function changeQty(id, delta) {
+		const input = document.getElementById(id);
+		const val   = parseInt(input.value, 10) || 0;
+		input.value = Math.max(0, val + delta);
+	}
+	
 	const form = document.getElementById('orderForm');
 	if (form) {
 		form.addEventListener('submit', function(event) {
