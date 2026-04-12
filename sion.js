@@ -106,7 +106,22 @@
                 letter.style.color = '';
             });
         });
+		const video       = document.getElementById('heroVideo');
+		const muteBtn     = document.getElementById('muteBtn');
+		const iconMuted   = document.getElementById('iconMuted');
+		const iconUnmuted = document.getElementById('iconUnmuted');
+		
+		if (muteBtn && video) {
+			muteBtn.addEventListener('click', () => {
+				video.muted = !video.muted;
+				if (iconMuted)   iconMuted.style.display   = video.muted ? 'block' : 'none';
+				if (iconUnmuted) iconUnmuted.style.display = video.muted ? 'none'  : 'block';
+			});
 
+			video.addEventListener('error', () => {
+				video.style.display = 'none';
+			});
+		}
         const cookieBanner = document.getElementById("cookie-banner");
         if (cookieBanner && !localStorage.getItem("cookies-accepted")) {
             cookieBanner.style.display = "block";
@@ -132,20 +147,6 @@
 			document.getElementById('cookie-banner').style.display = 'none';
 		}
 	}
-	const video       = document.getElementById('heroVideo');
-	const muteBtn     = document.getElementById('muteBtn');
-	const iconMuted   = document.getElementById('iconMuted');
-	const iconUnmuted = document.getElementById('iconUnmuted');
-	
-	muteBtn.addEventListener('click', () => {
-		video.muted = !video.muted;
-		iconMuted.style.display   = video.muted ? 'block' : 'none';
-		iconUnmuted.style.display = video.muted ? 'none'  : 'block';
-	});
-	
-	video.addEventListener('error', () => {
-		video.style.display = 'none';
-	});
 	function acceptCookies() {
 		localStorage.setItem('cookiesAccepted', 'true');
 		localStorage.setItem('cookieAnalytics', true);
