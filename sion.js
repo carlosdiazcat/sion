@@ -150,7 +150,7 @@
 				formData.append('Total_Presupuesto_Estimado', total + "€");
 				formData.append('Total_Unidades_Domoticas', totalUnidades);
 
-				fetch(form.action, {
+				/*fetch(form.action, {
 					method: 'POST',
 					body: formData,
 					headers: {
@@ -166,7 +166,7 @@
 				})
 				.catch(error => {
 					alert('Error de conexión al enviar el formulario.');
-				});
+				});*/
 			});
 		}
     });
