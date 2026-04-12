@@ -1344,12 +1344,9 @@ a img {
     margin: 0;
     color: #ccc;
 }
-/* ─────────────────────────────────────────────
-       1. TARJETAS CONSTRUCTORAS
-    ───────────────────────────────────────────── */
+/* 1. TARJETAS CONSTRUCTORAS */
     .constructoras {
       padding: 80px 5%;
-      background: var(--bg);
     }
  
     .sec-header {
@@ -1426,7 +1423,7 @@ a img {
     }
  
     .cons-card {
-      background: var(--bg-white);
+      background: #F4FAFD;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px 22px;
