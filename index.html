@@ -31,7 +31,7 @@
 </head>
 <body id="inicio">
 	<main class="main">
-		<section class="cabecera-container">
+		<!---<section class="cabecera-container">
 			<header class = "header">
 				<a href="/" class="logo"> 
 					<img class="logo" src="img/sionlogo.png" alt="logo de la pagina" id="logo" >
@@ -56,7 +56,7 @@
 			</header>
 		</section>
 		<video id="miVideo" width="100%" height="auto" controls autoplay muted>
-			<source src="videos/sion.mp4" type="video/mp4"> <!--class="mute-logo"-->
+			<source src="videos/sion.mp4" type="video/mp4">
 			Tu navegador no soporta el video.
 		</video>	
 		<section class="slogan1">
@@ -70,6 +70,70 @@
 			<div class="slogan1-boton">
 				<a href="/soluciones/#segunda" class="boton-slogan1">Ver más</a>
 			</div>
+		</section>--->
+		<section class="hero-section">
+			<video
+				class="hero-video"
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="auto"
+				id="heroVideo"
+				poster="https://carlosdiazcat.github.io/sion/img/exterior.webp"
+			>
+				<source src="videos/sion.mp4" type="video/mp4">
+			</video>
+						<img
+				class="hero-img-fallback"
+				src="https://carlosdiazcat.github.io/sion/img/exterior.webp"
+				alt="Hogar inteligente SION"
+			>
+			<div class="hero-overlay"></div>
+			<div class="hero-content">
+				<h1 class="hero-title">
+				El Futuro de<br><em>tu Hogar</em>
+				</h1>
+			
+				<p class="hero-subtitle">
+				Transforma tu hogar en un espacio inteligente, seguro y eficiente con soluciones de domótica que mejoran tu calidad de vida, todo al alcance de tu voz.
+				</p>
+			
+				<div class="hero-ctas">
+				<a href="https://carlosdiazcat.github.io/soluciones/#segunda" class="btn-hero-primary">
+					Descubrir soluciones
+					<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+				</a>
+				<a href="https://carlosdiazcat.github.io/formulario/" class="btn-hero-secondary">
+					Solicitar presupuesto
+				</a>
+				</div>
+			
+			</div>
+			
+			<button class="hero-mute-btn" id="muteBtn" aria-label="Silenciar/activar sonido">
+				<svg id="iconMuted" viewBox="0 0 24 24">
+				<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+				<line x1="23" y1="9" x2="17" y2="15"/>
+				<line x1="17" y1="9" x2="23" y2="15"/>
+				</svg>
+				<svg id="iconUnmuted" viewBox="0 0 24 24" style="display:none">
+				<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+				<path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+				</svg>
+			</button>
+			
+			<div class="hero-scroll">
+				<div class="scroll-wheel"></div>
+				<span>Scroll</span>
+			</div>
+			
+			<div class="hero-tagline">
+				<div class="hero-tagline-line"></div>
+				<p>Automatiza tu vida con tecnología avanzada y eficaz</p>
+				<div class="hero-tagline-line right"></div>
+			</div>
+			
 		</section>
 		<section class="central">
 			<section class="interior-texto1">
