@@ -1,228 +1,127 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const cookieBanner = document.getElementById("cookie-banner");
-    const acceptButton = document.getElementById("accept-cookies");
-    const rejectButton = document.getElementById("reject-cookies");
-    if (localStorage.getItem("cookies-accepted") || localStorage.getItem("cookies-rejected")) {
-        return;
-    }
-    cookieBanner.style.display = "block";
-    function saveCookiePreference(preference) {
-        localStorage.setItem("cookies-" + preference, "true");
-        cookieBanner.style.display = "none";
-    }
-    acceptButton.addEventListener("click", function() {
-        saveCookiePreference("accepted");
-    });
-    rejectButton.addEventListener("click", function() {
-        saveCookiePreference("rejected");
-    });
-});
-window.addEventListener("loadstart", function() {
-    document.getElementById("loading").style.display = "block";
-});
+(function() { // Encapsulamos para evitar conflictos globales
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        /* ─── 1. COOKIES ─── */
+        const cookieBanner = document.getElementById("cookie-banner");
+        const acceptButton = document.getElementById("accept-cookies");
+        const rejectButton = document.getElementById("reject-cookies");
 
-function toggleMenu() {
-	var navLinks = document.getElementById('nav-links');
-	navLinks.classList.toggle('active');
-}
-window.addEventListener("load", function() {
-    document.getElementById("loading").style.display = "none";
-});
-document.getElementById('logo').addEventListener('click', function() {
-	location.reload(); 
-});
+        if (cookieBanner && !localStorage.getItem("cookies-accepted") && !localStorage.getItem("cookies-rejected")) {
+            cookieBanner.style.display = "block";
+            
+            const savePreference = (pref) => {
+                localStorage.setItem("cookies-" + pref, "true");
+                cookieBanner.style.display = "none";
+            };
 
-var animateOnScroll = function() {
-    var boxes = document.querySelectorAll('.box');
-        boxes.forEach(function(box) {
-        var boxTop = box.getBoundingClientRect().top;
-        var windowHeight = window.innerHeight;
-		if (boxTop <= windowHeight - 100) {
-            box.classList.add('visible');
-        } else {
-            box.classList.remove('visible');
+            acceptButton?.addEventListener("click", () => savePreference("accepted"));
+            rejectButton?.addEventListener("click", () => savePreference("rejected"));
         }
+
+        /* ─── 2. CARGA Y LOGO ─── */
+        const loading = document.getElementById("loading");
+        const logo = document.getElementById('logo');
+        
+        // El loadstart suele dispararse antes de que el JS cargue, 
+        // así que lo manejamos con lógica de estado.
+        if (loading) loading.style.display = "none"; 
+
+        logo?.addEventListener('click', () => location.reload());
+
+        /* ─── 3. ANIMACIONES AL HACER SCROLL ─── */
+        const animateOnScroll = () => {
+            const boxes = document.querySelectorAll('.box');
+            const windowHeight = window.innerHeight;
+            boxes.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top;
+                if (boxTop <= windowHeight - 100) {
+                    box.classList.add('visible');
+                } else {
+                    box.classList.remove('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Ejecución inicial
+
+        /* ─── 4. INTERSECTION OBSERVER (PRODUCTOS) ─── */
+        const productos = document.querySelectorAll('.productos');
+        if (productos.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const img = entry.target.querySelector('.slider-sol');
+                    const txt = entry.target.querySelector('.slider-sol-text');
+                    
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'scale(1)';
+                        if (img) img.style.transform = 'scale(1.05)';
+                        if (txt) txt.style.transform = 'translateX(0)';
+                    } else {
+                        entry.target.style.opacity = 0;
+                        entry.target.style.transform = 'scale(0.95)';
+                        if (img) img.style.transform = 'scale(1)';
+                        if (txt) txt.style.transform = 'translateX(-20px)';
+                    }
+                });
+            }, { threshold: 0.3, rootMargin: '0px 0px -30% 0px' });
+
+            productos.forEach(p => observer.observe(p));
+        }
+
+        /* ─── 5. TEXTO ANIMADO (H1) ─── */
+        document.querySelectorAll('h1').forEach(h1 => {
+            const words = h1.innerText.split(' ');
+            h1.innerHTML = words.map(word => 
+                `<span class="palabra">${word.split('').map(letter => 
+                    `<span class="letras" style="display:inline-block; transition: transform 0.3s">${letter}</span>`
+                ).join('')}</span>`
+            ).join(' ');
+        });
+
+        document.querySelectorAll('.letras').forEach(letter => {
+            letter.addEventListener('mouseenter', () => letter.style.transform = 'translateY(-10px)');
+            letter.addEventListener('mouseleave', () => letter.style.transform = 'translateY(0)');
+        });
+
+        /* ─── 6. LÓGICA DEL FORMULARIO / MODAL ─── */
+        window.abrirform = function() {
+            const overlay = document.getElementById('overlay');
+            if (overlay) {
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.cerrarform = function() {
+            const overlay = document.getElementById('overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        // Cerrar con Escape o clic fuera
+        document.addEventListener('keydown', (e) => { if (e.key === "Escape") cerrarform(); });
+        window.addEventListener('click', (e) => {
+            const overlay = document.getElementById('overlay');
+            if (e.target === overlay) cerrarform();
+        });
+
     });
-};
 
-window.addEventListener('scroll', animateOnScroll);
+    /* ─── 7. FUNCIONES GLOBALES ─── */
+    window.toggleMenu = function() {
+        document.getElementById('nav-links')?.classList.toggle('active');
+    };
 
-animateOnScroll();
+    window.changeQty = function(id, delta) {
+        const input = document.getElementById(id);
+        if (input) {
+            let val = (parseInt(input.value) || 0) + delta;
+            input.value = val < 0 ? 0 : val;
+            if (typeof calculatePrice === 'function') calculatePrice();
+        }
+    };
 
-document.addEventListener('DOMContentLoaded', animateOnScroll);
-
-var servicios = document.querySelectorAll('.servicio');
-
-servicios.forEach(function(servicio) {
-	servicio.addEventListener('mouseenter', function() {
-		servicio.style.transform = 'scale(1)';
-    });
-	servicio.addEventListener('mouseleave', function() {
-        servicio.style.transform = 'scale(1)';
-    });
-});
-var texto = document.getElementById('texto');
-
-var productos = document.querySelectorAll('.productos');
-var imagenes = document.querySelectorAll('.slider-image-sol img');
-var textos = document.querySelectorAll('.slider-sol-text');
-
-var observer = new IntersectionObserver(function(entries, observer){
-	entries.forEach(function(entry) {
-		if (entry.isIntersecting) {
-			entry.target.style.opacity = 1;
-			entry.target.style.transform = 'scale(1)';
-
-			var imagen = entry.target.querySelector('.slider-sol');
-			imagen.style.transform = 'scale(1.05)';
-
-			var texto = entry.target.querySelector('.slider-sol-text');
-			texto.style.transform = 'translateX(0)';
-		} else {
-			entry.target.style.opacity = 0;
-			entry.target.style.transform = 'scale(0.95)';
-
-			var imagen = entry.target.querySelector('.slider-sol');
-			imagen.style.transform = 'scale(1)';
-
-			var texto = entry.target.querySelector('.slider-sol-text');
-			texto.style.transform = 'translateX(-20px)';
-		}
-	});
-}, {
-	threshold: 0.3,
-	rootMargin: '0px 0px -30% 0px'
-});
-
-productos.forEach(function(producto) {
-	observer.observe(producto)
-});
-
-let currentSlide = 0;
-var slides = document.querySelectorAll('.slide');
-var indicators = document.querySelectorAll('.indicator');
-var totalSlides = slides.length;
-function moveSlide(direction) {
-	var slideWidth = slides[0].clientWidth;
-	indicators[currentSlide].classList.remove('active');
-	currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-	document.querySelector('.slider').style.transform = `translateX(-${slideWidth * currentSlide }px)`;
-	indicators[currentSlide].classList.add('active');
-}
-setInterval(() => {
-	moveSlide(1);
-}, 10000);
-let startX;
-slider.addEventListener('touchstart', (e) => {
-	startX = e.touches[0].clientX;
-});
-
-slider.addEventListener('touchmove', (e) => {
-	var moveX = e.touches[0].clientX - startX;
-	if (moveX > 50) {
-		moveSlide(-1);
-		startX = e.touches[0].clientX;
-	} else if (moveX < -50) {
-		moveSlide(1);
-		startX = e.touches[0].clientX;
-	}
-});
-function changeSlide(slideIndex) {
-	slides[currentSlide].classList.remove('active');
-	indicators[currentSlide].classList.remove('active');
-
-	currentSlide = slideIndex;
-
-	slides[currentSlide].classList.add('active');
-	indicators[currentSlide].classList.add('active');
-
-	var slideWidth = slides[0].clientWidth;
-	document.querySelector('.slider').style.transform = `translateX(-${slideWidth * currentSlide}px)`;
-}
-indicators.forEach((indicator, index) => {
-	indicator.addEventListener('click', () => {
-	  changeSlide(index);
-	});
-});
-
-changeSlide(0);
-
-var texto = document.querySelectorAll('h1');
-texto.forEach(texto => {
-	texto.innerHTML = texto.innerText.split(' ').map(word => 
-		`<span class="palabra">${word.split('').map(letter => 
-			`<span class="letras">${letter}</span>`
-		).join('')}</span>`
-	).join(' ');
-
-	document.querySelectorAll('.letras').forEach(letter => {
-		letter.addEventListener('mouseenter', () => {
-			letter.style.transform = 'translateY(-10px)';
-		});
-		letter.addEventListener('mouseleave', () => {
-			letter.style.transform = 'translateY(0)';
-		});
-	});
-});
-function showPreferences() {
-	document.getElementById('cookie-banner').style.display = 'none';
-	document.getElementById('cookie-modal').style.display = 'flex';
-}
-/*function formulario() {
-	document.getElementById('formulario').style.display = 'block';
-}
-function cerrarform() {
-	document.getElementById('formulario').style.display = 'none';
-}*/
-// Función para ABRIR
-function abrirform() {
-	const overlay = document.getElementById('overlay');
-	if (overlay) {
-		overlay.style.display = 'block';
-		document.body.style.overflow = 'hidden'; // Bloquea scroll fondo
-	}
-}
-
-// Alias para compatibilidad con tus botones antiguos
-function formulario() {
-	abrirform();
-}
-
-// Función para CERRAR
-function cerrarform() {
-	const overlay = document.getElementById('overlay');
-	if (overlay) {
-		overlay.style.display = 'none';
-		document.body.style.overflow = 'auto'; // Devuelve scroll fondo
-	}
-}
-
-// Cerrar con Escape
-document.addEventListener('keydown', function(event) {
-	if (event.key === "Escape") {
-		cerrarform();
-	}
-});
-
-// Cerrar al hacer clic fuera (en el overlay)
-window.onclick = function(event) {
-	const overlay = document.getElementById('overlay');
-	// Si el clic es exactamente en el overlay (el fondo difuminado)
-	if (event.target == overlay) {
-		cerrarform();
-	}
-}
-
-// Lógica de botones +/-
-function changeQty(id, delta) {
-	const input = document.getElementById(id);
-	if (input) {
-		let val = parseInt(input.value) || 0;
-		val += delta;
-		if (val < 0) val = 0;
-		input.value = val;
-		
-		// Si tienes función de cálculo de precio
-		if (typeof calculatePrice === 'function') calculatePrice();
-	}
-}
+})();
