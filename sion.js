@@ -26,7 +26,6 @@
                 <div class="slide-card">
                     <div class="slide-img">
                         <img src="${s.img}" alt="${s.title}" loading="${i === 0 ? 'eager' : 'lazy'}">
-                        <span class="slide-num">${String(i+1).padStart(2,'0')} / ${String(slidesData.length).padStart(2,'0')}</span>
                     </div>
                     <div class="slide-content">
                         <h2>${s.title}</h2>
