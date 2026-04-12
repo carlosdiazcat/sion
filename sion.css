@@ -1493,6 +1493,7 @@ a img {
       background: #5dc0e0;
       transform: translateY(-3px);
       box-shadow: 0 10px 32px rgba(78,175,212,.55);
+	  cursor: pointer;
     }
  
     .btn-hero-secondary {
