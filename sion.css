@@ -218,17 +218,43 @@ h1, .contentgroup__h2 {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .block1 {
-	display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
-    padding: 0px 20px;
-	margin: 10px 0px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    background-color: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: var(--radius); /* Usa el radio de 14px */
+    box-shadow: var(--shadow-md); /* Sombra elegante */
+    transition: var(--transition);
     text-align: center;
-    max-width: 250px;
-    height: 400px;
+    width: 100%;
+    max-width: 350px; /* Evita que las tarjetas sean gigantes en pantallas raras */
+    border: 1px solid var(--border);
+}
+
+.block1:hover {
+    transform: translateY(-10px); /* Sube un poco */
+    box-shadow: 0 12px 30px rgba(16, 56, 74, 0.2);
+    border-color: var(--accent); /* Cambia el borde al color de acento */
+}
+.block1 img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.block1 h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.block1 p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 .logo-block {
     width: 40px;
@@ -681,10 +707,7 @@ li:hover {
 .boton1:hover {
     background-color: #555;
 }
-.contenedor{
-	display: grid;
-	padding: 0px 20px;
-}
+
 .beneficios {
 	background-image: url('img/fondo beneficios.webp');
 	background-size: cover;
@@ -732,7 +755,9 @@ li:hover {
 }
 .beneficios1 {
 	background-color: #F7FCFF;
-	padding: 0px 20px 40px;
+    background-color: var(--bg);
+    padding: 80px 10%;
+    text-align: center;
 }
 .beneficios1 h2 {
 	font-size: 2rem;
@@ -2130,14 +2155,12 @@ a img {
 	padding: 20px;
 	border-radius: 8px;
 }
-.container1 {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 20px;
-	justify-items: center;
-	width: fit-content;
-	align-content: center;
-	align-items: center;
+.contenedor, .container1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+    justify-items: center;
 }
 .overlay-container {
     display: none;
