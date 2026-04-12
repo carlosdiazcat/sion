@@ -132,6 +132,21 @@
 			document.getElementById('cookie-banner').style.display = 'none';
 		}
 	}
+	const video       = document.getElementById('heroVideo');
+	const muteBtn     = document.getElementById('muteBtn');
+	const iconMuted   = document.getElementById('iconMuted');
+	const iconUnmuted = document.getElementById('iconUnmuted');
+	
+	muteBtn.addEventListener('click', () => {
+		video.muted = !video.muted;
+		iconMuted.style.display   = video.muted ? 'block' : 'none';
+		iconUnmuted.style.display = video.muted ? 'none'  : 'block';
+	});
+	
+	/* ── Fallback: si el vídeo no carga muestra la imagen ── */
+	video.addEventListener('error', () => {
+		video.style.display = 'none';
+	});
 	function acceptCookies() {
 		localStorage.setItem('cookiesAccepted', 'true');
 		localStorage.setItem('cookieAnalytics', true);
