@@ -1356,8 +1356,8 @@ a img {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-top: 160px;
-      padding-bottom: 100px;
+      /*padding-top: 160px;
+      padding-bottom: 100px;*/
     }
  
     /* ── Vídeo de fondo ── */
