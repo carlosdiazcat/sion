@@ -161,12 +161,42 @@
 		document.getElementById('cookie-banner').style.display = 'none';
 		document.getElementById('cookie-modal').style.display = 'none';
 	}
-	function changeQty(id, delta) {
+	window.changeQty = function(id, delta) {
 		const input = document.getElementById(id);
-		const val   = parseInt(input.value, 10) || 0;
-		input.value = Math.max(0, val + delta);
+		if (!input) return;
+
+		const val = parseInt(input.value, 10) || 0;
+		input.value = Math.max(0, val + delta); // Evita números negativos
+
+		// IMPORTANTE: Llamamos al cálculo cada vez que cambia la cantidad
+		updatePrice();
+	};
+	function updatePrice() {
+		const getVal = (id) => {
+			const el = document.getElementById(id);
+			return el ? (parseInt(el.value) || 0) : 0;
+		};
+
+		const p = [
+			getVal("luces_smart"), getVal("persianas_smart"), getVal("camaras_seguridad"),
+			getVal("sensores_movimiento"), getVal("termostatos_inteligentes"),
+			getVal("ventiladores_inteligentes"), getVal("altavoces_inteligentes"),
+			getVal("pantallas_inteligentes"), getVal("videoporteros"), getVal("cerradura")
+		];
+
+		const prices = [150, 150, 600, 150, 150, 150, 500, 450, 450, 450];
+		
+		const totalUnidades = p.reduce((a, b) => a + b, 0);
+		const central = (totalUnidades >= 30) ? 1000 : 200;
+
+		const total = p.reduce((acc, val, i) => acc + (val * prices[i]), 0) + central;
+
+		const display = document.getElementById("totalPrice");
+		if (display) display.textContent = total;
+
+		return { total, totalUnidades };
 	}
-	
+
 	const form = document.getElementById('orderForm');
 	if (form) {
 		form.addEventListener('submit', function(event) {
