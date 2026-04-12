@@ -2,16 +2,16 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         const slidesData = [
-            { title: 'Iluminación', img: 'https://carlosdiazcat.github.io/sion/img/exterior.webp', href: 'https://carlosdiazcat.github.io/soluciones/#ilumincacion', text: 'La iluminación domótica transforma la manera en que interactuamos...' },
-            { title: 'Protección solar', img: 'https://carlosdiazcat.github.io/sion/img/persianastoldos.webp', href: 'https://carlosdiazcat.github.io/soluciones/#persianas', text: 'Persianas, toldos y estores inteligentes...' },
-            { title: 'Climatización', img: 'https://carlosdiazcat.github.io/sion/img/clima.webp', href: 'https://carlosdiazcat.github.io/soluciones/#clima', text: 'Control climático inteligente...' },
-            { title: 'Alarmas y seguridad', img: 'https://carlosdiazcat.github.io/sion/img/alarmas.webp', href: 'https://carlosdiazcat.github.io/soluciones/#alarmas', text: 'Protección inteligente del hogar...' },
-            { title: 'Energía', img: 'https://carlosdiazcat.github.io/sion/img/solar.webp', href: 'https://carlosdiazcat.github.io/soluciones/#consumo', text: 'Gestión inteligente de la producción...' },
-            { title: 'Jardines y piscinas', img: 'https://carlosdiazcat.github.io/sion/img/jardinypiscina.webp', href: 'https://carlosdiazcat.github.io/soluciones/#jardin', text: 'Soluciones inteligentes para el riego...' },
-            { title: 'Puertas y accesos', img: 'https://carlosdiazcat.github.io/sion/img/puertas.webp', href: 'https://carlosdiazcat.github.io/soluciones/#puertas', text: 'Cerraduras inteligentes y videoporteros...' },
-            { title: 'Asistentes vocales', img: 'https://carlosdiazcat.github.io/sion/img/asistentevocal.webp', href: 'https://carlosdiazcat.github.io/soluciones/#asistentes', text: 'Integración con Alexa y Google Home...' },
-            { title: 'Apartamentos de alquiler', img: 'https://carlosdiazcat.github.io/sion/img/apartamentos1.webp', href: 'https://carlosdiazcat.github.io/soluciones/#alquiler', text: 'Soluciones domóticas flexibles...' },
-            { title: 'Segunda residencia', img: 'https://carlosdiazcat.github.io/sion/img/segunda.webp', href: 'https://carlosdiazcat.github.io/soluciones/#segunda', text: 'Control remoto y monitoreo a distancia...' }
+            { title: 'Iluminación', img: 'img/exterior.webp', href: '/soluciones/#ilumincacion', text: 'La iluminación domótica transforma la manera en que interactuamos...' },
+            { title: 'Protección solar', img: 'img/persianastoldos.webp', href: '/soluciones/#persianas', text: 'Persianas, toldos y estores inteligentes...' },
+            { title: 'Climatización', img: 'img/clima.webp', href: '/soluciones/#clima', text: 'Control climático inteligente...' },
+            { title: 'Alarmas y seguridad', img: 'img/alarmas.webp', href: '/soluciones/#alarmas', text: 'Protección inteligente del hogar...' },
+            { title: 'Energía', img: 'img/solar.webp', href: '/soluciones/#consumo', text: 'Gestión inteligente de la producción...' },
+            { title: 'Jardines y piscinas', img: 'img/jardinypiscina.webp', href: '/soluciones/#jardin', text: 'Soluciones inteligentes para el riego...' },
+            { title: 'Puertas y accesos', img: 'img/puertas.webp', href: '/soluciones/#puertas', text: 'Cerraduras inteligentes y videoporteros...' },
+            { title: 'Asistentes vocales', img: 'img/asistentevocal.webp', href: '/soluciones/#asistentes', text: 'Integración con Alexa y Google Home...' },
+            { title: 'Apartamentos de alquiler', img: 'img/apartamentos1.webp', href: '/soluciones/#alquiler', text: 'Soluciones domóticas flexibles...' },
+            { title: 'Segunda residencia', img: 'img/segunda.webp', href: '/soluciones/#segunda', text: 'Control remoto y monitoreo a distancia...' }
         ];
 
         const inner = document.getElementById('slidesInner');
@@ -238,7 +238,7 @@
 			formData.append('Total_Presupuesto_Estimado', total + "€");
 			formData.append('Total_Unidades_Domoticas', totalUnidades);
 
-			/*fetch(form.action, {
+			fetch(form.action, {
 				method: 'POST',
 				body: formData,
 				headers: {
@@ -254,7 +254,7 @@
 			})
 			.catch(error => {
 				alert('Error de conexión al enviar el formulario.');
-			});*/
+			});
 		});
 	}
 })();
