@@ -1464,6 +1464,10 @@ a img {
       text-shadow: 0 4px 24px rgba(0,0,0,.35);
       animation: heroFadeUp .9s .2s cubic-bezier(.4,0,.2,1) both;
     }
+	.hero-title .palabra {
+		display: inline-block;
+		white-space: nowrap;
+	}
     .hero-title em {
       font-style: italic;
       color: var(--accent-light);
