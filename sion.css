@@ -1541,12 +1541,11 @@ a img {
     }
     .chip-icon { font-size: .85rem; }
  
-    /* ── Botón mute del vídeo ── */
     .hero-mute-btn {
       position: absolute;
       bottom: 32px;
       right: 32px;
-      z-index: 3;
+      z-index: 10;
       width: 44px;
       height: 44px;
       border-radius: 50%;
