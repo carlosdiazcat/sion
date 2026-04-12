@@ -2956,7 +2956,10 @@ footer::after {
 	.footer-bottom-links { justify-content: center; }
     .nav-links a { font-size: 1.5rem; }
     .slider-track { overflow: hidden; width: 100%; }
-	.contacto-item {display: flex;flex-direction: column; align-items: center;justify-content: center; margin-bottom: 15px;}
+	.contacto-item {display: flex;flex-direction: column; align-items: center;justify-content: center; margin-bottom: 15px;}.slider-sol {flex-direction: column; text-align: center;gap: 20px;}
+    .slider-sol-text {text-align: center;padding: 0 20px;}
+    .productos h1 {font-size: 2rem; }
+    .container_escenas {padding: 20px 5%;grid-template-columns: 1fr;}
 }
 
 @media (max-width: 480px) {
