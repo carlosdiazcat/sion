@@ -1711,13 +1711,13 @@ a img {
     .beneficios-header h2 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: var(--primary);
+      color: var(--bg-white);
       font-weight: 400;
       margin-bottom: 12px;
     }
     .beneficios-header p {
       font-size: 1.05rem;
-      color: var(--text-muted);
+      color: #cfcfcf;
       max-width: 560px;
       margin: 0 auto;
       line-height: 1.75;
@@ -1742,7 +1742,7 @@ a img {
       gap: 14px;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       cursor: default;
-      /*background: var(--bg);*/
+	  background: var(--bg);
     }
     .beneficio-card:hover {
       transform: translateY(-6px);
