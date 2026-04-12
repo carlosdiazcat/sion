@@ -1699,7 +1699,9 @@ a img {
     }
 /* 2. BENEFICIOS */
     .beneficios-section {
-      padding: 90px 5%;
+      padding: 90px 5%;  
+	  background-image: url("img/entretenimiento2.webp");
+	  background-size: cover;
     }
  
     .beneficios-header {
@@ -1740,7 +1742,7 @@ a img {
       gap: 14px;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       cursor: default;
-      background: var(--bg);
+      /*background: var(--bg);*/
     }
     .beneficio-card:hover {
       transform: translateY(-6px);
