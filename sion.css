@@ -2876,7 +2876,6 @@ footer::after {
     .slogan1-content h1 { font-size: 1.8rem; }
     .slogan1-content p { font-size: 1rem; }
     .block, .block1 {width: 90vw;height: auto;padding: 20px;}
-    .footer-main { grid-template-columns: 1fr; text-align: center; }
 	.constructoras-grid  { grid-template-columns: 1fr; }
 	.historia-stats      { grid-template-columns: 1fr 1fr; }
 	.rrss-grid           { grid-template-columns: repeat(3, 44px); }
