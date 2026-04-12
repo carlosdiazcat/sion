@@ -265,7 +265,7 @@ img.logo {
 }
 body {
     font-family: Arial, sans-serif;
-    margin: 0px 100px;l
+    /* margin: 0px 100px; */
     padding: 0;
     background-color: #FFF;
     color: #333;
@@ -1355,6 +1355,7 @@ a img {
       display: flex;
       align-items: center;
       justify-content: center;
+	  padding-top: 160px;
     }
  
     /* ── Vídeo de fondo ── */
@@ -1466,6 +1467,7 @@ a img {
     .hero-title em {
       font-style: italic;
       color: var(--accent-light);
+	  white-space: nowrap;
     }
  
     /* Subtítulo */
@@ -1584,7 +1586,7 @@ a img {
     /* ── Scroll indicator ── */
     .hero-scroll {
       position: absolute;
-      bottom: 34px;
+	  bottom: 90px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
