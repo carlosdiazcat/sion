@@ -1371,10 +1371,25 @@ a img {
     .sec-header h2 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      color: var(--primary);
+      color: #103A4C;
       font-weight: 400;
       line-height: 1.15;
       margin-bottom: 12px;
+    }
+	.sec-header1 h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      color: #ffffff;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+	.sec-header1 p {
+      font-size: 1.05rem;
+      color: #cfcfcf;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.75;
     }
     .sec-header p {
       font-size: 1.05rem;
