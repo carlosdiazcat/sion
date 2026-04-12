@@ -831,8 +831,7 @@
 				</form>
 			</div>
 		</div>
-		<script>
-			/* ─── Datos de los slides ─── */
+		<!---<script>
 			let startX;
 			const slides = [
 			{
@@ -897,7 +896,6 @@
 			}
 			];
 
-			/* ─── Renderizado ─── */
 			const inner  = document.getElementById('slidesInner');
 			const tabs   = document.getElementById('sliderTabs');
 			const dots   = document.getElementById('sliderDots');
@@ -906,7 +904,6 @@
 			total.textContent = slides.length;
 
 			slides.forEach((s, i) => {
-			/* slide */
 			inner.insertAdjacentHTML('beforeend', `
 				<div class="slide-card">
 				<div class="slide-img">
@@ -926,14 +923,12 @@
 				</div>
 			`);
 
-			/* tab */
 			const tab = document.createElement('button');
 			tab.className = 'tab-btn' + (i === 0 ? ' active' : '');
 			tab.textContent = s.title;
 			tab.addEventListener('click', () => goTo(i));
 			tabs.appendChild(tab);
 
-			/* dot */
 			const dot = document.createElement('button');
 			dot.className = 'dot' + (i === 0 ? ' active' : '');
 			dot.setAttribute('aria-label', s.title);
@@ -941,7 +936,6 @@
 			dots.appendChild(dot);
 			});
 
-			/* ─── Lógica slider ─── */
 			let current = 0;
 			let autoTimer;
 
@@ -953,7 +947,6 @@
 			document.querySelectorAll('.tab-btn').forEach((t,i) => t.classList.toggle('active', i === current));
 			document.querySelectorAll('.dot').forEach((d,i)     => d.classList.toggle('active', i === current));
 
-			/* scroll tab activo a la vista */
 			const activeTab = tabs.children[current];
 			activeTab.scrollIntoView({ block:'nearest', inline:'center', behavior:'smooth' });
 
@@ -968,7 +961,6 @@
 			document.getElementById('btnPrev').addEventListener('click', () => goTo(current - 1));
 			document.getElementById('btnNext').addEventListener('click', () => goTo(current + 1));
 
-			/* swipe táctil */
 			const track = document.querySelector('.slider-track');
 			track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
 			track.addEventListener('touchend',   e => {
@@ -976,14 +968,13 @@
 			if (Math.abs(delta) > 40) goTo(current + (delta > 0 ? 1 : -1));
 			});
 
-			/* teclado */
 			document.addEventListener('keydown', e => {
 			if (e.key === 'ArrowLeft')  goTo(current - 1);
 			if (e.key === 'ArrowRight') goTo(current + 1);
 			});
 
 			resetAuto();
-		</script>
+		</script>--->
 		<script src="sion.js"></script>
 		<!---<script>
 			const firebaseConfig = {
