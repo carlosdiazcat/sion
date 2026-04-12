@@ -539,6 +539,7 @@ li:hover {
 	height: auto;
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 100px;
 }
 .introduccion img {width: 40vw;}
 .introduccion-image {margin: 0px 20px;}
@@ -1322,17 +1323,7 @@ a img {
     width: 30px; 
     height: auto;
 }
-.footer-bottom { 
-    text-align: center;
-    font-size: 14px;
-	margin-top: 30px;
-    border-top: 1px solid #ccc;
-	padding-bottom: 30px;
-}
-.footer-bottom p {
-    margin: 0;
-    color: #ccc;
-}
+
 /* HERO – "El Futuro de tu Hogar"*/
     .hero-section {
       position: relative;
@@ -2373,7 +2364,7 @@ a img {
 }
 /* 3. SLIDER SOLUCIONES */
     .soluciones-section {
-      padding: 30px 5%;
+      padding: 0 5%;
       background: var(--bg-white);
     }
  
@@ -2817,8 +2808,8 @@ footer::after {
 	flex-wrap: wrap;
 }
 .footer-bottom p {
-	font-size: .82rem;
-	color: rgba(255,255,255,.3);
+    margin: 0;
+    color: #ccc;
 }
 .footer-bottom-links {
 	display: flex;
@@ -2840,7 +2831,6 @@ footer::after {
 @media (max-width: 1300px) {
     body { margin: 0 20px; }
     header { padding-left: 20px; }
-    .sobre { padding: 5px 20px 0; }
     .container, .container1, .container-como1 {grid-template-columns: repeat(2, 1fr); gap: 20px;}
     .slogan1-content { margin-left: 45%; }
 }
