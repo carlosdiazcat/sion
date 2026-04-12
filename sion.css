@@ -2752,6 +2752,7 @@ footer::after {
 	font-size: .88rem;
 	color: rgba(255,255,255,.55);
 	line-height: 1.5;
+	text-align: initial;
 }
 .footer-contact-text strong {
 	display: block;
