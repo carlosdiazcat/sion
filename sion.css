@@ -1600,6 +1600,108 @@ a img {
 	padding: 3px 10px;
 	width: fit-content;
 }
+/* 2. BENEFICIOS */
+    .beneficios-section {
+      padding: 90px 5%;
+      background: var(--bg);
+    }
+ 
+    .beneficios-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .beneficios-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--primary);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .beneficios-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+ 
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto 44px;
+    }
+ 
+    .beneficio-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      cursor: default;
+    }
+    .beneficio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(16,56,74,.12);
+      border-color: var(--accent-light);
+    }
+ 
+    .beneficio-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(78,175,212,.08);
+      border: 1px solid rgba(78,175,212,.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+    .beneficio-card:hover .beneficio-icon-wrap {
+      background: rgba(78,175,212,.16);
+    }
+    .beneficio-icon-wrap img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+ 
+    .beneficio-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+    .beneficio-card p {
+      font-size: .86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+ 
+    .beneficios-cta {
+      text-align: center;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: 100px;
+      font-size: .95rem;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(16,56,74,.28);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(16,56,74,.38);
+    }
 /*Formulario*/
 .seccion-form{
 	position: flex;
