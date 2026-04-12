@@ -537,13 +537,11 @@ li:hover {
     display: flex;
     color: white;
 	height: auto;
+	max-width: 1200px;
+	margin: 0 auto;
 }
-.introduccion img {
-    width: 40vw;
-}
-.introduccion-image {
-	margin: 0px 20px;
-}
+.introduccion img {width: 40vw;}
+.introduccion-image {margin: 0px 20px;}
 .introduccion-content{
     display: flex;
     width: auto;
@@ -1042,7 +1040,7 @@ li:hover {
     background-color: #555;
 }
 .sobre {
-	padding: 5px 100px 30px;
+	padding: 30px 100px;
 	left: 0;
 	background: linear-gradient(to left, #10394b, #3a87c3);
 	background-repeat: no-repeat;
@@ -2382,9 +2380,7 @@ a img {
     background-color: #164b63;
     transform: translateY(-2px);
 }
-/* ═══════════════════════════════════════
-       3. SLIDER SOLUCIONES
-    ═══════════════════════════════════════ */
+/* 3. SLIDER SOLUCIONES */
     .soluciones-section {
       padding: 90px 5%;
       background: var(--bg-white);
@@ -2893,13 +2889,8 @@ footer::after {
 	}
 }
 @media (min-width: 1200px) {
-	.introduccion h2 {
-    	text-align: left;
-		font-size: 4rem;
-	}
-	.salto {
-		height: 400px;
-	}
+	.introduccion h2 {text-align: left;font-size: 4rem;}
+	.salto {height: 400px;}
 	.slider-sol-text {
 		margin-right: 10px;
 		margin-left: 60px;
@@ -3031,38 +3022,15 @@ footer::after {
 	}
 }
 @media (max-width: 980px) {
-	body {
-		margin: 0px 20px;
-	}
-	.menu{
-		right: 20px;
-		position: unset;
-}
-	header {
-		padding-left: 20px;
-	}
-	.salto1{
-		width: 40vw;
-	}
-	.introduccion-image {
-		margin: 0px;
-		justify-content: center;
-		display: grid;
-	}
-	.introduccion-content {
-		margin: 0px 20px;
-	}
-	.introduction {
-		display: block;
-	}
-	.introduccion {
-		display: block;
-	}
-	.introduccion h2 {
-		font-size: 2rem;
-        margin: 10px;
-		letter-spacing: normal;
-	}
+	body {margin: 0px 20px;}
+	.menu{right: 20px;position: unset;}
+	header {padding-left: 20px;}
+	.salto1{width: 40vw;}
+	.introduccion-image {margin: 0px;justify-content: center;display: grid;}
+	.introduccion-content {margin: 0px 20px;}
+	.introduction {display: block;}
+	.introduccion {display: block;}
+	.introduccion h2 {font-size: 2rem;margin: 10px;letter-spacing: normal;}
 	.text-container-line {
 		justify-content: center;
 		left: 3%;
@@ -3255,9 +3223,7 @@ footer::after {
 	.container-sobre {
 		margin: 0 20px;
 	}
-	.sobre {
-		padding: 5px 20px 0px;
-	}
+	.sobre {padding: 5px 20px 0px;}
 }
 @media (max-width: 672px) {
 	#cookie-modal {
