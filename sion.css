@@ -1757,7 +1757,7 @@ a img {
       width: 64px;
       height: 64px;
       border-radius: 16px;
-      background: rgba(78,175,212,.08);
+      background: rgba(242, 242, 242, 0.64);
       border: 1px solid rgba(78,175,212,.18);
       display: flex;
       align-items: center;
@@ -1781,7 +1781,7 @@ a img {
     }
     .beneficio-card p {
       font-size: .86rem;
-      color: var(--text-muted);
+      color:#000;
       line-height: 1.6;
     }
  
@@ -1791,8 +1791,8 @@ a img {
     .btn-primary {
       display: inline-block;
       padding: 14px 32px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #fff;
+      background: white;
+      color: ##090a2a;
       border-radius: 100px;
       font-size: .95rem;
       font-weight: 600;
