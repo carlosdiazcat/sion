@@ -3053,7 +3053,7 @@ footer::after {
     .container, .container1, .container-como1 {
         grid-template-columns: 1fr;
     }
-
+	.sobre {padding: 30px 10%;}
     .salto1 { width: 100%; border-top-right-radius: 50px; }
 }
 @media (max-width: 480px) {
