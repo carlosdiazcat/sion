@@ -1117,14 +1117,15 @@ li:hover {
 	margin-top: 50px;
 }
 .como-trabajamos-const {
-	/*padding: 10px 20px;
-	background-color: #F7FCFF;*/
-	padding: 80px 10%;
-    background-color: #F7FCFF; /* El azul clarito corporativo */
-    display: flex;
+	display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 5%;
+    background-color: #F7FCFF;
+    box-sizing: border-box;
 }
 .boton {
     font-size: 1.2rem;
