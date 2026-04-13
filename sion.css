@@ -316,7 +316,7 @@ header {
     background-size: cover;
     background-position: center;
 	height: 100px;
-	width: 100vw;
+	width: 100%;
     display: flex;
 	position: fixed;
 	flex-direction: row;
@@ -665,10 +665,17 @@ li:hover {
 	font-weight: bold;
 }
 .text-line {
-	position: relative;
+	/*position: relative;
 	word-wrap: break-word;
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: bold;*/
+	font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    left: 0 !important;
+    margin-left: 0 !important;
+    display: block;
+    line-height: 1.1;
 }
 .text-line:nth-child(1) {
 	left: -0%;
@@ -680,12 +687,17 @@ li:hover {
 	left: -28%;
 }
 .domotica-comodidad  {
-	display: flex;
+	/*display: flex;
 	flex-direction: inline;
 	white-space: normal;
-	background-color: lavenderblush;
 	width: auto;
-	height: auto;
+	height: auto;*/
+	display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    gap: 50px;
+	background-color: lavenderblush;
+	overflow: hidden;
 }
 .domotica-comodidad img {
     height: auto;
@@ -1579,10 +1591,17 @@ a img {
  
     /* Botones CTA */
     .hero-ctas {
-      display: flex;
+      /*display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-top: 40px;
+	position: relative;
+	z-index: 5;
       animation: heroFadeUp .9s .44s cubic-bezier(.4,0,.2,1) both;
     }
  
@@ -1682,14 +1701,23 @@ a img {
  
     /* ── Scroll indicator ── */
     .hero-scroll {
-      position: absolute;
+      /*position: absolute;
 	  bottom: 90px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center;*/
+	position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    opacity: 0.8;
       gap: 6px;
       color: rgba(255,255,255,.5);
       font-size: .72rem;
@@ -2943,7 +2971,7 @@ footer::after {
     .footer-section-term { align-items: center; }
 }
 
-@media (max-width: 1300px) {
+/*@media (max-width: 1300px) {
     body { margin: 0 20px; }
     header { padding-left: 20px; }
     .container, .container1, .container-como1 {grid-template-columns: repeat(2, 1fr); gap: 20px;}
@@ -2952,9 +2980,23 @@ footer::after {
 	.footer-historia     { grid-template-columns: 1fr; gap: 40px; }
 	.footer-bottom       { flex-direction: column; text-align: center; }
 	.footer-bottom-links { justify-content: center; }
-}
+}*/
+@media (max-width: 1024px) {
+    .introduccion, .domotica-comodidad, .slider-sol {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .introduccion img, .domotica-comodidad img {
+        width: 100%;
+        max-width: 500px;
+        clip-path: none;
+    }
 
-@media (max-width: 980px) {
+    .slogan1-content { margin-left: 0; padding: 20px; }
+    .slogan1-image img { position: relative; width: 100%; height: 200px; }
+}
+/*@media (max-width: 980px) {
     .introduccion, .slide, .slider-sol, .productos, .domotica-inner {
         flex-direction: column;
         align-items: center;
@@ -2997,8 +3039,23 @@ footer::after {
 	.seccion-como-titulo-const {font-size: 2.2rem;}
 	.container-como1 {grid-template-columns: 1fr; }
     .salto1 {border-top-right-radius: 60px;padding: 30px 20px;}
-}
+}*/
+@media (max-width: 768px) {
+    header { padding-left: 20px; padding-right: 20px; }
+    
+    .hero-ctas {
+        flex-direction: column;
+        gap: 15px;
+    }
 
+    .text-line { font-size: 1.8rem; }
+    
+    .container, .container1, .container-como1 {
+        grid-template-columns: 1fr;
+    }
+
+    .salto1 { width: 100%; border-top-right-radius: 50px; }
+}
 @media (max-width: 480px) {
     .letras { font-size: 10vw; }    
     .slogan1-content h1 { font-size: 1.8rem; }
