@@ -159,11 +159,15 @@ input[type=number] {
 }
 .container {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	/*gap: 20px;
 	justify-items: center;
 	align-content: center;
-	align-items: center;
+	align-items: center;*/
+	gap: 25px;
+    padding: 50px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .container_escenas {
     display: grid;
@@ -216,7 +220,7 @@ h1, .contentgroup__h2 {
 	text-transform: uppercase;
 }
 .block {
-	display: flex;
+	/*display: flex;
     flex-direction: column;
     background-color: #fff;
     padding: 0px 20px;
@@ -225,10 +229,21 @@ h1, .contentgroup__h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 170px;
 	width: 150px;
-	justify-content: center;
+	justify-content: center;*/
+	width: 100%;
+    height: 200px;
+    background: white;
+    border-top-left-radius: 80px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
 .block:hover {
-	transform: scale(1.05);
+	/*transform: scale(1.05);*/
+	transform: translateY(-10px);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .block1 {
@@ -669,13 +684,14 @@ li:hover {
 	word-wrap: break-word;
 	font-size: 24px;
 	font-weight: bold;*/
-	font-size: 2.5rem;
-    font-weight: 800;
+	font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
     color: var(--primary);
     left: 0 !important;
     margin-left: 0 !important;
+	margin-bottom: 10px;
     display: block;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 .text-line:nth-child(1) {
 	left: -0%;
@@ -686,6 +702,10 @@ li:hover {
 .text-line:nth-child(5) {
 	left: -28%;
 }
+.text-container-line {
+    flex: 1;
+    min-width: 320px;
+}
 .domotica-comodidad  {
 	/*display: flex;
 	flex-direction: inline;
@@ -693,20 +713,27 @@ li:hover {
 	width: auto;
 	height: auto;*/
 	display: flex;
+	flex-wrap: wrap;
     align-items: center;
+	justify-content: center;
     padding: 80px 10%;
     gap: 50px;
 	background-color: lavenderblush;
 	overflow: hidden;
 }
 .domotica-comodidad img {
-    height: auto;
+    /*height: auto;
     margin-left: 40px;
     border-radius: 50px / 50px;
 	max-width: 700px;
 	width: auto;
-	object-fit: cover;
-	clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0);
+	object-fit: cover;*/
+	flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    border-radius: 40px;
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%); /*
+	clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%, 0 0%, 50% 0); */
 }
 .cta1 {
 	background-color: #ffffff;
@@ -2097,7 +2124,7 @@ a img {
     .domotica-badge {
       position: absolute;
       bottom: 28px;
-      left: -24px;
+      /*left: -24px;*/
       background: var(--primary);
       color: #fff;
       border-radius: 14px;
