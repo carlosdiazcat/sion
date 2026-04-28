@@ -307,8 +307,6 @@
 		let nombreArchivo = '';
 
 		async function enviar() {
-			// Modificamos la función enviar() para que tome el ID del select
-		async function enviar() {
 			const qaId = document.getElementById('qaSelect').value;
 			const serial = document.getElementById('serial').value.trim();
 			
@@ -382,45 +380,29 @@
 		function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
 		async function cargarListaQA() {
 			const select = document.getElementById('qaSelect');
-			select.innerHTML = '<option value="">⏳ Conectando con HC3...</option>';
+			select.innerHTML = '<option value="">Cargando catálogo...</option>';
 
 			try {
+				// Llamamos a /devices (nuestro proxy ya sabe que debe filtrar)
 				const res = await fetch(`${PROXY_URL.replace(/\/$/, '')}/devices`, {
-					method: 'GET',
-					headers: {
-						'X-Proxy-Key': PROXY_KEY
-					}
+					headers: { 'X-Proxy-Key': PROXY_KEY }
 				});
 
-				if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
-
-				// El proxy devuelve un arraybuffer, lo convertimos a texto y luego a JSON
 				const buffer = await res.arrayBuffer();
 				const texto = new TextDecoder().decode(buffer);
 				const dispositivos = JSON.parse(texto);
 				
-				// Filtramos solo los dispositivos tipo QuickApp
-				const qas = dispositivos.filter(d => d.type === "com.fibaro.deviceController");
+				select.innerHTML = ''; 
 
-				select.innerHTML = ''; // Limpiamos el "Cargando..."
-
-				if (qas.length === 0) {
-					select.innerHTML = '<option value="">No se encontraron QuickApps</option>';
-					return;
-				}
-
-				// Rellenamos el desplegable
-				qas.forEach(qa => {
+				dispositivos.forEach(qa => {
 					const opt = document.createElement('option');
 					opt.value = qa.id;
-					opt.textContent = `[ID ${qa.id}] ${qa.name}`;
+					opt.textContent = `${qa.name} (ID: ${qa.id})`;
 					select.appendChild(opt);
 				});
 
 			} catch (e) {
-				console.error("Error al cargar lista:", e);
-				select.innerHTML = '<option value="">❌ Error al cargar lista</option>';
-				showResult('err', 'No se pudo obtener la lista de dispositivos.');
+				select.innerHTML = '<option value="">Error al cargar catálogo</option>';
 			}
 		}
 		window.addEventListener('DOMContentLoaded', cargarListaQA);
