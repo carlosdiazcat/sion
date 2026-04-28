@@ -262,15 +262,34 @@
 				<h2>Exportar QuickApp</h2>
 				</div>
 				<div class="card-body">
-				<label>
-					Seleccionar Aplicación
-					<div style="display: flex; gap: 8px; margin-top: 5px;">
-						<select id="qaSelect" style="flex: 1; background:#070809; border:1px solid var(--border2); border-radius:5px; padding:11px 14px; color:#fff; font-family:var(--mono); font-size:.88rem; outline:none;">
-						<option value="">Cargando aplicaciones...</option>
-						</select>
-						<button class="btn" style="width: auto; padding: 0 15px;" onclick="cargarListaQA()" title="Actualizar lista">🔄</button>
+				<div class="card">
+					<div class="card-header">
+						<div>
+							<div class="card-title">Catálogo de QuickApps</div>
+							<div class="card-sub">Selecciona una aplicación para configurar la exportación</div>
+						</div>
 					</div>
-				</label>
+					
+					<div style="padding: 0 1.5rem 1rem;">
+						<input type="text" id="qaSearch" placeholder="Buscar por nombre o modelo..." 
+							style="font-size: 13px; padding: 8px 12px;" onkeyup="filtrarCatalogo()">
+					</div>
+
+					<div class="table-wrap">
+						<table id="qaTable">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Nombre de la App</th>
+									<th>Modelo / Fabricante</th>
+									<th>Acción</th>
+								</tr>
+							</thead>
+							<tbody id="catalogo-body">
+								</tbody>
+						</table>
+					</div>
+				</div>
 				<label>
 					Número de serie
 					<input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
@@ -379,11 +398,12 @@
 
 		function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
 		async function cargarListaQA() {
-			const select = document.getElementById('qaSelect');
-			select.innerHTML = '<option value="">Cargando catálogo...</option>';
+			const tbody = document.getElementById('catalogo-body');
+			const select = document.getElementById('qaSelect'); // Mantenemos el select si lo usas
+			
+			if(tbody) tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Cargando catálogo...</td></tr>';
 
 			try {
-				// Llamamos a /devices (nuestro proxy ya sabe que debe filtrar)
 				const res = await fetch(`${PROXY_URL.replace(/\/$/, '')}/devices`, {
 					headers: { 'X-Proxy-Key': PROXY_KEY }
 				});
@@ -392,17 +412,74 @@
 				const texto = new TextDecoder().decode(buffer);
 				const dispositivos = JSON.parse(texto);
 				
-				select.innerHTML = ''; 
+				if(tbody) tbody.innerHTML = ''; 
+				if(select) select.innerHTML = '<option value="">Selecciona una App...</option>';
 
 				dispositivos.forEach(qa => {
-					const opt = document.createElement('option');
-					opt.value = qa.id;
-					opt.textContent = `${qa.name} (ID: ${qa.id})`;
-					select.appendChild(opt);
+					// 1. Rellenar el Select antiguo (compatibilidad)
+					if(select) {
+						const opt = document.createElement('option');
+						opt.value = qa.id;
+						opt.textContent = `${qa.name} (ID: ${qa.id})`;
+						select.appendChild(opt);
+					}
+
+					// 2. Crear fila en la Tabla
+					if(tbody) {
+						const modelo = qa.properties.model || 'N/A';
+						const fabricante = qa.properties.manufacturer || 'Desconocido';
+						
+						const tr = document.createElement('tr');
+						tr.innerHTML = `
+							<td style="font-family: var(--font-mono); color: var(--c-accent); font-weight: bold;">#${qa.id}</td>
+							<td>
+								<div style="font-weight: 600;">${qa.name}</div>
+								<div style="font-size: 11px; color: var(--c-muted);">${qa.type}</div>
+							</td>
+							<td>
+								<div style="font-size: 13px;">${modelo}</div>
+								<div style="font-size: 11px; color: var(--c-muted);">${fabricante}</div>
+							</td>
+							<td>
+								<button class="btn btn-primary btn-sm" onclick="seleccionarApp(${qa.id}, '${qa.name}')">
+									Seleccionar
+								</button>
+							</td>
+						`;
+						tbody.appendChild(tr);
+					}
 				});
 
 			} catch (e) {
-				select.innerHTML = '<option value="">Error al cargar catálogo</option>';
+				if(tbody) tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:var(--c-danger);">Error al cargar el catálogo</td></tr>';
+			}
+		}
+
+		// Función para facilitar la selección desde la tabla
+		function seleccionarApp(id, nombre) {
+			const select = document.getElementById('qaSelect');
+			if(select) {
+				select.value = id;
+				// Scroll suave hacia el formulario de exportación si es necesario
+				document.getElementById('serial').focus();
+				toast(`Seleccionado: ${nombre}`, 'info');
+			}
+		}
+
+		// Buscador sencillo
+		function filtrarCatalogo() {
+			const input = document.getElementById("qaSearch");
+			const filter = input.value.toUpperCase();
+			const table = document.getElementById("qaTable");
+			const tr = table.getElementsByTagName("tr");
+
+			for (let i = 1; i < tr.length; i++) {
+				const tdName = tr[i].getElementsByTagName("td")[1];
+				const tdModel = tr[i].getElementsByTagName("td")[2];
+				if (tdName || tdModel) {
+					const txtValue = (tdName.textContent || tdName.innerText) + (tdModel.textContent || tdModel.innerText);
+					tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+				}
 			}
 		}
 		window.addEventListener('DOMContentLoaded', cargarListaQA);
