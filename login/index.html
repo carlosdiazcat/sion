@@ -263,6 +263,32 @@
 					</div>
 				</div>
 			</section>
+			<div class="card">
+				<div class="card-top">
+				<div class="icon">📦</div>
+				<div>
+					<div class="title">FQAX Export</div>
+					<div class="sub">Fibaro HC3 · QuickApp encrypted export</div>
+				</div>
+				</div>
+				<div class="card-body">
+				<label>
+					QuickApp ID
+					<input id="qaId" type="number" placeholder="517" value="517"/>
+				</label>
+				<label>
+					Número de serie
+					<input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
+				</label>
+
+				<button class="btn" id="btn" onclick="enviar()">
+					⚡ Exportar .fqax
+				</button>
+
+				<div class="result" id="result"></div>
+				<button class="dl-btn" id="dlBtn" onclick="descargar()">⬇ Descargar archivo</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -274,6 +300,87 @@
 			.catch(error => console.error("Error al cargar el footer:", error));
 	</script>
 	<div id="footer"></div>
+	<script>
+		// Únicos datos necesarios en el navegador
+		const PROXY_URL = 'http://diazcat.ddns.net:3000'; 
+		const PROXY_KEY = 'Zxs1H9tFZiXT6SQM/xAUrUNLK7w0pJme'; 
+
+		let blobGuardado = null;
+		let nombreArchivo = '';
+
+		async function enviar() {
+			const qaId = document.getElementById('qaId').value.trim();
+			const serial = document.getElementById('serial').value.trim();
+			
+			if (!qaId || !serial) { 
+				showResult('err', 'Rellena el ID y el número de serie'); 
+				return; 
+			}
+
+			const btn = document.getElementById('btn');
+			btn.disabled = true;
+			btn.innerHTML = '<span class="spinner"></span> Exportando...';
+			document.getElementById('dlBtn').style.display = 'none';
+			document.getElementById('result').style.display = 'none';
+			blobGuardado = null;
+
+			try {
+				// La URL ahora solo apunta al recurso, el servidor pondrá el resto
+				const url = `${PROXY_URL.replace(/\/$/, '')}/quickApp/export/${qaId}`;
+				
+				const res = await fetch(url, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-Proxy-Key': PROXY_KEY 
+					},
+					body: JSON.stringify({ 
+						encrypted: true, 
+						serialNumbers: [serial] 
+					})
+				});
+
+				if (res.ok) {
+					blobGuardado = await res.blob();
+					nombreArchivo = `QA_${qaId}_${serial.replace(/[^a-zA-Z0-9-]/g,'_')}.fqax`;
+					
+					showResult('ok', `✓ Archivo listo · ${fmt(blobGuardado.size)}\n${nombreArchivo}`);
+					document.getElementById('dlBtn').style.display = 'block';
+				} else {
+					// Si el servidor da error, intentamos leer el porqué
+					const errorMsg = await res.text();
+					showResult('err', `✗ Error: ${res.status}\n${errorMsg}`);
+				}
+			} catch(e) {
+				showResult('err', `✗ Error de conexión: ${e.message}`);
+			} finally {
+				btn.disabled = false;
+				btn.innerHTML = '⚡ Exportar .fqax';
+			}
+		}
+
+		function descargar() {
+			if (!blobGuardado) return;
+			const url = window.URL.createObjectURL(blobGuardado);
+			const a = document.createElement('a');
+			a.style.display = 'none';
+			a.href = url;
+			a.download = nombreArchivo;
+			document.body.appendChild(a);
+			a.click();
+			window.URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+		}
+
+		function showResult(type, msg) {
+			const el = document.getElementById('result');
+			el.className = `result ${type}`;
+			el.style.display = 'block';
+			el.textContent = msg;
+		}
+
+		function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
+	</script>
 	<script>
 		const firebaseConfig = {
 			apiKey: "AIzaSyCdbeehgc2VgdanpeVJUwdwpr1sGQYLSxs",
