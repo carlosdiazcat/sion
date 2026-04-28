@@ -1152,6 +1152,32 @@ input::placeholder{color:var(--muted)}
           Cerrar sesión
         </button>
       </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="icon">📦</div>
+          <div>
+            <div class="title">FQAX Export</div>
+            <div class="sub">Fibaro HC3 · QuickApp encrypted export</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <label>
+            QuickApp ID
+            <input id="qaId" type="number" placeholder="517" value="517"/>
+          </label>
+          <label>
+            Número de serie
+            <input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
+          </label>
+
+          <button class="btn" id="btn" onclick="enviar()">
+            ⚡ Exportar .fqax
+          </button>
+
+          <div class="result" id="result"></div>
+          <button class="dl-btn" id="dlBtn" onclick="descargar()">⬇ Descargar archivo</button>
+        </div>
+      </div>
     </aside>
 
     <!-- MAIN -->
@@ -1365,32 +1391,6 @@ input::placeholder{color:var(--muted)}
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-top">
-      <div class="icon">📦</div>
-      <div>
-        <div class="title">FQAX Export</div>
-        <div class="sub">Fibaro HC3 · QuickApp encrypted export</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <label>
-        QuickApp ID
-        <input id="qaId" type="number" placeholder="517" value="517"/>
-      </label>
-      <label>
-        Número de serie
-        <input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
-      </label>
-
-      <button class="btn" id="btn" onclick="enviar()">
-        ⚡ Exportar .fqax
-      </button>
-
-      <div class="result" id="result"></div>
-      <button class="dl-btn" id="dlBtn" onclick="descargar()">⬇ Descargar archivo</button>
-    </div>
-  </div>
 
   <script>
     // Únicos datos necesarios en el navegador
