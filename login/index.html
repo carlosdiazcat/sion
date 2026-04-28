@@ -264,11 +264,12 @@
 				<div class="card-body">
 				<label>
 					Seleccionar Aplicación
-					<div style="display: flex; gap: 8px;">
-						<select id="qaSelect" style="flex: 1; background:#070809; border:1px solid var(--border2); border-radius:5px; padding:11px; color:#fff; font-family:var(--mono);">
-							<option value="">Cargando lista...</option>
+					<div style="display: flex; gap: 8px; margin-top: 5px;">
+						<select id="qaSelect" style="flex: 1; background:#070809; border:1px solid var(--border2); border-radius:5px; padding:11px 14px; color:#fff; font-family:var(--mono); font-size:.88rem; outline:none;">
+						<option value="">Cargando aplicaciones...</option>
 						</select>
-						<button class="btn" style="width: auto; padding: 10px;" onclick="cargarListaQA()" title="Refrescar lista">🔄</button>					</div>
+						<button class="btn" style="width: auto; padding: 0 15px;" onclick="cargarListaQA()" title="Actualizar lista">🔄</button>
+					</div>
 				</label>
 				<label>
 					Número de serie
@@ -381,10 +382,9 @@
 		function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
 		async function cargarListaQA() {
 			const select = document.getElementById('qaSelect');
-			select.innerHTML = '<option>Cargando...</option>';
+			select.innerHTML = '<option value="">⏳ Conectando con HC3...</option>';
 
 			try {
-				// Consultamos al proxy por todos los dispositivos
 				const res = await fetch(`${PROXY_URL.replace(/\/$/, '')}/devices`, {
 					method: 'GET',
 					headers: {
@@ -392,19 +392,24 @@
 					}
 				});
 
-				if (!res.ok) throw new Error('Error al obtener dispositivos');
+				if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
 
-				const dispositivos = await res.json();
+				// El proxy devuelve un arraybuffer, lo convertimos a texto y luego a JSON
+				const buffer = await res.arrayBuffer();
+				const texto = new TextDecoder().decode(buffer);
+				const dispositivos = JSON.parse(texto);
 				
-				// Filtramos solo los que son "com.fibaro.quickApp"
+				// Filtramos solo los dispositivos tipo QuickApp
 				const qas = dispositivos.filter(d => d.type === "com.fibaro.quickApp");
 
-				select.innerHTML = ''; // Limpiar
+				select.innerHTML = ''; // Limpiamos el "Cargando..."
+
 				if (qas.length === 0) {
 					select.innerHTML = '<option value="">No se encontraron QuickApps</option>';
 					return;
 				}
 
+				// Rellenamos el desplegable
 				qas.forEach(qa => {
 					const opt = document.createElement('option');
 					opt.value = qa.id;
@@ -413,12 +418,12 @@
 				});
 
 			} catch (e) {
-				console.error(e);
-				select.innerHTML = '<option value="">Error al cargar lista</option>';
+				console.error("Error al cargar lista:", e);
+				select.innerHTML = '<option value="">❌ Error al cargar lista</option>';
+				showResult('err', 'No se pudo obtener la lista de dispositivos.');
 			}
 		}
-
-		window.onload = cargarListaQA;
+		window.addEventListener('DOMContentLoaded', cargarListaQA);
 	</script>
 	<script>
 		const firebaseConfig = {
