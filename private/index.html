@@ -864,10 +864,7 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     AUTH SCREENS
-══════════════════════════════════════ -->
-
+<!-- AUTH SCREENS -->
 <div id="screen-auth" class="auth-wrapper">
   <!-- Brand side -->
   <div class="auth-brand">
@@ -1007,9 +1004,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     APP SHELL (private area)
-══════════════════════════════════════ -->
+<!-- APP SHELL (private area)-->
 
 <div id="screen-app" class="app-shell hidden">
   <!-- SIDEBAR -->
@@ -1283,9 +1278,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     MODALS
-══════════════════════════════════════ -->
+<!-- MODALS -->
 
 <!-- Add user modal -->
 <div class="modal-overlay" id="modal-add-user">
@@ -1345,16 +1338,14 @@
 <!-- Toast container -->
 <div class="toast-container" id="toast-container"></div>
 <script>
-  fetch("footer.html")
+  fetch("/footer.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
     })
     .catch(error => console.error("Error al cargar el footer:", error));
 </script>
-<div id="footer">
-			
-</div>
+<div id="footer"></div>
 <!-- JAVASCRIPT-->
 <script>
     /* ─── DATA LAYER (replace with real API calls) ─── */
