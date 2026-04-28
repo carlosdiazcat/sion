@@ -263,8 +263,12 @@
 				</div>
 				<div class="card-body">
 				<label>
-					ID
-					<input id="qaId" type="number" placeholder="517" value="517"/>
+					Seleccionar Aplicación
+					<div style="display: flex; gap: 8px;">
+						<select id="qaSelect" style="flex: 1; background:#070809; border:1px solid var(--border2); border-radius:5px; padding:11px; color:#fff; font-family:var(--mono);">
+							<option value="">Cargando lista...</option>
+						</select>
+						<button class="btn" style="width: auto; padding: 10px;" onclick="cargarListaQA()" title="Refrescar lista">🔄</button>					</div>
 				</label>
 				<label>
 					Número de serie
@@ -302,11 +306,13 @@
 		let nombreArchivo = '';
 
 		async function enviar() {
-			const qaId = document.getElementById('qaId').value.trim();
+			// Modificamos la función enviar() para que tome el ID del select
+		async function enviar() {
+			const qaId = document.getElementById('qaSelect').value;
 			const serial = document.getElementById('serial').value.trim();
 			
 			if (!qaId || !serial) { 
-				showResult('err', 'Rellena el ID y el número de serie'); 
+				showResult('err', 'Selecciona una App y escribe el número de serie'); 
 				return; 
 			}
 
@@ -373,6 +379,46 @@
 		}
 
 		function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
+		async function cargarListaQA() {
+			const select = document.getElementById('qaSelect');
+			select.innerHTML = '<option>Cargando...</option>';
+
+			try {
+				// Consultamos al proxy por todos los dispositivos
+				const res = await fetch(`${PROXY_URL.replace(/\/$/, '')}/devices`, {
+					method: 'GET',
+					headers: {
+						'X-Proxy-Key': PROXY_KEY
+					}
+				});
+
+				if (!res.ok) throw new Error('Error al obtener dispositivos');
+
+				const dispositivos = await res.json();
+				
+				// Filtramos solo los que son "com.fibaro.quickApp"
+				const qas = dispositivos.filter(d => d.type === "com.fibaro.quickApp");
+
+				select.innerHTML = ''; // Limpiar
+				if (qas.length === 0) {
+					select.innerHTML = '<option value="">No se encontraron QuickApps</option>';
+					return;
+				}
+
+				qas.forEach(qa => {
+					const opt = document.createElement('option');
+					opt.value = qa.id;
+					opt.textContent = `[ID ${qa.id}] ${qa.name}`;
+					select.appendChild(opt);
+				});
+
+			} catch (e) {
+				console.error(e);
+				select.innerHTML = '<option value="">Error al cargar lista</option>';
+			}
+		}
+
+		window.onload = cargarListaQA;
 	</script>
 	<script>
 		const firebaseConfig = {
