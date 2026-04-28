@@ -860,8 +860,69 @@
     color: var(--c-muted); cursor: pointer;
     padding: 4px;
   }
-
   .password-toggle:hover { color: var(--c-text); }
+
+.card{
+  width:100%;max-width:400px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+}
+.card-top{
+  padding:24px 24px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+}
+.icon{
+  width:38px;height:38px;background:var(--accent);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+  box-shadow:0 0 18px rgba(255,107,43,.35);flex-shrink:0;
+}
+.title{font-size:.88rem;font-weight:700;color:#fff}
+.sub{font-size:.62rem;color:var(--muted);margin-top:3px;letter-spacing:.05em}
+.card-body{padding:24px;display:flex;flex-direction:column;gap:16px}
+
+label{display:flex;flex-direction:column;gap:7px;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+input{
+  background:#070809;border:1px solid var(--border2);border-radius:5px;
+  padding:11px 14px;color:#fff;font-family:var(--mono);font-size:.88rem;
+  outline:none;transition:border-color .15s,box-shadow .15s;
+}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,107,43,.1)}
+input::placeholder{color:var(--muted)}
+
+.btn{
+  width:100%;padding:13px;
+  background:var(--accent);color:#fff;border:none;border-radius:5px;
+  font-family:var(--mono);font-size:.75rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn:hover{filter:brightness(1.15);box-shadow:0 0 24px rgba(255,107,43,.3)}
+.btn:disabled{background:#1a2030;color:var(--muted);cursor:not-allowed;filter:none;box-shadow:none}
+
+.result{
+  padding:12px 14px;border-radius:5px;
+  font-size:.72rem;line-height:1.7;
+  display:none;
+}
+.result.ok{background:rgba(0,230,118,.06);border:1px solid rgba(0,230,118,.2);color:var(--green)}
+.result.err{background:rgba(255,68,68,.06);border:1px solid rgba(255,68,68,.2);color:var(--red)}
+
+.dl-btn{
+  width:100%;padding:12px;
+  background:var(--green);color:#000;border:none;border-radius:5px;
+  font-family:var(--mono);font-size:.75rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  transition:opacity .15s;display:none;
+}
+.dl-btn:hover{opacity:.85}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:13px;height:13px;border:2px solid transparent;border-top-color:#fff;border-radius:50%;animation:spin .5s linear infinite;display:inline-block}
+
 </style>
 </head>
 <section class="cabecera-container">
@@ -1304,6 +1365,95 @@
     </div>
   </div>
 
+  <div class="card">
+    <div class="card-top">
+      <div class="icon">📦</div>
+      <div>
+        <div class="title">FQAX Export</div>
+        <div class="sub">Fibaro HC3 · QuickApp encrypted export</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <label>
+        QuickApp ID
+        <input id="qaId" type="number" placeholder="517" value="517"/>
+      </label>
+      <label>
+        Número de serie
+        <input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
+      </label>
+
+      <button class="btn" id="btn" onclick="enviar()">
+        ⚡ Exportar .fqax
+      </button>
+
+      <div class="result" id="result"></div>
+      <button class="dl-btn" id="dlBtn" onclick="descargar()">⬇ Descargar archivo</button>
+    </div>
+  </div>
+
+  <script>
+  const PROXY_URL = 'http://diazcat.ddns.net/';               // ← URL del proxy, ej: https://fibaro.tudominio.com
+  const PROXY_KEY = 'Zxs1H9tFZiXT6SQM/xAUrUNLK7w0pJme';               // ← API key del proxy (PROXY_API_KEY en server.js)
+
+  let blob = null, fileName = '';
+
+  async function enviar() {
+    const qaId = document.getElementById('qaId').value.trim();
+    const serial = document.getElementById('serial').value.trim();
+    if (!qaId || !serial) { showResult('err', 'Rellena el ID y el número de serie'); return; }
+
+    const btn = document.getElementById('btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Exportando...';
+    document.getElementById('dlBtn').style.display = 'none';
+    document.getElementById('result').style.display = 'none';
+    blob = null;
+
+  try {
+      const url = `${PROXY_URL.replace(/\/$/, '')}/quickApp/export/${qaId}`;
+      const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-Proxy-Key': PROXY_KEY // Solo enviamos la llave del proxy
+              // YA NO ENVIAMOS USER, PASS NI HOST
+          },
+          body: JSON.stringify({ encrypted: true, serialNumbers: [serial] })
+      });
+
+      if (res.ok) {
+          exportBlob = await res.blob();
+        fileName = `QA_${qaId}_${serial.replace(/[^a-zA-Z0-9-]/g,'_')}.fqax`;
+        showResult('ok', `✓ Archivo listo · ${fmt(blob.size)}\n${fileName}`);
+        document.getElementById('dlBtn').style.display = 'block';
+      } else {
+        const txt = await res.text();
+        showResult('err', `✗ HTTP ${res.status}\n${txt.slice(0,200)}`);
+      }
+    } catch(e) {
+      showResult('err', `✗ Sin conexión al HC3\n${e.message}`);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '⚡ Exportar .fqax';
+    }
+  }
+
+  function descargar() {
+    if (!blob) return;
+    const a = Object.assign(document.createElement('a'), {href: URL.createObjectURL(blob), download: fileName});
+    a.click(); URL.revokeObjectURL(a.href);
+  }
+
+  function showResult(type, msg) {
+    const el = document.getElementById('result');
+    el.className = `result ${type}`;
+    el.style.display = 'block';
+    el.textContent = msg;
+  }
+
+  function fmt(b) { return b > 1024 ? `${(b/1024).toFixed(1)} KB` : `${b} B`; }
+  </script>
   <!-- MODALS -->
 
   <!-- Add user modal -->
