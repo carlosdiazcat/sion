@@ -400,7 +400,7 @@
 				const dispositivos = JSON.parse(texto);
 				
 				// Filtramos solo los dispositivos tipo QuickApp
-				const qas = dispositivos.filter(d => d.type === "com.fibaro.quickApp");
+				const qas = dispositivos.filter(d => d.type === "com.fibaro.deviceController");
 
 				select.innerHTML = ''; // Limpiamos el "Cargando..."
 
