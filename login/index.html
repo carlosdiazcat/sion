@@ -262,34 +262,15 @@
 				<h2>Exportar QuickApp</h2>
 				</div>
 				<div class="card-body">
-				<div class="card">
-					<div class="card-header">
-						<div>
-							<div class="card-title">Catálogo de QuickApps</div>
-							<div class="card-sub">Selecciona una aplicación para configurar la exportación</div>
+					<label>
+						Seleccionar Aplicación
+						<div style="display: flex; gap: 8px; margin-top: 5px;">
+							<select id="qaSelect" style="flex: 1; background:#070809; border:1px solid var(--border2); border-radius:5px; padding:11px 14px; color:#fff; font-family:var(--mono); font-size:.88rem; outline:none;">
+							<option value="">Cargando aplicaciones...</option>
+							</select>
+							<button class="btn" style="width: auto; padding: 0 15px;" onclick="cargarListaQA()" title="Actualizar lista">🔄</button>
 						</div>
-					</div>
-					
-					<div style="padding: 0 1.5rem 1rem;">
-						<input type="text" id="qaSearch" placeholder="Buscar por nombre o modelo..." 
-							style="font-size: 13px; padding: 8px 12px;" onkeyup="filtrarCatalogo()">
-					</div>
-
-					<div class="table-wrap">
-						<table id="qaTable">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nombre de la App</th>
-									<th>Modelo / Fabricante</th>
-									<th>Acción</th>
-								</tr>
-							</thead>
-							<tbody id="catalogo-body">
-								</tbody>
-						</table>
-					</div>
-				</div>
+					</label>
 				<label>
 					Número de serie
 					<input id="serial" type="text" placeholder="HC3-00038869" value="HC3-00038869"/>
